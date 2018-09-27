@@ -7,6 +7,8 @@
 		<title>joinForm</title>
 	</head>
 	<body>
-	
+		<form>
+			
+		</form>
 	</body>
 </html>
