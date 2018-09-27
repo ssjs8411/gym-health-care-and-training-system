@@ -1,3 +1,5 @@
+<!-- 2018. 09. 27. 공세준  -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -21,6 +23,10 @@
 		<!-- Custom CSS -->
 		<link href="resources/css/stylish-portfolio.min.css" rel="stylesheet">
 		<link href="resources/css/login.css" rel="stylesheet">
+		
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	</head>
 
@@ -29,11 +35,11 @@
 		<a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
 		<nav id="sidebar-wrapper">
 			<ul class="sidebar-nav">
-				<li class="sidebar-brand"><a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a></li>
+				<li class="sidebar-brand"><a class="js-scroll-trigger" href="#page-top">HealthCare And Training</a></li>
 				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#page-top">Home</a></li>
-				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#about">About</a></li>
+				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#about">Login</a></li>
 				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#services">Services</a></li>
-				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#portfolio">Portfolio</a></li>
+				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#portfolio">SiteMap</a></li>
 				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#contact">Contact</a></li>
 			</ul>
 		</nav>
@@ -50,197 +56,29 @@
 
 		<!-- About -->
 		<section class="content-section bg-light" id="about">
-			<div id="login-page" class="row">
-				<div class="col s12 z-depth-4 card-panel">
-					<form class="login-form">
-						<div class="row">
-							<div class="input-field col s12 center">
-								<!-- <img src="images/login-logo.png" alt="" class="circle responsive-img valign profile-image-login"/> -->
-								<p class="center login-form-text">LOGIN</p>
-							</div>
-						</div>
-						<div class="row margin">
-							<div class="input-field col s12">
-								<!-- <i class="mdi-social-person-outline prefix"></i> -->
-								<i class="material-icons prefix">account_circle</i> <input
-									id="username" name="username" type="text"
-									style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;); cursor: auto;" />
-								<label for="username" data-error="wrong" class="center-align"
-									data-success="right">Username</label>
-							</div>
-						</div>
-						<div class="row margin">
-							<div class="input-field col s12">
-								<!-- <i class="mdi-action-lock-outline prefix"></i> -->
-								<i class="material-icons prefix">vpn_key</i> <input id="password"
-									name="password" type="password"
-									style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;);" />
-								<label for="password">Password</label>
-							</div>
-						</div>
-	
-						<div class="row">
-							<div class="input-field col s12 login-text">
-								<input type="checkbox" id="test6" checked="checked" /> <label
-									for="test6" class="pointer-events">Remember me</label>
-							</div>
-						</div>
-	
-						<div class="row">
-							<div class="input-field col s12">
-								<button type="submit"
-									class="btn waves-effect waves-light col s12">Login</button>
-							</div>
-							<div class="input-field col s12">
-								<a href="index.html"
-									class="btn waves-effect waves-light col s12 light-blue darken-4">FACEBOOK
-									Login</a>
-							</div>
-						</div>
-	
-						<div class="row">
-							<div class="input-field col s6 m6 l6">
-								<p class="margin medium-small">
-									<a href="page-register.html">Register Now!</a>
-								</p>
-							</div>
-							<div class="input-field col s6 m6 l6">
-								<p class="margin right-align medium-small">
-									<a href="page-forgot-password.html">Forgot password ?</a>
-								</p>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</section>
-
-		<!-- Services -->
-		<section class="content-section bg-primary text-white text-center" id="services">
 			<div class="container">
-				<div class="content-section-heading">
-					<h3 class="text-secondary mb-0">Services</h3>
-					<h2 class="mb-5">What We Offer</h2>
-				</div>
-				<div class="row">
-					<div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-						<span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-screen-smartphone"></i></span>
-						<h4>
-							<strong>Responsive</strong>
-						</h4>
-						<p class="text-faded mb-0">Looks great on any screen size!</p>
+				<h1 class="form-heading">login Form</h1>
+					<div class="login-form">
+						<div class="main-div">
+							<div class="panel">
+								<h2>Login</h2>
+								<p>Please enter your ID and Password</p>
+							</div>
+							<form id="Login">
+        						<div class="form-group">
+            						<input type="email" class="form-control" id="inputEmail" placeholder="ID">
+								</div>
+        						<div class="form-group">
+									<input type="password" class="form-control" id="inputPassword" placeholder="Password">
+								</div>
+								<div class="forgot">
+									<a href="reset.html">Forgot password?</a>
+								</div>
+									<button type="submit" class="btn btn-primary">Login</button>
+    						</form>
+    					</div>
 					</div>
-					<div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-						<span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-pencil"></i>
-						</span>
-						<h4>
-							<strong>Redesigned</strong>
-						</h4>
-						<p class="text-faded mb-0">Freshly redesigned for Bootstrap 4.</p>
-					</div>
-					<div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-						<span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-like"></i>
-						</span>
-						<h4>
-							<strong>Favorited</strong>
-						</h4>
-						<p class="text-faded mb-0">
-							Millions of users <i class="fas fa-heart"></i> Start Bootstrap!
-						</p>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-mustache"></i>
-						</span>
-						<h4>
-							<strong>Question</strong>
-						</h4>
-						<p class="text-faded mb-0">I mustache you a question...</p>
-					</div>
-				</div>
 			</div>
-		</section>
-
-		<!-- Callout -->
-		<section class="callout">
-			<div class="container text-center">
-				<h2 class="mx-auto mb-5">
-					Welcome to <em>your</em> next website!
-				</h2>
-				<a class="btn btn-primary btn-xl"
-					href="https://startbootstrap.com/template-overviews/stylish-portfolio/">Download
-					Now!</a>
-			</div>
-		</section>
-
-		<!-- Portfolio -->
-		<section class="content-section" id="portfolio">
-			<div class="container">
-				<div class="content-section-heading text-center">
-					<h3 class="text-secondary mb-0">Portfolio</h3>
-					<h2 class="mb-5">Recent Projects</h2>
-				</div>
-				<div class="row no-gutters">
-					<div class="col-lg-6">
-						<a class="portfolio-item" href="#"> <span class="caption">
-								<span class="caption-content">
-									<h2>Stationary</h2>
-									<p class="mb-0">A yellow pencil with envelopes on a clean,
-										blue backdrop!</p>
-							</span>
-						</span> <img class="img-fluid" src="img/portfolio-1.jpg" alt="">
-						</a>
-					</div>
-					<div class="col-lg-6">
-						<a class="portfolio-item" href="#"> <span class="caption">
-								<span class="caption-content">
-									<h2>Ice Cream</h2>
-									<p class="mb-0">A dark blue background with a colored
-										pencil, a clip, and a tiny ice cream cone!</p>
-							</span>
-						</span> <img class="img-fluid" src="img/portfolio-2.jpg" alt="">
-						</a>
-					</div>
-					<div class="col-lg-6">
-						<a class="portfolio-item" href="#"> <span class="caption">
-								<span class="caption-content">
-									<h2>Strawberries</h2>
-									<p class="mb-0">Strawberries are such a tasty snack,
-										especially with a little sugar on top!</p>
-							</span>
-						</span> <img class="img-fluid" src="img/portfolio-3.jpg" alt="">
-						</a>
-					</div>
-					<div class="col-lg-6">
-						<a class="portfolio-item" href="#"> <span class="caption">
-								<span class="caption-content">
-									<h2>Workspace</h2>
-									<p class="mb-0">A yellow workspace with some scissors,
-										pencils, and other objects.</p>
-							</span>
-						</span> <img class="img-fluid" src="img/portfolio-4.jpg" alt="">
-						</a>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Call to Action -->
-		<section class="content-section bg-primary text-white">
-			<div class="container text-center">
-				<h2 class="mb-4">The buttons below are impossible to resist...</h2>
-				<a href="#" class="btn btn-xl btn-light mr-4">Click Me!</a> <a
-					href="#" class="btn btn-xl btn-dark">Look at Me!</a>
-			</div>
-		</section>
-
-		<!-- Map -->
-		<section id="contact" class="map">
-			<iframe width="100%" height="100%" frameborder="0" scrolling="no"
-				marginheight="0" marginwidth="0"
-				src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-			<br /> <small> <a
-				href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-			</small>
 		</section>
 
 		<!-- Footer -->
