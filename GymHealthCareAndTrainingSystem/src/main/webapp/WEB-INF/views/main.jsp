@@ -64,7 +64,7 @@
 								<h2>Login</h2>
 								<p>Please enter your ID and Password</p>
 							</div>
-							<form id="Login">
+							<form id="Login" action="${pageContext.request.contextPath}/login" method="post">
         						<div class="form-group">
             						<input type="email" class="form-control" id="inputEmail" placeholder="ID">
 								</div>
