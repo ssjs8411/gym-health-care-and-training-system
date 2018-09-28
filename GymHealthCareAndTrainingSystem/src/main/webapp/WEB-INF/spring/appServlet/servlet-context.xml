@@ -39,6 +39,7 @@
         <property name="mapperLocations">
             <list>
                 <value>classpath:com/cafe24/chgs8411/healthclubs/service/HealthclubsMapper.xml</value>
+                <value>classpath:com/cafe24/chgs8411/join/service/JoinMapper.xml</value>
             </list>
         </property>
     </bean>

@@ -10,7 +10,7 @@
 	<body class="is-preload">
 		<!-- header include -->
 		<jsp:include page="/WEB-INF/views/module/header.jsp"></jsp:include>
-		
+		<div id="main">
 		<h1>헬스장 등록</h1>
 		<form action="${pageContext.request.contextPath}/healthclubsInsert" method="POST">
 			<div>
@@ -42,7 +42,7 @@
 				<input type="reset" value="취소">
 			</div>
 		</form>
-		
+		</div>
 		
 		<!-- footer Include -->
 		<jsp:include page="/WEB-INF/views/module/footer.jsp"></jsp:include>
