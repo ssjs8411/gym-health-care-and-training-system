@@ -81,7 +81,7 @@
 	
 					<div class="form-group">
 						<label for="username">키</label>
-						<input type="text" class="form-control" name="member_toll">
+						<input type="text" class="form-control" name="member_tall">
 					</div>
 	
 					<div class="form-group">

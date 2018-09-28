@@ -1,4 +1,4 @@
-// 18.09.27 ÃÖÁö¼ö
+// 18.09.27 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 package com.cafe24.chgs8411.join.service;
 
 public class Member {
@@ -13,7 +13,7 @@ public class Member {
 	private String member_birthday;
 	private String member_joindate;
 	private String member_email;
-	private int member_toll;
+	private int member_tall;
 	private int member_weight;
 	private int member_goal_weight;
 	private String member_usage_status;
@@ -84,11 +84,11 @@ public class Member {
 	public void setMember_email(String member_email) {
 		this.member_email = member_email;
 	}
-	public int getMember_toll() {
-		return member_toll;
+	public int getMember_tall() {
+		return member_tall;
 	}
-	public void setMember_toll(int member_toll) {
-		this.member_toll = member_toll;
+	public void setMember_tall(int member_toll) {
+		this.member_tall = member_toll;
 	}
 	public int getMember_weight() {
 		return member_weight;

@@ -31,7 +31,7 @@
 				, member_birthday
 				, member_joindate
 				, member_email
-				, member_toll
+				, member_tall
 				, member_weight
 				, member_goal_weight
 				, member_usage_status)
@@ -46,7 +46,7 @@
 				, #{member_birthday}
 				, NOW()
 				, #{member_email}
-				, #{member_toll}
+				, #{member_tall}
 				, #{member_weight}
 				, #{member_goal_weight}
 				, '일반'
