@@ -11,7 +11,37 @@
 		<!-- header include -->
 		<jsp:include page="/WEB-INF/views/module/header.jsp"></jsp:include>
 		
-		<!-- 여기에 채워 넣어 주세요 -->
+		<h1>헬스장 등록</h1>
+		<form action="${pageContext.request.contextPath}/healthclubsInsert" method="POST">
+			<div>
+				헬스장명 :  
+				<input type="text" name="healthclubs_name">
+			</div>
+			<div>
+				헬스장주소 :  
+				<input type="text" name="healthclubs_address">
+			</div>
+			<div>
+				헬스장대표자 :  
+				<input type="text" name="healthclubs_representative">
+			</div>
+			<div>
+				헬스장전화번호 :  
+				<input type="text" name="healthclubs_phone">
+			</div>
+			<div>
+				헬스장개업날짜 :  
+				<input type="date" name="healthclubs_opening_date">
+			</div>
+			<div>
+				헬스장사업자번호 :  
+				<input type="text" name="healthclubs_business_number">
+			</div>
+			<div>
+				<button type="submit">등록</button>
+				<input type="reset" value="취소">
+			</div>
+		</form>
 		
 		
 		<!-- footer Include -->

@@ -25,26 +25,26 @@
 	
 	<!-- 커넥션 풀 설정 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mariaDB://chgs8411.cafe24.com:3306/chgs8411?useUnicode=true&amp;characterEncoding=utf-8"/>
+        <property name="driverClassName" value="com.mariadb.jdbc.Driver"/>
+        <property name="url" value="jdbc:mariadb://chgs8411.cafe24.com:3306/chgs8411?useUnicode=true&amp;characterEncoding=utf-8"/>
         <property name="username" value="chgs8411"/>
         <property name="password" value="wltn0303!"/>
     </bean>
-  <!--   
-    mybatis설정 1. SqlSessionFactory
+
+    <!-- mybatis설정 1. SqlSessionFactory -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        mybatis 세션생성시 사용할 dataSource주입
+       <!--  mybatis 세션생성시 사용할 dataSource주입 -->
         <property name="dataSource" ref="dataSource" />
-        mybatis 세션생성후 쿼리를 실행시킬때 사용할 쿼리위치(메퍼)설정
+       <!--  mybatis 세션생성후 쿼리를 실행시킬때 사용할 쿼리위치(메퍼)설정 -->
         <property name="mapperLocations">
             <list>
-                <value>classpath:com/cafe24/chgs8411/board/service/BoardMapper.xml</value>
+                <value>classpath:com/cafe24/chgs8411/healthclubs/service/HealthclubsMapper.xml</value>
             </list>
         </property>
     </bean>
-    mybatis설정 2. SqlSessionTemplate
+    <!-- mybatis설정 2. SqlSessionTemplate -->
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index="0" ref="sqlSessionFactory" />
     </bean>
-	 -->
+	 
 </beans>
