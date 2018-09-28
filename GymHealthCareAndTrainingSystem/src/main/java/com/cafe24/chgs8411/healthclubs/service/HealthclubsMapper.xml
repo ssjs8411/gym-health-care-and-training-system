@@ -6,6 +6,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.cafe24.chgs8411.healthclubs.service.HealthclubsMapper">
+	
+	<select id="selectHealthclubs" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.healthclubs.service.Healthclubs">
+		SELECT 
+			healthclubs_no
+			, healthclubs_name
+			, healthclubs_address
+			, healthclubs_representative
+			, healthclubs_phone
+			, healthclubs_opening_date
+			, healthclubs_business_number
+			, healthclubs_joindate
+		FROM healthclubs
+	</select>
 
 	<insert id="insertHealthclubs" parameterType="com.cafe24.chgs8411.healthclubs.service.Healthclubs">
 		INSERT INTO healthclubs(

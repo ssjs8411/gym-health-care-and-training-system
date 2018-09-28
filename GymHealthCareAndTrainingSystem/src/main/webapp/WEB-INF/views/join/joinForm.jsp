@@ -1,6 +1,6 @@
 <!-- 18.09.28 최지수 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -32,7 +32,9 @@
 					<div class="form-group">
 						<label for="username">헬스장 선택</label>
 						<select name="healthclubs_no">
-							<option value="1">본사</option>
+							<c:forEach var="h" items="${list}">
+							<option value="${h.healthclubs_no}">${h.healthclubs_name}</option>
+							</c:forEach>
 						</select>
 					</div>
 	
