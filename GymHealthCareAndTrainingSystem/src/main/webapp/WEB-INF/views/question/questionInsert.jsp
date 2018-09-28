@@ -21,12 +21,17 @@
 		 -->
 		<%
 			request.setCharacterEncoding("UTF-8");
-			String sessionId = (String)session.getAttribute("sessionId");
+			int member_no = Integer.parseInt(request.getParameter("member_no"));
+			int trainer_no = Integer.parseInt(request.getParameter("trainer_no"));
+			
 		%>
 		<h1>질문 등록</h1>
 		<form action="${pageContext.request.contextPath}/questionInsert" method="POST">
 			<div>
-				작성자 : <%= sessionId %>
+			 	작성자 : <%=member_no%>
+			</div>
+			<div>
+				트레이너 : <%=trainer_no%>
 			</div>
 			<div>
 				제목 :
