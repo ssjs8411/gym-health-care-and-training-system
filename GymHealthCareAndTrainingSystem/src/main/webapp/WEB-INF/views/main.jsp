@@ -47,14 +47,14 @@
 		<!-- Header -->
 		<header class="masthead d-flex">
 			<div class="container text-center my-auto">
-				<h1 class="mb-1">HealthCare And Training System</h1>
-				<h3 class="mb-5"><em>The Perfect Body Fit</em></h3>
+				<h1 class="form-heading">HealthCare And Training System</h1><br><br>	
+				<h3 class="form-heading">The Perfect Body Fit</h3>
 				<a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Join us</a>
 			</div>
 			<div class="overlay"></div>
 		</header>
 
-		<!-- About -->
+		<!-- Login Form -->
 		<section class="content-section bg-light" id="about">
 			<div class="container">
 				<h1 class="form-heading">login Form</h1>

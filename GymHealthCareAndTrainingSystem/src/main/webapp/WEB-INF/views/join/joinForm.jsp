@@ -98,7 +98,7 @@
 						<button type="submit" class="btn btn-info">
 							회원가입<i class="fa fa-check spaceLeft"></i>
 						</button>
-						<button type="submit" class="btn btn-warning">
+						<button type="button" class="btn btn-warning" onclick="window.location.href='/'">
 							가입취소<i class="fa fa-times spaceLeft"></i>
 						</button>
 						<input type="reset" class="btn btn-danger" value="초기화">
