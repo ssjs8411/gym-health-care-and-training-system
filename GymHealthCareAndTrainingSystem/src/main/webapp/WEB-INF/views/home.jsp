@@ -38,54 +38,55 @@
 						<div class="container">
 
 							<header>
-								<h2>Portfolio</h2>
+								<h2>헬스장 프로그램</h2>
 							</header>
 
-							<p>Vitae natoque dictum etiam semper magnis enim feugiat convallis convallis
-							egestas rhoncus ridiculus in quis risus amet curabitur tempor orci penatibus.
-							Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis
-							fusce hendrerit lacus ridiculus.</p>
+							<p>헬스장 프로그램</p>
 
 							<div class="row">
 								<div class="col-4 col-12-mobile">
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
 										<header>
-											<h3>Ipsum Feugiat</h3>
+											<a href="${pageContext.request.contextPath}/healingYoga?program=1" class="image fit"><h3>힐링요가</h3></a>
 										</header>
 									</article>
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
 										<header>
-											<h3>Rhoncus Semper</h3>
-										</header>
-									</article>
-								</div>
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
-										<header>
-											<h3>Magna Nullam</h3>
+											<a href="${pageContext.request.contextPath}/TotalBodyToning?program=2" class="image fit"><h3>토탈바디토닝</h3></a>
 										</header>
 									</article>
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
 										<header>
-											<h3>Natoque Vitae</h3>
+											<a href="${pageContext.request.contextPath}/gymTicket?program=3" class="image fit"><h3>헬스장이용권</h3></a>
 										</header>
 									</article>
 								</div>
 								<div class="col-4 col-12-mobile">
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
 										<header>
-											<h3>Dolor Penatibus</h3>
+											<a href="${pageContext.request.contextPath}/powerStretching?program=4" class="image fit"><h3>파워스트레칭</h3></a>
 										</header>
 									</article>
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
 										<header>
-											<h3>Orci Convallis</h3>
+											<a href="${pageContext.request.contextPath}/absStretching?program=5" class="image fit"><h3>ABS스트레칭</h3></a>
+										</header>
+									</article>
+									<article class="item">
+										<header>
+											<a href="${pageContext.request.contextPath}/personalTraining?program=6" class="image fit"><h3>P.T</h3></a>
+										</header>
+									</article>
+								</div>
+								<div class="col-4 col-12-mobile">
+									<article class="item">
+										<header>
+											<a href="${pageContext.request.contextPath}/muscularStrengthStretching?program=7" class="image fit"><h3>근력스트레칭</h3></a>
+										</header>
+									</article>
+									<article class="item">
+										<header>
+											<a href="${pageContext.request.contextPath}/jumpSports?program=8" class="image fit"><h3>점프스포츠</h3></a>
 										</header>
 									</article>
 								</div>
