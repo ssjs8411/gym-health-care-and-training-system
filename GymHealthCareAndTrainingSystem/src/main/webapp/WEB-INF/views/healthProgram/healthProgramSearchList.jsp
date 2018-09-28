@@ -12,6 +12,13 @@
 		<jsp:include page="/WEB-INF/views/module/header.jsp"></jsp:include>
 		
 		<!-- 여기에 채워 넣어 주세요 -->
+		<div id="main">
+			<section id="top">
+				<div class="container">
+					<a href="${pageContext.request.contextPath}/healthPayment">결제하기</a>
+				</div>
+			</section>
+		</div>
 		
 		
 		<!-- footer Include -->

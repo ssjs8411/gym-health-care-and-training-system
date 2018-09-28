@@ -1,4 +1,4 @@
-package com.cafe24.chgs8411.healthclubsPayment;
+package com.cafe24.chgs8411.healthclubsPayment.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -63,5 +63,11 @@ public class HealthclubsPaymentController {
 		System.out.println(program);
 		
 		return "healthProgram/healthProgramSearchList";
+	}
+	
+	@RequestMapping(value="/healthPayment", method=RequestMethod.GET)
+	public String healthPayment() {
+		
+		return "healthPayment/healthPayment";
 	}
 }
