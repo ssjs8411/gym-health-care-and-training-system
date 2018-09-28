@@ -25,7 +25,7 @@
 	
 	<!-- 커넥션 풀 설정 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="driverClassName" value="com.mariadb.jdbc.Driver"/>
+        <property name="driverClassName" value="org.mariadb.jdbc.Driver"/>
         <property name="url" value="jdbc:mariadb://chgs8411.cafe24.com:3306/chgs8411?useUnicode=true&amp;characterEncoding=utf-8"/>
         <property name="username" value="chgs8411"/>
         <property name="password" value="wltn0303!"/>
