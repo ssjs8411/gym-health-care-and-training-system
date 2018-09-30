@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -15,7 +16,15 @@
 		<div id="main">
 			<section id="top">
 				<div class="container">
-					<a href="${pageContext.request.contextPath}/healthPayment">결제하기</a>
+				<c:set var="program" value="${param.program}"/>
+				<c:choose>
+					<c:when test="${program eq 3}">
+						<a href="${pageContext.request.contextPath}/healthclubsPayment">헬스장 이용권 결제하기</a>
+					</c:when>
+					<c:otherwise>
+						<a href="${pageContext.request.contextPath}/healthPayment">헬스 프로그램 결제하기</a>
+					</c:otherwise>
+				</c:choose>
 				</div>
 			</section>
 		</div>
