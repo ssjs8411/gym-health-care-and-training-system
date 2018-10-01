@@ -20,7 +20,9 @@
 		<div id="main">
 			<section id="top">
 				<div class="container">
+				
 					<h1>헬스 프로그램 결제화면</h1><br>
+					
 					<div class="col-md-6 col-md-offset-3">
 						<form role="form" action="${pageContext.request.contextPath}/healthPaid" method="post">
 							<div class="form-group">
@@ -42,6 +44,7 @@
 							</div>
 						</form>
 					</div>
+					
 				</div>
 			</section>
 		</div>

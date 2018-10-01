@@ -19,7 +19,9 @@
 		<div id="main">
 			<section id="top">
 				<div class="container">
+				
 					<h1>헬스장 이용권 결제화면</h1><br>
+					
 					<div class="col-md-6 col-md-offset-3">
 						<form role="form" action="${pageContext.request.contextPath}/healthclusbsPaid" method="post">
 							<div class="form-group">
@@ -36,11 +38,12 @@
 								<div class="form-control">100,000원</div>
 							</div>
 							<div>
-							<button type="button" class="btn btn-primary btn-sm" onclick="location.href='#'">취소</button>
-							<button class="btn btn-primary btn-sm">결제</button>
+								<button type="button" class="btn btn-primary btn-sm" onclick="location.href='#'">취소</button>
+								<button class="btn btn-primary btn-sm">결제</button>
 							</div>
 						</form>
 					</div>
+					
 				</div>
 			</section>
 		</div>

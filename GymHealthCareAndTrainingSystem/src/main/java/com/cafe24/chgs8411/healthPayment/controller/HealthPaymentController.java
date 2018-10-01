@@ -1,4 +1,4 @@
-// 2018.09.28(±›) «ˆ»ÒπÆ
+// 2018.09.28(Í∏à) ÌòÑÌù¨Î¨∏
 
 package com.cafe24.chgs8411.healthPayment.controller;
 
@@ -72,9 +72,9 @@ public class HealthPaymentController {
 		return "healthPayment/healthPaid";
 	}
 	
-	@RequestMapping(value="/heatlhPaidSearchList", method=RequestMethod.GET)
+	@RequestMapping(value="/healthPaidSearchList", method=RequestMethod.GET)
 	public String healthPaidSearchList() {
 		
-		return "healthPayment/heatlhPaidSearchList";
+		return "healthPayment/healthPaidSearchList";
 	}
 }

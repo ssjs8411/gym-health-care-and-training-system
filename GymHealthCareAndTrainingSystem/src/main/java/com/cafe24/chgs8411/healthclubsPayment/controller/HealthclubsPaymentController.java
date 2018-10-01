@@ -1,4 +1,4 @@
-// 2018.10.01(¿ù) ÇöÈñ¹®
+// 2018.10.01(ì›”) í˜„í¬ë¬¸
 
 package com.cafe24.chgs8411.healthclubsPayment.controller;
 
