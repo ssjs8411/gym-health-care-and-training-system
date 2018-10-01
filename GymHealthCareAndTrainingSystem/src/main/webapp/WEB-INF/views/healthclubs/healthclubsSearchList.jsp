@@ -23,25 +23,19 @@
 							<tr>
 								<th>헬스장 번호</th>
 								<th>헬스장 이름</th>
-								<th>헬스장 주소</th>
-								<th>헬스장 대표자</th>
-								<th>전화번호</th>
-								<th>개업날짜</th>
-								<th>사업자번호</th>
 								<th>등록날짜</th>
+								<th>수정</th>
+								<th>삭제</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach var="h" items="${list}">
 								<tr>
 									<td>${h.healthclubs_no}</td>
-									<td>${h.healthclubs_name}</td>
-									<td>${h.healthclubs_address}</td>
-									<td>${h.healthclubs_representative}</td>
-									<td>${h.healthclubs_phone}</td>
-									<td>${h.healthclubs_opening_date}</td>
-									<td>${h.healthclubs_business_number}</td>
+									<td><a href="${pageContext.request.contextPath}/healthclubsDetail?healthclubs_no=${h.healthclubs_no}">${h.healthclubs_name}</a></td>
 									<td>${h.healthclubs_joindate}</td>
+									<td><a href="${pageContext.request.contextPath}/updateHealthclubs?healthclubs_no=${h.healthclubs_no}">수정</a></td>
+									<td><a href="${pageContext.request.contextPath}/">삭제</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

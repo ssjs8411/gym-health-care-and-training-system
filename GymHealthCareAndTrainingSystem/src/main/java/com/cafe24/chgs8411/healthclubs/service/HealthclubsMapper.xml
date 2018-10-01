@@ -7,6 +7,34 @@
   
 <mapper namespace="com.cafe24.chgs8411.healthclubs.service.HealthclubsMapper">
 	
+	<update id="updateHealthclubs" parameterType="com.cafe24.chgs8411.healthclubs.service.Healthclubs">
+		UPDATE healthclubs
+		SET
+			healthclubs_name = #{healthclubs_name}
+			, healthclubs_address = #{healthclubs_address}
+			, healthclubs_representative = #{healthclubs_representative}
+			, healthclubs_phone = #{healthclubs_phone}
+			, healthclubs_opening_date = #{healthclubs_opening_date}
+			, healthclubs_business_number = #{healthclubs_business_number}
+		WHERE healthclubs_no = #{healthclubs_no}
+	</update>
+	
+	<select id="selectHealthclubsDetail" parameterType="int" resultType="com.cafe24.chgs8411.healthclubs.service.Healthclubs">
+		SELECT 
+			healthclubs_no
+			, healthclubs_name
+			, healthclubs_address
+			, healthclubs_representative
+			, healthclubs_phone
+			, healthclubs_opening_date
+			, healthclubs_business_number
+			, healthclubs_joindate
+		FROM 
+			healthclubs
+		WHERE
+			healthclubs_no = #{healthclubs_no}
+	</select>
+	
 	<select id="selectHealthclubs" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.healthclubs.service.Healthclubs">
 		SELECT 
 			healthclubs_no

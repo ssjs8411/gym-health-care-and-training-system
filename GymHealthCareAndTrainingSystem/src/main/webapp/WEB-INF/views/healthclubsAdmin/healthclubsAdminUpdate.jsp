@@ -44,7 +44,7 @@
 				</div>
 				<div>
 					<button type="submit">등록</button>
-					<input type="reset" value="리셋" >
+					<button type="button" class="btn btn-info" onclick="window.location.href='/chgs8411/'">취소<i class="fa fa-check spaceLeft"></i></button>
 				</div>
 			</form>
 		</div>

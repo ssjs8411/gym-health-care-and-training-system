@@ -13,6 +13,16 @@ public class HealthclubsService {
 	@Autowired
 	private HealthclubsDao healthclubsDao;
 	
+	// 헬스장 수정 메서드
+	public int updateHealthclubs(Healthclubs healthclubs) {
+		return healthclubsDao.updateHealthclubs(healthclubs);
+	}
+	
+	// 헬스장 세부조회 메서드
+	public Healthclubs selectHealthclubsDetail(int healthclubs_no) {
+		return healthclubsDao.selectHealthclubsDetail(healthclubs_no);
+	}
+	
 	// 헬스장 전체조회 메서드
 	public List<Healthclubs> getHealthclubsList(){
 		return healthclubsDao.selectHealthclubs();
