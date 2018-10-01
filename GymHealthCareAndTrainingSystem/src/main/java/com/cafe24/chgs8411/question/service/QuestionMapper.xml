@@ -6,17 +6,47 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.cafe24.chgs8411.question.service.QuestionMapper">
-	<select id="selectQuestion" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.question.service.Question">
-		SELECT
-			question_no
-			, member_no
-			, trainer_no
-			, question_title
-			, question_content
-			, question_date
+	<!-- 질문 삭제 -->
+	<delete id="deleteQuestion" parameterType="com.cafe24.chgs8411.question.service.Question">
+		DELETE FROM question
+		WHERE member_no = #{member_no}
+	</delete>
+	
+	<!-- 질문 수정 -->
+	<update id="updateQustion" parameterType="com.cafe24.chgs8411.question.service.Question">
+		<!-- UPDATE question
+			SET question_title = #{question_title}
+			, question_content = #{question_content}
+		WHERE question_no = #{question_no}
+		AND member_no = #{member_no} -->
+		UPDATE question
+			SET question_title = "회원7"
+			, question_content = "7"
+		WHERE question_no = 45
+		AND member_no = 7
+	</update>
+	
+	<!-- 질문 개수 카운트 -->
+	<select id="questionCount" resultType="Integer">
+		SELECT COUNT(*)
 		FROM question
 	</select>
+
+	<!-- 질문 목록 -->
+	<select id="selectQuestion" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.question.service.Question">
+		SELECT
+			question_no AS question_no
+			, member_no AS member_no
+			, trainer_no AS trainer_no
+			, question_title AS question_title
+			, question_content AS question_content
+			, question_date AS question_date
+		FROM question
+		ORDER BY question_no
+		DESC
+	</select>
 	
+	<!-- 질문 등록 -->
 	<insert id="insertQuestion" parameterType="com.cafe24.chgs8411.question.service.Question">
 		INSERT INTO question(
 			member_no
@@ -26,12 +56,11 @@
 			, question_date
 		)
 		VALUES (
-			#{member_no}
-			, #{trainer_no}
+			  7
+			, 1
 			, #{question_title}
 			, #{question_content}
 			, NOW()
 		)
-		
 	</insert>
 </mapper>

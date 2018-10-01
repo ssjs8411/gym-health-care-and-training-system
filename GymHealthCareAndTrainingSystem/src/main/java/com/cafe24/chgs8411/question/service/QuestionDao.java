@@ -11,15 +11,33 @@ import org.springframework.stereotype.Repository;
 public class QuestionDao {
 	private final String NS = "com.cafe24.chgs8411.question.service.QuestionMapper.";
 	
-	@Autowired private SqlSessionTemplate sqlSessionTemplate;
-	
-	public List<Question> selectQuestion () {
+	@Autowired
+	private SqlSessionTemplate sqlSessionTemplate;
+	// 질문 삭제
+	public int deleteQuestion (Question question) {
+		return sqlSessionTemplate.delete(NS+"deleteQuestion", question);
+		
+	}
+	// 질문 수정
+	public int updateQuestion (Question question) {
+		return sqlSessionTemplate.update(NS+"updateQustion", question);
+		
+	}
+	// 질문 개수 카운트
+	public int questionCount() {
+		return sqlSessionTemplate.selectOne(NS+"questionCount");
+		
+	}
+	// 짊문 목록
+	public List<Question> selectQuestion() {
 		return sqlSessionTemplate.selectList(NS+"selectQuestion");
 		
 	}
+	// 질문 등록
 	public int insertQuestion (Question question) {
 		return sqlSessionTemplate.insert(NS+"insertQuestion", question);
 		
 	}
+	
 	
 }

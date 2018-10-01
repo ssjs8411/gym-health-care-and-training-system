@@ -20,6 +20,11 @@
 		등록 일시
 	-->
 		<!-- 여기에 채워 넣어 주세요 -->
+		<%
+	
+			
+		
+		%>
 		<div id="main">
 		<div class="container">
 		<h1>질문 목록</h1>
@@ -30,18 +35,20 @@
 					<th>회원 번호</th>
 					<th>트레이너 번호</th>
 					<th>질문 제목</th>
-					<th>질문 내용</th>
-					<th>등록 일시</th>
+					<!-- <th>질문 내용</th> -->
+					<th>등록 일자</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="q" items="${list}">
+				<tr>
 					<td>${q.question_no}</td>
 					<td>${q.member_no}</td>
 					<td>${q.trainer_no}</td>
 					<td>${q.question_title}</td>
-					<td>${q.question_content}</td>
+					<%-- <td>${q.question_content}</td> --%>
 					<td>${q.question_date}</td>
+				</tr>
 				</c:forEach>
 			</tbody>
 		</table>
