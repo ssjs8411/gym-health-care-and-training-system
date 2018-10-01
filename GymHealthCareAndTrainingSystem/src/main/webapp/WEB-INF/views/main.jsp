@@ -66,10 +66,10 @@
 							</div>
 							<form id="Login" action="${pageContext.request.contextPath}/login" method="post">
         						<div class="form-group">
-            						<input type="email" class="form-control" id="inputEmail" placeholder="ID">
+            						<input type="text" class="form-control" id="id" name="id" placeholder="ID">
 								</div>
         						<div class="form-group">
-									<input type="password" class="form-control" id="inputPassword" placeholder="Password">
+									<input type="password" class="form-control" id="pw" name="pw" placeholder="Password">
 								</div>
 								<div class="forgot">
 									<a href="${pageContext.request.contextPath}/joinForm">Join us</a>
