@@ -18,21 +18,50 @@ public class QuestionController {
 	@Autowired
 	private QuestionService questionService;
 	
-	@RequestMapping (value="/questionList", method = RequestMethod.GET)
-	public String questionList(Model model) {
-		List<Question> list = questionService.questionList();
-		model.addAttribute("lsit", list);
-		return "question/questionList";
-		
-	}
-	@RequestMapping (value="/questionInsert", method = RequestMethod.POST)
-	public String questionInsert(Question question) {
-		System.out.println("questionInsertAction");
-		questionService.addQuestion(question);
-		return "redirect:/questionInsert";
+	// 질문 삭제
+	@RequestMapping (value="/questionDelete", method = {RequestMethod.GET, RequestMethod.POST})
+	public String qustionDelete (Question question) {
+		System.out.println("questionDeleteAction");
+		questionService.removeQuestion(question);
+		return "redirct:/questionDelete";
 		
 	}
 	
+	// 질문 수정
+	@RequestMapping (value="/questionUpdate", method = {RequestMethod.GET, RequestMethod.POST})
+	public String questionUpdate(Question question) {
+		System.out.println("questionUpdateAction");
+		questionService.modifyQuestion(question);
+		return "redirect:/questionUpdate";
+	}
+	
+	// 질문 개수 카운트
+	/*@RequestMapping (value="/questionList", method = {RequestMethod.GET, RequestMethod.POST})
+	public String questionCount(Question question) {
+		questionService.questionCount();
+		return "question/questionList";
+		
+	}
+*/
+	// 질문 목록 조회
+	@RequestMapping (value="/questionList", method = {RequestMethod.GET, RequestMethod.POST})
+	public String questionList(Model model) {
+		List<Question> list = questionService.questionList();
+		model.addAttribute("list", list);
+		return "question/questionList";
+		
+	}
+	
+	// 잘문 등록 액션
+	@RequestMapping (value="/questionInsert", method = {RequestMethod.GET, RequestMethod.POST})
+	public String questionInsert(Question question) {
+		System.out.println("questionInsertAction");
+		questionService.addQuestion(question);
+		return "redirect:/questionList";
+		
+	}
+	
+	// 질문 등록 폼
 	@RequestMapping (value="/questionInserst", method = RequestMethod.GET)
 	public String questionInsert() {
 		System.out.println("questioInsertForm");

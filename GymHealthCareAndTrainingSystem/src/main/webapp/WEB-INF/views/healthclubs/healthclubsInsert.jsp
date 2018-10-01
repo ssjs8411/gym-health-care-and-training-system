@@ -6,6 +6,7 @@
 		<meta charset="UTF-8">
 		<title>healthclubsInsert</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	</head>
 	<body class="is-preload">
 		<!-- header include -->
@@ -14,36 +15,38 @@
 			<section id="top" class="two">
 				<div class="container">
 				<h1>헬스장 등록</h1>
-				<form role="form" action="${pageContext.request.contextPath}/healthclubsInsert" method="POST">
-					<div class="form-group">
-						<label for="username">헬스장명 :</label>  
-						<input type="text"  class="form-control" name="healthclubs_name">
+					<div class="col-md-6 col-md-offset-3">
+						<form role="form" action="${pageContext.request.contextPath}/healthclubsInsert" method="POST">
+							<div class="form-group">
+								<label for="username">헬스장 명 </label>  
+								<input type="text"  class="form-control" name="healthclubs_name">
+							</div>
+							<div class="form-group">
+								<label for="username">헬스장 주소 </label> 
+								<input type="text"  class="form-control" name="healthclubs_address">
+							</div>
+							<div class="form-group">
+								<label for="username">헬스장 대표자 </label>
+								<input type="text"  class="form-control" name="healthclubs_representative">
+							</div>
+							<div class="form-group">
+								<label for="username">헬스장 전화번호 </label>  
+								<input type="text"  class="form-control" name="healthclubs_phone">
+							</div>
+							<div class="form-group">
+								<label for="username">헬스장 개업날짜 </label>  
+								<input type="date"  class="form-control" name="healthclubs_opening_date">
+							</div>
+							<div class="form-group">
+								<label for="username">헬스장 사업자번호 </label>  
+								<input type="text"  class="form-control" name="healthclubs_business_number">
+							</div>
+							<div>
+								<button type="submit" class="btn btn-info">등록<i class="fa fa-check spaceLeft"></i></button>
+								<button type="button" class="btn btn-info" onclick="window.location.href='/chgs8411/'">취소<i class="fa fa-check spaceLeft"></i></button>
+							</div>
+						</form>
 					</div>
-					<div class="form-group">
-						<label for="username">헬스장주소 :</label> 
-						<input type="text"  class="form-control" name="healthclubs_address">
-					</div>
-					<div class="form-group">
-						<label for="username">헬스장대표자 :</label>
-						<input type="text"  class="form-control" name="healthclubs_representative">
-					</div>
-					<div class="form-group">
-						<label for="username">헬스장전화번호 :</label>  
-						<input type="text"  class="form-control" name="healthclubs_phone">
-					</div>
-					<div class="form-group">
-						<label for="username">헬스장개업날짜 :</label>  
-						<input type="date"  class="form-control" name="healthclubs_opening_date">
-					</div>
-					<div class="form-group">
-						<label for="username">헬스장사업자번호 :</label>  
-						<input type="text"  class="form-control" name="healthclubs_business_number">
-					</div>
-					<div>
-						<button type="submit" class="btn btn-info">등록<i class="fa fa-check spaceLeft"></i></button>
-						<button type="button" class="btn btn-info" onclick="window.location.href='/home'">취소<i class="fa fa-check spaceLeft"></i></button>
-					</div>
-				</form>
 				</div>
 			</section>
 		</div>

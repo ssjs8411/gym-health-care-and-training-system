@@ -6,6 +6,45 @@
   
 <mapper namespace="com.cafe24.chgs8411.healthclubsAdmin.service.healthclubsAdminMapper">
 	
+	<select id="selectHealthclubsAdminList" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.healthclubsAdmin.service.HealthclubsAdmin">
+		SELECT 
+			healthclubs_admin_no
+			, healthclubs_no
+			, healthclubs_admin_id
+			, healthclubs_admin_pw
+			, healthclubs_admin_name
+			, healthclubs_admin_phone
+			, healthclubs_admin_joindate
+		FROM 
+			healthclubs_admin
+	</select>
+	
+	<update id="updateHealthclubsAdmin" parameterType="com.cafe24.chgs8411.healthclubsAdmin.service.HealthclubsAdmin">
+		UPDATE healthclubs_admin
+		SET
+			healthclubs_no = #{healthclubs_no}
+			, healthclubs_admin_pw = #{healthclubs_admin_pw}
+			, healthclubs_admin_name = #{healthclubs_admin_name}
+			, healthclubs_admin_phone = #{healthclubs_admin_phone}
+		WHERE 
+			healthclubs_admin_no = #{healthclubs_admin_no}
+	</update>
+	
+	<select id="selectHealthclubsAdmin" parameterType="int" resultType="com.cafe24.chgs8411.healthclubsAdmin.service.HealthclubsAdmin">
+		SELECT 
+			healthclubs_admin_no
+			, healthclubs_no
+			, healthclubs_admin_id
+			, healthclubs_admin_pw
+			, healthclubs_admin_name
+			, healthclubs_admin_phone
+			, healthclubs_admin_joindate
+		FROM 
+			healthclubs_admin
+		WHERE 
+			healthclubs_admin_no = #{healthclubs_admin_no}
+	</select>
+	
 	<select id="selectHealthclubs" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.healthclubs.service.Healthclubs">
 		SELECT 
 			healthclubs_no
