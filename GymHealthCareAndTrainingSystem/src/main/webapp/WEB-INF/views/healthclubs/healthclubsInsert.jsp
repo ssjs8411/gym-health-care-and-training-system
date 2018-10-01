@@ -41,7 +41,7 @@
 					</div>
 					<div>
 						<button type="submit" class="btn btn-info">등록<i class="fa fa-check spaceLeft"></i></button>
-						<button type="button" class="btn btn-info" onclick="window.location.href='/'">취소<i class="fa fa-check spaceLeft"></i></button>
+						<button type="button" class="btn btn-info" onclick="window.location.href='/home'">취소<i class="fa fa-check spaceLeft"></i></button>
 					</div>
 				</form>
 				</div>

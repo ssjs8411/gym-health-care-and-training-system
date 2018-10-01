@@ -46,6 +46,7 @@
 					</tbody>
 				</table>
 				</div>
+				<button type="button" class="btn btn-info" onclick="window.location.href='/home'">홈으로<i class="fa fa-check spaceLeft"></i></button>
 			</section>
 		</div>
 		<!-- footer Include -->

@@ -39,7 +39,7 @@
 								<li><a href="${pageContext.request.contextPath}/healthclubsInsert" id="portfolio-link"><span class="icon fa-th">헬스장 등록</span></a></li>
 								<li><a href="${pageContext.request.contextPath}/healthclubsList" id="portfolio-link"><span class="icon fa-th">헬스장 리스트</span></a></li>
 								<li><a href="#portfolio" id="portfolio-link"><span class="icon fa-th">헬스장 결제</span></a></li>
-								<li><a href="#about" id="about-link"><span class="icon fa-user">헬스 프로그램 개발</span></a></li>
+								<li><a href="#about" id="about-link"><span class="icon fa-user">헬스 프로그램 등록</span></a></li>
 								<li><a href="#about" id="about-link"><span class="icon fa-user">헬스 프로그램</span></a></li>
 								<li><a href="#about" id="about-link"><span class="icon fa-user">트레이너 관리</span></a></li>
 								<li><a href="#about" id="about-link"><span class="icon fa-user">시설 관리</span></a></li>

@@ -14,20 +14,17 @@
 		<jsp:include page="module/header.jsp"></jsp:include>
 		<!-- Main -->
 			<div id="main">
-
 				<!-- Intro -->
 					<section id="top" class="one dark cover">
 						<div class="container">
 
 							<header>
-								<h2 class="alt">Hi! I'm <strong>Prologue</strong>, a <a href="http://html5up.net/license">free</a> responsive<br />
-								site template designed by <a href="http://html5up.net">HTML5 UP</a>.</h2>
-								<p>Ligula scelerisque justo sem accumsan diam quis<br />
-								vitae natoque dictum sollicitudin elementum.</p>
+								<h2 class="alt">헬스장 명</h2>
+								<p>ex) 헬스 프로그램 정보 혹은 헬스장 정보<br/></p>
 							</header>
 
 							<footer>
-								<a href="#portfolio" class="button scrolly">Magna Aliquam</a>
+								<a href="${pageContext.request.contextPath}/" class="button scrolly">메인으로</a>
 							</footer>
 
 						</div>
