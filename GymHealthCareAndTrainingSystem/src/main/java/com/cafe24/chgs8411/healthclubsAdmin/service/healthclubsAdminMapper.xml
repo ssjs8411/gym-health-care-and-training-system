@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 18.10.01 최지수 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.cafe24.chgs8411.healthclubsAdmin.service.healthclubsAdminMapper">
+	
+	<select id="selectHealthclubs" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.healthclubs.service.Healthclubs">
+		SELECT 
+			healthclubs_no
+			, healthclubs_name
+			, healthclubs_address
+			, healthclubs_representative
+			, healthclubs_phone
+			, healthclubs_opening_date
+			, healthclubs_business_number
+			, healthclubs_joindate
+		FROM healthclubs
+	</select>
+	
+	<insert id="insertHealthclubsAdmin" parameterType="com.cafe24.chgs8411.healthclubsAdmin.service.HealthclubsAdmin">
+		INSERT INTO healthclubs_admin(
+				healthclubs_no
+				, healthclubs_admin_id
+				, healthclubs_admin_pw
+				, healthclubs_admin_name
+				, healthclubs_admin_phone
+				, healthclubs_admin_joindate) 
+			VALUES (
+				#{healthclubs_no}
+				, #{healthclubs_admin_id}
+				, #{healthclubs_admin_pw}
+				, #{healthclubs_admin_name}
+				, #{healthclubs_admin_phone}
+				, NOW()
+			)
+	</insert>
+	
+</mapper>
