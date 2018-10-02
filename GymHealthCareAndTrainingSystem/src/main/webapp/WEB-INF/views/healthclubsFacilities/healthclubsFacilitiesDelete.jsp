@@ -12,7 +12,7 @@
 		<jsp:include page="/WEB-INF/views/module/header.jsp"></jsp:include>
 		
 		<!-- 여기에 채워 넣어 주세요 -->
-		
+		삭제
 		
 		<!-- footer Include -->
 		<jsp:include page="/WEB-INF/views/module/footer.jsp"></jsp:include>

@@ -6,6 +6,22 @@
  
 <mapper namespace="com.cafe24.chgs8411.healthclubsFacilities.service.HealthclubsFacilitiesMapper">
 	<insert id="insertHealthclubsFacilities" parameterType="com.cafe24.chgs8411.healthclubsFacilities.service.HealthclubsFacilities">
-		
+		INSERT INTO healthclubs_facilities(
+		  healthclubs_no
+		, healthclubs_admin_no
+		, healthclubs_facilities_name
+		, facilities_detail_content
+		, healthclubs_facilities_cost
+		, facilities_purchase_date)
+		VALUES (1, 1,#{healthclubs_facilities_name},#{facilities_detail_content},#{healthclubs_facilities_cost},#{facilities_purchase_date})
 	</insert>
+	
+	<select id="selectListHealthclubsFacilities" resultType="com.cafe24.chgs8411.healthclubsFacilities.service.HealthclubsFacilities">
+		select 
+		healthclubs_facilities_name
+		,facilities_detail_content
+		,healthclubs_facilities_cost
+		,facilities_purchase_date 
+		from healthclubs_facilities
+	</select>
 </mapper>
