@@ -43,6 +43,7 @@
                 <value>classpath:com/cafe24/chgs8411/healthclubs/service/HealthclubsMapper.xml</value>
                 <value>classpath:com/cafe24/chgs8411/join/service/JoinMapper.xml</value>
                 <value>classpath:com/cafe24/chgs8411/healthclubsAdmin/service/healthclubsAdminMapper.xml</value>
+              	<value>classpath:com/cafe24/chgs8411/question/service/QuestionMapper.xml</value>
             </list>
         </property>
     </bean>

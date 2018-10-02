@@ -55,6 +55,13 @@
 			, question_content
 			, question_date
 		)
+		<!-- VALUES (
+			  #{member_no}
+			, #{trainer_no}
+			, #{question_title}
+			, #{question_content}
+			, NOW()
+		) -->
 		VALUES (
 			  7
 			, 1

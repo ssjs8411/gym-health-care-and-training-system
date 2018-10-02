@@ -11,48 +11,39 @@
 	<body class="is-preload">
 		<!-- header include -->
 		<jsp:include page="/WEB-INF/views/module/header.jsp"></jsp:include>
-		<!-- 
-		질문 번호
-		회원 번호
-		트레이너 번호
-		질문 제목
-		질문 내용
-		등록 일시
-	-->
-		<!-- 여기에 채워 넣어 주세요 -->
 		<%
-	
-			
-		
+
 		%>
 		<div id="main">
-		<div class="container">
-		<h1>질문 목록</h1>
-		<table>
-			<thead>
-				<tr>
-					<th>질문 번호</th>
-					<th>회원 번호</th>
-					<th>트레이너 번호</th>
-					<th>질문 제목</th>
-					<!-- <th>질문 내용</th> -->
-					<th>등록 일자</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="q" items="${list}">
-				<tr>
-					<td>${q.question_no}</td>
-					<td>${q.member_no}</td>
-					<td>${q.trainer_no}</td>
-					<td>${q.question_title}</td>
-					<%-- <td>${q.question_content}</td> --%>
-					<td>${q.question_date}</td>
-				</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-		</div>
+			<section id="top" class="two">
+					<div class="container">
+					<h1>질문 목록</h1>
+						<table class="table table-condensed">
+							<thead>
+								<tr>
+									<th>질문 번호</th>
+									<th>회원 번호</th>
+									<th>트레이너 번호</th>
+									<th>질문 제목</th>
+									<th>등록 일자</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="q" items="${list}">
+									<tr>
+										<td>${q.question_no}</td>
+										<td>${q.member_no}</td>
+										<td>${q.trainer_no}</td>
+										<td><a href="${pageContext.request.contextPath}/questionDetail?question_no=${q.question_no}">${q.question_title}</a></td>
+										<td>${q.question_date}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				<button type="button" class="btn btn-info" onclick="window.location.href='/home'">HOME<i class="fa fa-check spaceLeft"></i></button>
+				<button type="button" class="btn btn-info" onclick="window.location.href='/questionInsert'">피드백 등록<i class="fa fa-check spaceLeft"></i></button>
+			</section>
 		</div>
 		<!-- footer Include -->
 		<jsp:include page="/WEB-INF/views/module/footer.jsp"></jsp:include>
