@@ -1,4 +1,4 @@
-<!-- 2018.10.01(월) 현희문 -->
+<!-- 2018.10.02(화) 현희문 -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>heatlhclubsPaidSearchList</title>
+		<title>heatlhclubsRefoundSearchList</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	</head>
@@ -20,19 +20,18 @@
 			<section id="top">
 				<div class="container">
 				
-					<h1>헬스장 이용권 결제 현황 검색</h1><br>
+					<h1>헬스장 이용권 환불 현황 검색</h1><br>
 					
 					<div class="col-md-6 col-md-offset-3">
-						<form role="form" action="${pageContext.request.contextPath}/healthclubsPaidSearchList" method="post">
+						<form role="form" action="${pageContext.request.contextPath}/healthclubsRefundedSearchList" method="post">
 							<div class="form-group">
 								<label for="category">카테고리</label>
 								<select class="form-control" name="searchKey">
 									<option>전체</option>
-									<option value="healthclubsPaymentdetailsNo">헬스장 이용권 결제 번호</option>
+									<option value="healthclubsRefoundNo">헬스장 이용권 환불 번호</option>
 									<option value="userId">회원 아이디</option>
 									<option value="userName">회원 이름</option>
-									<option value="paymentMethod">결제 방식</option>
-									<option value="paymentDate">결제 일자</option>
+									<option value="paymentDate">환불 일자</option>
 								</select>
 							</div>
 							<div class="form-group">
@@ -48,15 +47,14 @@
 					<table class="table table-condensed">
 						<thead>
 							<tr>
+								<td>헬스장 환불 번호</td>
 								<td>헬스장 결제 번호</td>
 								<td>회원 번호</td>
-								<td>헬스장 번호</td>
-								<td>결제 방식</td>
-								<td>총 결제 금액</td>
-								<td>결제 일시</td>
-								<td>결제 여부</td>
-								<td>헬스장 시작일</td>
-								<td>헬스장 종료일</td>
+								<td>환불 사유</td>
+								<td>환불 방식</td>
+								<td>환불 금액</td>
+								<td>환불 일시</td>
+								<td>승인</td>
 							</tr>
 						</thead>
 						<tbody>
@@ -68,8 +66,7 @@
 								<td>5</td>
 								<td>6</td>
 								<td>7</td>
-								<td>8</td>
-								<td>9</td>
+								<td><a href="${pageContext.request.contextPath}/healthclusbsRefundCheck">승인</a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -81,7 +78,6 @@
 				</div>
 			</section>
 		</div>
-		
 		
 		<!-- footer Include -->
 		<jsp:include page="/WEB-INF/views/module/footer.jsp"></jsp:include>

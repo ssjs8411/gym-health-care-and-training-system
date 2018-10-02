@@ -27,6 +27,7 @@
 							<div class="form-group">
 								<label for="category">카테고리</label>
 								<select class="form-control" name="searchKey">
+									<option>전체</option>
 									<option value="healthPayNo">헬스 프로그램 결제 번호</option>
 									<option value="userId">회원 아이디</option>
 									<option value="userName">회원 이름</option>
@@ -44,19 +45,19 @@
 						</form>
 					</div>
 					
-					<table>
+					<table class="table table-condensed">
 						<thead>
 							<tr>
-								<td>헬스 프로그램 결제 번호</td>
+								<td>프로그램 결제 번호</td>
 								<td>회원 번호</td>
 								<td>헬스장 번호</td>
-								<td>헬스 프로그램 모집 번호</td>
+								<td>프로그램 모집 번호</td>
 								<td>결제 방식</td>
 								<td>총 결제금액</td>
 								<td>결제 일시</td>
 								<td>결제 여부</td>
-								<td>헬스 프로그램 시작일</td>
-								<td>헬스 프로그램 종료일</td>
+								<td>프로그램 시작일</td>
+								<td>프로그램 종료일</td>
 							</tr>
 						</thead>
 						<tbody>

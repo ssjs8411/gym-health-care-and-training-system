@@ -12,4 +12,16 @@ public class HealthclubsRefundController {
 		
 		return "healthclubsRefund/healthclubsRefund";
 	}
+	
+	@RequestMapping(value="/healthclubsRefundedSearchList", method=RequestMethod.GET)
+	public String heatlhclubsRefundedSearchList() {
+		
+		return "healthclubsRefund/healthclubsRefundedSearchList";
+	}
+	
+	@RequestMapping(value="/healthclubsRefundCheck", method=RequestMethod.GET)
+	public String healthclubsRefundCheck() {
+		
+		return "healthclubsRefund/healthclubsRefundCheck";
+	}
 }

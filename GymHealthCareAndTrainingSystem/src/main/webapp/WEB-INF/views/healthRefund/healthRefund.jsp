@@ -26,7 +26,7 @@
 						<form role="form" action="${pageContext.request.contextPath}/healthRefund" method="post">
 							<div class="form-group">
 								<label for="refundReason">환불 사유</label>
-								<textarea class="form-control" name="refundReason" id="boardContent" rows="5" cols="50"></textarea>
+								<textarea class="form-control" name="refundReason" rows="5" cols="50"></textarea>
 							</div>
 							<div class="form-group">
 								<label for="refundMethod">환불 방식</label>

@@ -26,7 +26,7 @@
 						<form role="form" action="${pageContext.request.contextPath}/healthclubsRefund" method="post">
 							<div class="form-group">
 								<label for="refundReason">환불 사유</label>
-								<textarea class="form-control" name="refundReason" id="boardContent" rows="5" cols="50"></textarea>
+								<textarea class="form-control" name="refundReason" rows="5" cols="50"></textarea>
 							</div>
 							<div class="form-group">
 								<label for="refundMethod">환불 방식</label>
@@ -38,7 +38,7 @@
 								</select>
 							</div>
 							<div>
-								<button type="button" class="btn btn-primary btn-sm" onclick="location.href='#'">환불신청</button>
+								<button class="btn btn-primary btn-sm">환불신청</button>
 							</div>
 						</form>
 					</div>

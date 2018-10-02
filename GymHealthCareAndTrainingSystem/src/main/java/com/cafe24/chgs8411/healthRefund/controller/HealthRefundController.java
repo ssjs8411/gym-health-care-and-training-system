@@ -12,4 +12,16 @@ public class HealthRefundController {
 		
 		return "healthRefund/healthRefund";
 	}
+	
+	@RequestMapping(value="/healthRefundedSearchList", method=RequestMethod.GET)
+	public String healthRefundedSearchList() {
+		
+		return "healthRefund/healthRefundedSearchList";
+	}
+	
+	@RequestMapping(value="/healthRefundCheck", method=RequestMethod.GET)
+	public String healthRefundCheck() {
+		
+		return "healthRefund/healthRefundCheck";
+	}
 }
