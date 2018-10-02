@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.cafe24.chgs8411.login.service.LoginDao;
 import com.cafe24.chgs8411.login.service.LoginService;
+import com.cafe24.chgs8411.healthclubsAdmin.service.HealthclubsAdmin;
 import com.cafe24.chgs8411.join.service.Member;
 
 @Service
@@ -31,6 +32,22 @@ public class LoginService {
 			Member memberSession=loginDao.loginSession(memberId);
 			map.put("memberSessionName", memberSession.getMember_name());
 			map.put("memberSessionNo", memberSession.getMember_no());
+		}
+		map.put("result",result);
+		return map;
+	}
+	
+	public Map<String,Object> adminLogin(HealthclubsAdmin healthclubsAdmin) {
+		
+		Map<String,Object> map= new HashMap<String,Object>();
+		int result=loginDao.adminLogin(healthclubsAdmin);
+		
+		String adminId=healthclubsAdmin.getHealthclubs_admin_id();
+		
+		if(result==1) {
+			HealthclubsAdmin adminSession=loginDao.adminLoginSession(adminId);
+			map.put("adminSessionName", adminSession.getHealthclubs_admin_name());
+			map.put("adminSessionNo", adminSession.getHealthclubs_admin_no());
 		}
 		map.put("result",result);
 		return map;

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.cafe24.chgs8411.login.service.LoginDao;
+import com.cafe24.chgs8411.healthclubsAdmin.service.HealthclubsAdmin;
 import com.cafe24.chgs8411.join.service.Member;
 
 @Repository
@@ -19,9 +20,19 @@ public class LoginDao {
 	
 	public int login(Member member) {
 		return sqlSession.selectOne(NS+"login",member);
+	}
+	
+	public Member loginSession(String memberId){
+		return sqlSession.selectOne(NS+"loginSession",memberId);
+	}
+	
+	public int adminLogin(HealthclubsAdmin healthclubsAdmin) {
+		return sqlSession.selectOne(NS+"adminLogin",healthclubsAdmin);
 		
 	}
-	public Member loginSession(String id){
-		return sqlSession.selectOne(NS+"loginSession",id);
+	
+	public HealthclubsAdmin adminLoginSession(String adminId){
+		return sqlSession.selectOne(NS+"adminLoginSession",adminId);
 	}
+	
 }

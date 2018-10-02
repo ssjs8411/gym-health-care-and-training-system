@@ -33,7 +33,7 @@
 							<h2>Trainer Login</h2>
 							<p>Please enter your ID and Password</p>
 						</div>
-						<form id="Login" action="${pageContext.request.contextPath}/login" method="post">
+						<form id="Login" action="${pageContext.request.contextPath}/trainerLogin" method="post">
        						<div class="form-group">
            						<input type="text" class="form-control" id="trainer_id" name="trainer_id" placeholder="ID">
 							</div>
@@ -42,6 +42,7 @@
 							</div>
 							<div class="forgot">
 								<a href="${pageContext.request.contextPath}/">main</a>
+							</div>
 								<button type="submit" class="btn btn-primary">Login</button>
    						</form>
    					</div>

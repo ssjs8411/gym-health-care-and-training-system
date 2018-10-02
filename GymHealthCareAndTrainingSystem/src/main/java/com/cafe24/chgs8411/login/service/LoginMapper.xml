@@ -19,6 +19,24 @@
   			FROM member
   			WHERE member_id=#{member_id}
   	</select>
+  	
+  	<select id="adminLogin"
+  			parameterType="com.cafe24.chgs8411.healthclubsAdmin.service.HealthclubsAdmin"
+  			resultType="Integer">
+  			SELECT COUNT(*)
+  			FROM healthclubs_admin
+  			WHERE healthclubs_admin_id=#{healthclubs_admin_id} AND healthclubs_admin_pw=#{healthclubs_admin_pw}
+  	</select>
+  	<select id="adminLoginSession"
+  			parameterType="String"
+  			resultType="com.cafe24.chgs8411.healthclubsAdmin.service.HealthclubsAdmin">
+  			SELECT healthclubs_admin_name
+  				,healthclubs_admin_no
+  				,healthclubs_admin_id
+  			FROM healthclubs_admin
+  			WHERE healthclubs_admin_id=#{healthclubs_admin_id}
+  	</select>
+  	
   	<!-- <select id="loginLevel"
   			parameterType="String"
   			resultType="Integer">

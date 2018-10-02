@@ -33,7 +33,7 @@
 							<h2>Admin Login</h2>
 							<p>Please enter your ID and Password</p>
 						</div>
-						<form id="Login" action="${pageContext.request.contextPath}/login" method="post">
+						<form id="Login" action="${pageContext.request.contextPath}/adminLogin" method="post">
        						<div class="form-group">
            						<input type="text" class="form-control" id="healthclubs_admin_id" name="healthclubs_admin_id" placeholder="ID">
 							</div>
