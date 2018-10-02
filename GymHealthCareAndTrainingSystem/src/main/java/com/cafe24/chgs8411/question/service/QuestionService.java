@@ -13,6 +13,12 @@ public class QuestionService {
 	@Autowired
 	private QuestionDao questionDao;
 	
+	// 질문 상세보기
+	// int 타입으로 selectDetailQuestion 메소드 (Question 클래스 타입 question 매개변수)
+	public Question selectDetailQuestion (int question_no) {
+		return questionDao.selectDetailQuestion(question_no);
+		
+	}
 	
 	// 질문 삭제
 	// int 타입으로 removeQuestion 메소드 (Question 클래스 타입 question 매개변수)

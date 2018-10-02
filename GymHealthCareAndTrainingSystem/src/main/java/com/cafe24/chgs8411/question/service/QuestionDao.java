@@ -13,6 +13,12 @@ public class QuestionDao {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
+	
+	// 질문 상세보기
+	public Question selectDetailQuestion (int question_no) {
+		return sqlSessionTemplate.selectOne(NS+"selectDetailQuestion", question_no);
+		
+	}
 	// 질문 삭제
 	public int deleteQuestion (Question question) {
 		return sqlSessionTemplate.delete(NS+"deleteQuestion", question);
@@ -23,7 +29,7 @@ public class QuestionDao {
 		return sqlSessionTemplate.update(NS+"updateQustion", question);
 		
 	}
-	// 질문 개수 카운트
+	// 질문 개수 카운트 (페이징 작업 에 필요)
 	public int questionCount() {
 		return sqlSessionTemplate.selectOne(NS+"questionCount");
 		
