@@ -26,9 +26,8 @@
 				<div class="top">
 					<!-- Logo -->
 						<div id="logo">
-							<span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
-							<h1 id="title">사용자 ID</h1>
-							<p>권한</p>
+							<h1 id="title">${sessionScope.memberSessionName} 님 로그인 중</h1>
+							<p><a href="${pageContext.request.contextPath}/logout">로그아웃</a></p>
 						</div>
 
 					<!-- Nav 권한별 권한 설정-->
