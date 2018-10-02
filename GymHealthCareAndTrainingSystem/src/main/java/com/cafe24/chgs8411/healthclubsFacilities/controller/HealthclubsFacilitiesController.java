@@ -40,7 +40,7 @@ public class HealthclubsFacilitiesController {
 		return "healthclubsFacilities/healthclubsFacilitiesSearchList";
 	}
 	
-	@RequestMapping(value="/",method=RequestMethod.GET)
+	@RequestMapping(value="/asdfasdfadsw",method=RequestMethod.GET)
 	public String HealthclubsFacilities(Model model) {
 		List<HealthclubsFacilities> list=healthclubsFacilitiesService.healthclubsFacilitiesView();
 		model.addAttribute("list", list);
