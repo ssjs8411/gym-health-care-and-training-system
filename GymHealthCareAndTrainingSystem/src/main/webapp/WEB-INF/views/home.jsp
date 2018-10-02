@@ -24,7 +24,7 @@
 							</header>
 
 							<footer>
-								<a href="${pageContext.request.contextPath}/" class="button scrolly">메인으로</a>
+								<a href="${pageContext.request.contextPath}/" class="button scrolly">마이 페이지</a>
 							</footer>
 
 						</div>

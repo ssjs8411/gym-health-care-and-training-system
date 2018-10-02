@@ -66,13 +66,15 @@
 							</div>
 							<form id="Login" action="${pageContext.request.contextPath}/login" method="post">
         						<div class="form-group">
-            						<input type="text" class="form-control" id="id" name="id" placeholder="ID">
+            						<input type="text" class="form-control" id="member_id" name="member_id" placeholder="ID">
 								</div>
         						<div class="form-group">
-									<input type="password" class="form-control" id="pw" name="pw" placeholder="Password">
+									<input type="password" class="form-control" id="member_pw" name="member_pw" placeholder="Password">
 								</div>
 								<div class="forgot">
 									<a href="${pageContext.request.contextPath}/joinForm">Join us</a>
+									<a href="${pageContext.request.contextPath}/adminLogin">Admin</a>
+									<a href="${pageContext.request.contextPath}/trainerLogin">Trainer</a>
 								</div>
 									<button type="submit" class="btn btn-primary">Login</button>
     						</form>
