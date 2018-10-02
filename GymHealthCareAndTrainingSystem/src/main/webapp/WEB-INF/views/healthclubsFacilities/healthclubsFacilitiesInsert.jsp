@@ -16,10 +16,22 @@
 				<div class="container">
 				<h1>시설관리 등록</h1>
 					<div class="col-md-6 col-md-offset-3">
-						<form role="form" action="${pageContext.request.contextPath}/healthclubsInsert" method="POST">
+						<form role="form" action="${pageContext.request.contextPath}/healthclubsFacilitiesInsert" method="POST">
 							<div class="form-group">
-								<label for="username"> </label>  
-								<input type="text"  class="form-control" name="">
+								<label for="username">시설명</label>  
+								<input type="text"  class="form-control" name="healthclubs_facilities_name">
+							</div>
+							<div class="form-group">
+								<label for="username">세부내용</label>  
+								<input type="text"  class="form-control" name="facilities_detail_content">
+							</div>
+							<div class="form-group">
+								<label for="username">비용</label>  
+								<input type="text"  class="form-control" name="healthclubs_facilities_cost">
+							</div>
+							<div class="form-group">
+								<label for="username">구입날짜</label>  
+								<input type="date"  class="form-control" name="facilities_purchase_date">
 							</div>
 							<div>
 								<button type="submit" class="btn btn-info">등록<i class="fa fa-check spaceLeft"></i></button>
