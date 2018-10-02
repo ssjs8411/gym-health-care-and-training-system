@@ -26,6 +26,8 @@
 									<th>트레이너 번호</th>
 									<th>질문 제목</th>
 									<th>등록 일자</th>
+									<th>수정</th>
+									<th>삭제</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -36,6 +38,8 @@
 										<td>${q.trainer_no}</td>
 										<td><a href="${pageContext.request.contextPath}/questionDetail?question_no=${q.question_no}">${q.question_title}</a></td>
 										<td>${q.question_date}</td>
+										<td><a href="${pageContext.request.contextPath}/questionUpdate?question_no=${q.question_no}">수정</a></td>
+										<td><a href="${pageContext.request.contextPath}/questionDelete?question_no=${q.question_no}&member_no=${q.member_no}">삭제</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

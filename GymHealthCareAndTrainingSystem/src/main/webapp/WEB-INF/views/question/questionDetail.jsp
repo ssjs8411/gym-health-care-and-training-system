@@ -24,7 +24,7 @@
 			<section id="top" class="two">
 				<div class="container">
 				<h1>질문 상세보기</h1>
-					<table class="table table-condensed">
+					<table>
 						<tr>
 							<th>질문 번호</th>
 							<td>${question.question_no}</td>

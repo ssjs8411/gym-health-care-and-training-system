@@ -24,7 +24,7 @@ public class QuestionController {
 	public String selectDetailQuestion(Model model
 									, @RequestParam(value="question_no", required=true) int question_no) {
 		System.out.println("질문 상세보기");
-		Question question =  questionService.selectDetailQuestion(question_no);
+		Question question = questionService.selectDetailQuestion(question_no);
 		model.addAttribute("question", question);
 		return "question/questionDetail";
 		
@@ -32,7 +32,7 @@ public class QuestionController {
 	}
 	
 	// 질문 삭제
-	@RequestMapping (value="/questionDelete", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping (value="/deleteQuestion", method = RequestMethod.POST)
 	public String qustionDelete (Question question) {
 		System.out.println("질문 삭제");
 		questionService.removeQuestion(question);
@@ -41,14 +41,22 @@ public class QuestionController {
 	}
 	
 	// 질문 수정 액션
-	@RequestMapping (value="/questionUpdate", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping (value="/questionUpdate", method = RequestMethod.POST)
 	public String questionUpdate(Question question) {
 		System.out.println("질문 수정 액션");
 		questionService.modifyQuestion(question);
-		return "redirect:/questionUpdate";
+		return "redirect:/questionDetail?question_no=" +question.getQuestion_no();
 	}
 	
 	// 질문 수정 폼
+	@RequestMapping (value="/questionUpdate", method = RequestMethod.GET)
+	public String questionUpdate(Model model
+								, @RequestParam(value="question_no", required=true) int question_no) {
+		System.out.println("질문 수정 폼");
+		Question question = questionService.selectDetailQuestion(question_no);
+		model.addAttribute("question", question);
+		return "question/questionUpdate";
+	}
 	
 	// 질문 개수 카운트
 	/*@RequestMapping (value="/questionList", method = {RequestMethod.GET, RequestMethod.POST})

@@ -21,22 +21,22 @@
 	
 	<!-- 질문 삭제 -->
 	<delete id="deleteQuestion" parameterType="com.cafe24.chgs8411.question.service.Question">
-		DELETE FROM question
-		WHERE member_no = #{member_no}
+		DELETE
+		FROM
+			question
+		WHERE 
+			question_no = #{question_no}
 	</delete>
 	
 	<!-- 질문 수정 -->
 	<update id="updateQustion" parameterType="com.cafe24.chgs8411.question.service.Question">
-		<!-- UPDATE question
-			SET question_title = #{question_title}
+		UPDATE 
+			question
+		SET 
+			question_title = #{question_title}
 			, question_content = #{question_content}
-		WHERE question_no = #{question_no}
-		AND member_no = #{member_no} -->
-		UPDATE question
-			SET question_title = "회원7"
-			, question_content = "7"
-		WHERE question_no = 45
-		AND member_no = 7
+		WHERE 
+			question_no = #{question_no}
 	</update>
 	
 	<!-- 질문 개수 카운트 -->
@@ -68,16 +68,9 @@
 			, question_content
 			, question_date
 		)
-		<!-- VALUES (
+		VALUES (
 			  #{member_no}
 			, #{trainer_no}
-			, #{question_title}
-			, #{question_content}
-			, NOW()
-		) -->
-		VALUES (
-			  7
-			, 1
 			, #{question_title}
 			, #{question_content}
 			, NOW()
