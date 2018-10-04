@@ -50,7 +50,8 @@
 							<td>${question.question_date}</td>
 						</tr>
 					</table>
-					<a href="${pageContext.request.contextPath}/questionList">목록</a>
+					<a href="${pageContext.request.contextPath}/questionList">목록</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="${pageContext.request.contextPath}/questionUpdate">수정</a>
 				</div>
 			</section>
 		</div>
