@@ -14,6 +14,7 @@
 		<!-- 여기에 채워 넣어 주세요 -->
 		<div id="main">
 			<div class="container">
+				<h1>헬스장 세부정보</h1>
 				<table>
 					<tr>
 						<th>헬스장 번호</th>
