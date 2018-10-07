@@ -1,7 +1,6 @@
 package com.cafe24.chgs8411.healthclubsFacilities.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.cafe24.chgs8411.healthclubsFacilities.service.HealthclubsFacilities;
-import com.cafe24.chgs8411.healthclubsFacilities.service.HealthclubsFacilitiesDao;
 import com.cafe24.chgs8411.healthclubsFacilities.service.HealthclubsFacilitiesService;
 
 @Controller
@@ -40,11 +38,16 @@ public class HealthclubsFacilitiesController {
 		return "healthclubsFacilities/healthclubsFacilitiesSearchList";
 	}
 	
-	@RequestMapping(value="/asdfasdfadsw",method=RequestMethod.GET)
-	public String HealthclubsFacilities(Model model) {
-		List<HealthclubsFacilities> list=healthclubsFacilitiesService.healthclubsFacilitiesView();
-		model.addAttribute("list", list);
-		return "healthclubsFacilities/healthclubsFacilitiesSearchList";
+/*	@RequestMapping(value="/healthclubsFacilitiesUpdate",method=RequestMethod.POST)
+	public String HealthclubsFacilities(HealthclubsFacilities healthclubsFacilities) {
+		healthclubsFacilitiesService.healthclubsFacilitiesAdd(healthclubsFacilities);
+		return "healthclubsFacilities/healthclubsFacilitiesUpdate";
 	}
+	
+	@RequestMapping(value="/healthclubsFacilitiesUpdate",method=RequestMethod.GET)
+	public String HealthclubsFacilities(HealthclubsFacilities healthclubsFacilities) {
+		healthclubsFacilitiesService.healthclubsFacilitiesAdd(healthclubsFacilities);
+		return "healthclubsFacilities/healthclubsFacilitiesUpdate";
+	}*/
 	
 }

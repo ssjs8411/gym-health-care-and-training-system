@@ -1,7 +1,6 @@
 package com.cafe24.chgs8411.healthclubsFacilities.service;
 
 import java.util.List;
-import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +20,8 @@ public class HealthclubsFacilitiesDao {
 	
 	public List<HealthclubsFacilities> healthclubsFacilitiesSelectList() {
 		return sqlsessionTemplate.selectList(ns+"selectListHealthclubsFacilities");
+	}
+	public int healthclubsFacilitiesUpdate(HealthclubsFacilities healthclubsFailities) {
+		return sqlsessionTemplate.update(ns+"updateHealthclubsFacilities", healthclubsFailities);
 	}
 }

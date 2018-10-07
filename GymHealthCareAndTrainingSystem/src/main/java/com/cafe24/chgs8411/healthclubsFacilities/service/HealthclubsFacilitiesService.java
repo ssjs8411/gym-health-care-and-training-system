@@ -23,4 +23,8 @@ public class HealthclubsFacilitiesService {
 		System.out.println("healthclubsFacilitiesView");
 		return healthclubsFacilitiesDao.healthclubsFacilitiesSelectList();
 	}
+	
+	public int healthclubsFacilitiesmodify(HealthclubsFacilities healthclubsFailities) {
+		return healthclubsFacilitiesDao.healthclubsFacilitiesUpdate(healthclubsFailities);
+	}
 }

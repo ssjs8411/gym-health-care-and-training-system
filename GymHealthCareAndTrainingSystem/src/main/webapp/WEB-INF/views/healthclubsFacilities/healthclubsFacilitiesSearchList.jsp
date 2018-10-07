@@ -19,6 +19,7 @@
 					<table class="table table-condensed">
 						<thead>
 							<tr>
+								<th>시설번호</th>
 								<th>시설명</th>
 								<th>세부내용</th>
 								<th>비용</th>
@@ -30,6 +31,7 @@
 						<tbody>
 							<c:forEach var="h" items="${list}">
 								<tr>
+									<td>${h.healthclubs_facilities_no}</td>
 									<td>${h.healthclubs_facilities_name}</td>
 									<td>${h.facilities_detail_content}</td>
 									<td>${h.healthclubs_facilities_cost}</td>
@@ -41,7 +43,7 @@
 						</tbody>
 					</table>
 				</div>
-				<button type="button" class="btn btn-info" onclick="window.location.href='#'">글쓰기<i class="fa fa-check spaceLeft"></i></button>
+				<button type="button" class="btn btn-info" onclick="window.location.href='/chgs8411/'">글쓰기<i class="fa fa-check spaceLeft"></i></button>
 				<button type="button" class="btn btn-info" onclick="window.location.href='#'">홈으로<i class="fa fa-check spaceLeft"></i></button>
 			</section>
 		</div>

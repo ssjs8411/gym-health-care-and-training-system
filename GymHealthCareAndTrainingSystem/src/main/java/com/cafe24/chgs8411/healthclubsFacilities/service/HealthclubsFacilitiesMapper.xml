@@ -18,10 +18,21 @@
 	
 	<select id="selectListHealthclubsFacilities" resultType="com.cafe24.chgs8411.healthclubsFacilities.service.HealthclubsFacilities">
 		select 
-		healthclubs_facilities_name
+		healthclubs_facilities_no
+		,healthclubs_facilities_name
 		,facilities_detail_content
 		,healthclubs_facilities_cost
 		,facilities_purchase_date 
 		from healthclubs_facilities
 	</select>
+	
+	<update id="updateHealthclubsFacilities" parameterType="com.cafe24.chgs8411.healthclubsFacilities.service.HealthclubsFacilities">
+		UPDATE healthclubs_facilities
+		SET
+			healthclubs_facilities_name=#{healthclubs_facilities_name},
+			facilities_detail_content=#{facilities_detail_content},
+			healthclubs_facilities_cost=#{healthclubs_facilities_cost},
+			facilities_purchase_date=#{facilities_purchase_date}
+		WHERE healthclubs_facilities_no=#{healthclubs_facilities_no}
+	</update>
 </mapper>
