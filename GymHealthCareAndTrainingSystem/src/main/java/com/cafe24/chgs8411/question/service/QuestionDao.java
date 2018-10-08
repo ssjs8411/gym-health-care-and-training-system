@@ -24,11 +24,13 @@ public class QuestionDao {
 		return sqlSessionTemplate.delete(NS+"deleteQuestion", question);
 		
 	}
+	
 	// 질문 수정
 	public int updateQuestion (Question question) {
 		return sqlSessionTemplate.update(NS+"updateQustion", question);
 		
 	}
+
 	// 질문 개수 카운트 (페이징 작업 에 필요)
 	public int questionCount() {
 		return sqlSessionTemplate.selectOne(NS+"questionCount");

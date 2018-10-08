@@ -35,7 +35,7 @@
 							</div>
 							<div>
 								<button type="submit" class="btn btn-info">확인<i class="fa fa-check spaceLeft"></i></button>
-								<a href="${pageContext.request.contextPath}/questionList">목록</a>
+								<a href="${pageContext.request.contextPath}/questionSearchList">목록</a>
 							</div>
 						</form>
 					</div>

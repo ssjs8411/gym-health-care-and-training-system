@@ -18,6 +18,14 @@
 			<section id="top" class="two">
 					<div class="container">
 					<h1>질문 목록</h1>
+					<div><a href="${pageContext.request.contextPath}/questionInsert?member_no=${q.member_no}">글쓰기</a></div>
+					<form role="form" action="${pageContext.request.contextPath}/questionSearchList" method = "GET" style="margin:0; padding:0;">
+						<P style="margin:0; padding:0;">
+							<input type="hidden" name="questionCd" value="${question}"/>
+							<input type="text" name="searchWord" size="15" maxlength="30">
+							<input type="submit" value="검색"/>
+						</p>
+					</form>
 						<table class="table table-condensed">
 							<thead>
 								<tr>
@@ -39,7 +47,7 @@
 										<td><a href="${pageContext.request.contextPath}/questionDetail?question_no=${q.question_no}">${q.question_title}</a></td>
 										<td>${q.question_date}</td>
 										<td><a href="${pageContext.request.contextPath}/questionUpdate?question_no=${q.question_no}">수정</a></td>
-										<td><a href="${pageContext.request.contextPath}/questionDelete?question_no=${q.question_no}&member_no=${q.member_no}">삭제</a></td>
+										<td><a href="${pageContext.request.contextPath}/questionDelete?question_no=${q.question_no}">삭제</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

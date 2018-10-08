@@ -33,6 +33,7 @@
 						<div>
 							<button type="submit" class="btn btn-info">수정<i class="fa fa-check spaceLeft"></i></button>
 						</div> 
+						<a href="${pageContext.request.contextPath}/questionSearchList">목록</a>
 					</form> 
 				</div>
 			</section>

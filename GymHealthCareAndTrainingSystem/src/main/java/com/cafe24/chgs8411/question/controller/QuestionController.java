@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cafe24.chgs8411.question.service.Question;
+import com.cafe24.chgs8411.question.service.QuestionDao;
 import com.cafe24.chgs8411.question.service.QuestionService;
 
 @Controller
@@ -31,12 +32,24 @@ public class QuestionController {
 		
 	}
 	
-	// 질문 삭제
+	// 질문 삭제 액션
 	@RequestMapping (value="/deleteQuestion", method = RequestMethod.POST)
 	public String qustionDelete (Question question) {
-		System.out.println("질문 삭제");
+		System.out.println("질문 삭제 액션");
 		questionService.removeQuestion(question);
-		return "redirct:/questionDelete";
+		return "redirct:/questionDetail?question_no=" + question.getQuestion_no();
+
+		
+	}
+	
+	// 질문 삭제 폼
+	@RequestMapping (value="/deleteQuestion", method = RequestMethod.GET)
+	public String questionDelete (Model model
+								, @RequestParam (value="question_no", required=true) int question_no) {
+		System.out.println("질문 삭제 폼 요청");
+		Question question = questionService.selectDetailQuestion(question_no);
+		model.addAttribute("question", question);
+		return "question/questionDelete";
 		
 	}
 	
@@ -58,16 +71,18 @@ public class QuestionController {
 		return "question/questionUpdate";
 	}
 	
+
+	
 	// 질문 개수 카운트
-	/*@RequestMapping (value="/questionList", method = {RequestMethod.GET, RequestMethod.POST})
+	/*@RequestMapping (value="/questionSearchList", method = {RequestMethod.GET, RequestMethod.POST})
 	public String questionCount(Question question) {
 		questionService.questionCount();
-		return "question/questionList";
+		return "question/questionSearchList";
 		
 	}
 */
 	// 질문 목록 조회
-	@RequestMapping (value="/questionList", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping (value="/questionSearchList", method = {RequestMethod.GET, RequestMethod.POST})
 	public String questionList(Model model) {
 		System.out.println("질문 목록");
 		List<Question> list = questionService.questionList();
@@ -81,7 +96,7 @@ public class QuestionController {
 	public String questionInsert(Question question) {
 		System.out.println("질문 등록 액션");
 		questionService.addQuestion(question);
-		return "redirect:/questionList";
+		return "redirect:/questionSearchList";
 		
 	}
 	
