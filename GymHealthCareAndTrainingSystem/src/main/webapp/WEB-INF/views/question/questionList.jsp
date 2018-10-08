@@ -28,7 +28,6 @@
 									<th>등록 일자</th>
 									<th>수정</th>
 									<th>삭제</th>
-									<th>글쓰기</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -41,7 +40,6 @@
 										<td>${q.question_date}</td>
 										<td><a href="${pageContext.request.contextPath}/questionUpdate?question_no=${q.question_no}">수정</a></td>
 										<td><a href="${pageContext.request.contextPath}/questionDelete?question_no=${q.question_no}&member_no=${q.member_no}">삭제</a></td>
-										<td><a href="${pageContext.request.contextPath}/questionInsert?member_no=${q.member_no}">글쓰기</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
