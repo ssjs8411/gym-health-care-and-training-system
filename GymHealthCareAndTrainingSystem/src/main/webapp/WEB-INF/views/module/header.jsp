@@ -43,7 +43,7 @@
 								<li><a href="#about" id="about-link"><span class="icon fa-user">트레이너 관리</span></a></li>
 								<li><a href="${pageContext.request.contextPath}/healthclubsFacilitiesInsert" id="about-link"><span class="icon fa-user">시설 관리</span></a></li>
 								<li><a href="${pageContext.request.contextPath}/questionList" id="contact-link"><span class="icon fa-envelope">피드백</span></a></li>
-								<li><a href="#contact" id="contact-link"><span class="icon fa-envelope">건의사항</span></a></li>
+								<li><a href="${pageContext.request.contextPath}/adminHeadRequireInsert" id="contact-link"><span class="icon fa-envelope">건의사항</span></a></li>
 							</ul>
 						</nav>
 					</c:if>
@@ -61,7 +61,7 @@
 								<li><a href="#about" id="about-link"><span class="icon fa-user">헬스 프로그램 등록</span></a></li>
 								<li><a href="#about" id="about-link"><span class="icon fa-user">헬스 프로그램</span></a></li>
 								<li><a href="#about" id="contact-link"><span class="icon fa-envelope">피드백</span></a></li>
-								<li><a href="#contact" id="contact-link"><span class="icon fa-envelope">건의사항</span></a></li>
+								<li><a href="${pageContext.request.contextPath}/trainerHeadRequireInsert" id="contact-link"><span class="icon fa-envelope">건의사항</span></a></li>
 							</ul>
 						</nav>
 					</c:if>
@@ -80,7 +80,7 @@
 								<li><a href="#portfolio" id="portfolio-link"><span class="icon fa-th">헬스장 결제</span></a></li>
 								<li><a href="#about" id="about-link"><span class="icon fa-user">헬스 프로그램</span></a></li>
 								<li><a href="${pageContext.request.contextPath}/questionList" id="contact-link"><span class="icon fa-envelope">피드백</span></a></li>
-								<li><a href="#contact" id="contact-link"><span class="icon fa-envelope">건의사항</span></a></li>
+								<li><a href="${pageContext.request.contextPath}/memberHeadRequireInsert" id="contact-link"><span class="icon fa-envelope">건의사항</span></a></li>
 							</ul>
 						</nav>
 					</c:if>
