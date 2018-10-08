@@ -30,6 +30,10 @@ public class QuestionDao {
 		return sqlSessionTemplate.update(NS+"updateQustion", question);
 		
 	}
+	// 질문 목록 페이징
+	public List<Question> questionPaging (int pageNum, int contentNum) {
+		return sqlSessionTemplate.selectList(NS+"questionPaging");
+	}
 
 	// 질문 개수 카운트 (페이징 작업 에 필요)
 	public int questionCount() {
