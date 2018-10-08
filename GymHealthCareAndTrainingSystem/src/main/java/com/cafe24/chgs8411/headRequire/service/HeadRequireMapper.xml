@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 2018.10.08(월) 현희문 -->
+
+<mapper namespace="com.cafe24.chgs8411.headRequire.service.HeadRequireMapper">
+
+	<select id="selectOneMemberForHeadRequire" parameterType="int" resultType="com.cafe24.chgs8411.member.service.Member">
+		SELECT
+			member_name,
+			member_phone
+		FROM
+			member
+		WHERE
+			member_no = #{no}
+	</select>
+
+	<select id="selectOneTrainerForHeadRequire" parameterType="int" resultType="com.cafe24.chgs8411.trainer.service.Trainer">
+		SELECT
+			trainer_name,
+			trainer_phone
+		FROM
+			trainer
+		WHERE
+			trainer_no = #{no}
+	</select>
+	
+	<select id="selectOneAdminForHeadRequire" parameterType="int" resultType="com.cafe24.chgs8411.healthclubsAdmin.service.HealthclubsAdmin">
+		SELECT
+			healthclubs_admin_name,
+			healthclubs_admin_phone
+		FROM
+			healthclubs_admin
+		WHERE
+			healthclubs_admin_no = #{no};
+	</select>
+	
+	<insert id="insertHeadRequire" parameterType="com.cafe24.chgs8411.headRequire.service.HeadRequire">
+		INSERT INTO
+			head_require (name, phone, require_title, require_content, require_date)
+		VALUES
+			(#{name}, #{phone}, #{require_title}, #{require_content}, now());
+	</insert>
+	
+</mapper>

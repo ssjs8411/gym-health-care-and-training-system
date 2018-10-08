@@ -23,19 +23,64 @@
 					<h1>본사 건의사항</h1><br>
 					
 					<div class="col-md-6 col-md-offset-3">
-						<form role="form" action="${pageContext.request.contextPath}/headRequireInsert" method="post">
-							<div class="form-group">
-								<label for="requireTitle">제목</label>
-								<input class="form-control" type="text" name="requireTitle">
-							</div>
-							<div class="form-group">
-								<label for="requireContent">내용</label>
-								<textarea class="form-control" name="requireContent" rows="5" cols="50"></textarea>
-							</div>
-							<div>
-								<button class="btn btn-primary btn-sm">등록</button>
-							</div>
-						</form>
+					
+						<!-- 회원 -->
+						<c:if test="${!empty sessionScope.memberSessionId}">
+							<form role="form" action="${pageContext.request.contextPath}/memberHeadRequireInsert" method="post">
+								<div><input type="hidden" name="name" value="${member.member_name}"></div>
+								<div><input type="hidden" name="phone" value="${member.member_phone}"></div>
+								<div class="form-group">
+									<label for="requireTitle">제목</label>
+									<input class="form-control" type="text" name="require_title">
+								</div>
+								<div class="form-group">
+									<label for="requireContent">내용</label>
+									<textarea class="form-control" name="require_content" rows="5" cols="50"></textarea>
+								</div>
+								<div>
+									<button class="btn btn-primary btn-sm">등록</button>
+								</div>
+							</form>
+						</c:if>
+						
+						<!-- 트레이너 -->
+						<c:if test="${!empty sessionScope.trainerSessionId}">
+							<form role="form" action="${pageContext.request.contextPath}/adminHeadRequireInsert" method="post">
+								<div><input type="hidden" name="name" value="${trainer.trainer_name}"></div>
+								<div><input type="hidden" name="phone" value="${trainer.trainer_phone}"></div>
+								<div class="form-group">
+									<label for="requireTitle">제목</label>
+									<input class="form-control" type="text" name="require_title">
+								</div>
+								<div class="form-group">
+									<label for="requireContent">내용</label>
+									<textarea class="form-control" name="require_content" rows="5" cols="50"></textarea>
+								</div>
+								<div>
+									<button class="btn btn-primary btn-sm">등록</button>
+								</div>
+							</form>
+						</c:if>
+						
+						<!-- 관리자 -->
+						<c:if test="${!empty sessionScope.adminSessionId}">	
+							<form role="form" action="${pageContext.request.contextPath}/trainerHeadRequireInsert" method="post">
+								<div><input type="hidden" name="name" value="${healthclubsAdmin.healthclubsAdmin_name}"></div>
+								<div><input type="hidden" name="phone" value="${healthclubsAdmin.healthclubsAdmin_phone}"></div>
+								<div class="form-group">
+									<label for="requireTitle">제목</label>
+									<input class="form-control" type="text" name="require_title">
+								</div>
+								<div class="form-group">
+									<label for="requireContent">내용</label>
+									<textarea class="form-control" name="require_content" rows="5" cols="50"></textarea>
+								</div>
+								<div>
+									<button class="btn btn-primary btn-sm">등록</button>
+								</div>
+							</form>
+						</c:if>
+						
 					</div>
 					
 				</div>

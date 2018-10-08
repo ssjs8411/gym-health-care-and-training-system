@@ -12,12 +12,14 @@
   	</select>
   	<select id="loginSession"
   			parameterType="String"
-  			resultType="com.cafe24.chgs8411.join.service.Member">
+  			resultType="com.cafe24.chgs8411.login.service.Login">
   			SELECT member_name
   				,member_no
   				,member_id
+  				,healthclubs_name
   			FROM member
-  			WHERE member_id=#{member_id}
+  			JOIN healthclubs ON member.healthclubs_no = healthclubs.healthclubs_no
+  			WHERE member_id=#{member_id};
   	</select>
   	
   	<select id="adminLogin"
@@ -29,12 +31,31 @@
   	</select>
   	<select id="adminLoginSession"
   			parameterType="String"
-  			resultType="com.cafe24.chgs8411.healthclubsAdmin.service.HealthclubsAdmin">
+  			resultType="com.cafe24.chgs8411.login.service.Login">
   			SELECT healthclubs_admin_name
   				,healthclubs_admin_no
   				,healthclubs_admin_id
   			FROM healthclubs_admin
+  			JOIN healthclubs ON healthclubs_admin.healthclubs_no = healthclubs.healthclubs_no
   			WHERE healthclubs_admin_id=#{healthclubs_admin_id}
+  	</select>
+  	
+  	<select id="trainerLogin"
+  			parameterType="com.cafe24.chgs8411.trainer.service.Trainer"
+  			resultType="Integer">
+  			SELECT COUNT(*)
+  			FROM trainer
+  			WHERE trainer_id=#{trainer_id} AND trainer_pw=#{trainer_pw}
+  	</select>
+  	<select id="trainerLoginSession"
+  			parameterType="String"
+  			resultType="com.cafe24.chgs8411.login.service.Login">
+  			SELECT trainer_name
+  				,trainer_no
+  				,trainer_id
+  			FROM trainer
+  			JOIN healthclubs ON trainer.healthclubs_no = healthclubs.healthclubs_no
+  			WHERE trainer_id=#{trainer_id}
   	</select>
   	
   	<!-- <select id="loginLevel"

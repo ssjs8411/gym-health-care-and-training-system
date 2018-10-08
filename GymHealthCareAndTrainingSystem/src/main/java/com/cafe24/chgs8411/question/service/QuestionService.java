@@ -3,6 +3,8 @@ package com.cafe24.chgs8411.question.service;
 
 import java.util.List;
 
+import javax.jws.soap.InitParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,6 +36,19 @@ public class QuestionService {
 		return questionDao.updateQuestion(question);
 			
 	}
+	
+	// 질문 목록 페이징
+	// List<Question> 클래스 타입으로 questionPaging 메소드 (int 타입으로 currentPage, rowPerPage 매개변수)
+	/*public List<Question> questionPaging(int currentPage, int rowPerPage){
+		List<Question> list = questionDao.questionPaging(currentPage, rowPerPage);
+		return questionDao.questionPaging(currentPage, rowPerPage);
+		
+	}*/
+	// 페이징 테스트 
+	/*public List<Question> questionPaging (int pageNum, int contentNum){
+		return questionDao.questionPaging(pageNum, contentNum);
+		
+	}*/
 	
 	// 잘문 개수 카운트 
 	// int 타입으로 questionCount 메소드 (매개변수 없음)

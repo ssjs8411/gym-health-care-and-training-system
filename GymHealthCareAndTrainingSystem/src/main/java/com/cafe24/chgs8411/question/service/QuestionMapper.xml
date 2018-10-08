@@ -39,12 +39,45 @@
 			question_no = #{question_no}
 	</update>
 	
+	<!-- 페이징 테스트 -->
+<!-- 	<select id="questionPaging" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.question.service.Question">
+		SELECT 
+			question_no
+			, member_no
+			, trainer_no
+			, question_title
+			, question_content
+			, question_date
+		 FROM
+		 	 question 
+		 ORDER BY 
+		 	question_no 
+		 DESC LIMIT #{pageNum}, #{contentNum}
+	</select> -->
+	
 	<!-- 질문 개수 카운트 -->
 	<select id="questionCount" resultType="Integer">
 		SELECT COUNT(*)
 		FROM question
 	</select>
-
+	
+	<!-- 질문 검색 -->
+	<select id="searchQuestion" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.question.service.Question">
+		SELECT
+			question_no
+			, member_no
+			, trainer_no
+			, question_title
+			, question_content
+			, question_date 
+		FROM
+			 question
+		WHERE question_title
+		like '%%'
+		ORDER BY question_no DESC;
+	</select>
+	
+	
 	<!-- 질문 목록 -->
 	<select id="selectQuestion" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.question.service.Question">
 		SELECT
