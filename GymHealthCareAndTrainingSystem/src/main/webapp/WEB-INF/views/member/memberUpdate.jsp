@@ -29,19 +29,20 @@
 			</div>
 			<div class="col-md-6 col-md-offset-3">
 				<form role="form" action="${pageContext.request.contextPath}/updateMember" method="POST">
+					<input type="hidden" name="member_no" value="${memberAndHealthclubs.member_no}">
 					<div class="form-group">
 						<label for="username">헬스장 선택</label>
 						<select name="healthclubs_no">
-							<option value="${member.healthclubs_no}"></option>
+							<option value="${memberAndHealthclubs.healthclubs_no}">${memberAndHealthclubs.healthclubs_name}</option>
 							<c:forEach var="h" items="${list}">
 							<option value="${h.healthclubs_no}">${h.healthclubs_name}</option>
 							</c:forEach>
 						</select>
 					</div>
-	
+			
 					<div class="form-group">
 						<label for="username">아이디</label>
-						<input type="text" class="form-control" name="member_id">
+						<input type="text" class="form-control" name="member_id" value="${memberAndHealthclubs.member_id}" readonly="readonly">
 					</div>
 	
 					<div class="form-group">
@@ -51,7 +52,7 @@
 	
 					<div class="form-group">
 						<label for="username">이름</label>
-						<input type="text" class="form-control" name="member_name">
+						<input type="text" class="form-control" name="member_name" value="${memberAndHealthclubs.member_name}">
 					</div>
 	
 					<div class="form-group">
@@ -62,45 +63,45 @@
 	
 					<div class="form-group">
 						<label for="username">주소</label>
-						<input type="text" class="form-control" name="member_address">
+						<input type="text" class="form-control" name="member_address" value="${memberAndHealthclubs.member_address}">
 					</div>
 	
 					<div class="form-group">
 						<label for="username">전화번호</label>
-						<input type="text" class="form-control" name="member_phone">
+						<input type="text" class="form-control" name="member_phone" value="${memberAndHealthclubs.member_phone}">
 					</div>
 	
 					<div class="form-group">
 						<label for="username">생년월일</label>
-						<input type="date" class="form-control" name="member_birthday">
+						<input type="date" class="form-control" name="member_birthday" value="${memberAndHealthclubs.member_birthday}">
 					</div>
 	
 					<div class="form-group">
 						<label for="username">이메일</label>
-						<input type="text" class="form-control" name="member_email">
+						<input type="text" class="form-control" name="member_email" value="${memberAndHealthclubs.member_email}">
 					</div>
 	
 					<div class="form-group">
 						<label for="username">키</label>
-						<input type="text" class="form-control" name="member_tall">
+						<input type="text" class="form-control" name="member_tall" value="${memberAndHealthclubs.member_tall}">
 					</div>
 	
 					<div class="form-group">
 						<label for="username">몸무게</label>
-						<input type="text" class="form-control" name="member_weight">
+						<input type="text" class="form-control" name="member_weight" value="${memberAndHealthclubs.member_weight}">
 					</div>
 	
 					<div class="form-group">
 						<label for="username">목표 몸무게</label>
-						<input type="text" class="form-control" name="member_goal_weight">
+						<input type="text" class="form-control" name="member_goal_weight" value="${memberAndHealthclubs.member_goal_weight}">
 					</div>
 	
 					<div class="form-group text-center">
 						<button type="submit" class="btn btn-info">
-							회원가입<i class="fa fa-check spaceLeft"></i>
+							회원수정<i class="fa fa-check spaceLeft"></i>
 						</button>
-						<button type="button" class="btn btn-warning" onclick="window.location.href='/'">
-							가입취소<i class="fa fa-times spaceLeft"></i>
+						<button type="button" class="btn btn-warning" onclick="window.location.href='/chgs8411/'">
+							수정취소<i class="fa fa-times spaceLeft"></i>
 						</button>
 						<input type="reset" class="btn btn-danger" value="초기화">
 					</div>
