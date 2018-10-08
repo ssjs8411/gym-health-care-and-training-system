@@ -14,16 +14,23 @@ public class HealthclubsFacilitiesService {
 	@Autowired
 	private HealthclubsFacilitiesDao healthclubsFacilitiesDao;
 	
+	//시설 추가
 	public int healthclubsFacilitiesAdd(HealthclubsFacilities healthclubsFacilities) {
 		System.out.println("healthclubsFacilitiesAdd");
 		return healthclubsFacilitiesDao.healthclubsFacilitiesinsert(healthclubsFacilities);
 	}
 	
+	//시설 리스트
 	public List<HealthclubsFacilities> healthclubsFacilitiesView(){
 		System.out.println("healthclubsFacilitiesView");
 		return healthclubsFacilitiesDao.healthclubsFacilitiesSelectList();
 	}
+	//특정 시설 조회
+	public HealthclubsFacilities healthclubsFacilitiesmodify(int healthclubs_facilities_no) {
+		return healthclubsFacilitiesDao.healthclubsFacilitiesUpdate(healthclubs_facilities_no);
+	}
 	
+	//시설 수정
 	public int healthclubsFacilitiesmodify(HealthclubsFacilities healthclubsFailities) {
 		return healthclubsFacilitiesDao.healthclubsFacilitiesUpdate(healthclubsFailities);
 	}

@@ -14,14 +14,23 @@ public class HealthclubsFacilitiesDao {
 	@Autowired
 	private SqlSessionTemplate sqlsessionTemplate;
 	
+	//시설 추가
 	public int healthclubsFacilitiesinsert(HealthclubsFacilities healthclubsFailities) {
 		return sqlsessionTemplate.insert(ns+"insertHealthclubsFacilities",healthclubsFailities);
 	}
 	
+	//시설 리스트
 	public List<HealthclubsFacilities> healthclubsFacilitiesSelectList() {
 		return sqlsessionTemplate.selectList(ns+"selectListHealthclubsFacilities");
 	}
+	//특정 시설 조회
+	public HealthclubsFacilities healthclubsFacilitiesUpdate(int healthclubs_facilities_no) {
+		return sqlsessionTemplate.selectOne(ns+"selectHealthblubsFailities",healthclubs_facilities_no);
+	}
+	
+	//시설 수정
 	public int healthclubsFacilitiesUpdate(HealthclubsFacilities healthclubsFailities) {
 		return sqlsessionTemplate.update(ns+"updateHealthclubsFacilities", healthclubsFailities);
 	}
+	
 }

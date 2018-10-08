@@ -5,6 +5,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="com.cafe24.chgs8411.healthclubsFacilities.service.HealthclubsFacilitiesMapper">
+	<!--시설 추가  -->
 	<insert id="insertHealthclubsFacilities" parameterType="com.cafe24.chgs8411.healthclubsFacilities.service.HealthclubsFacilities">
 		INSERT INTO healthclubs_facilities(
 		  healthclubs_no
@@ -16,6 +17,7 @@
 		VALUES (1, 1,#{healthclubs_facilities_name},#{facilities_detail_content},#{healthclubs_facilities_cost},#{facilities_purchase_date})
 	</insert>
 	
+	<!-- 시설리스트 조회 -->
 	<select id="selectListHealthclubsFacilities" resultType="com.cafe24.chgs8411.healthclubsFacilities.service.HealthclubsFacilities">
 		select 
 		healthclubs_facilities_no
@@ -26,6 +28,18 @@
 		from healthclubs_facilities
 	</select>
 	
+	<!--시설번호로 특정시설 조회  -->
+	<select id="selectHealthblubsFailities" resultType="com.cafe24.chgs8411.healthclubsFacilities.service.HealthclubsFacilities">
+		select
+			healthclubs_facilities_name
+			,facilities_detail_content
+			,healthclubs_facilities_cost
+			,facilities_purchase_date
+			from healthclubs_facilities
+			WHERE healthclubs_facilities_no=#{healthclubs_facilities_no}
+	</select>
+	
+	<!--시설 수정  -->
 	<update id="updateHealthclubsFacilities" parameterType="com.cafe24.chgs8411.healthclubsFacilities.service.HealthclubsFacilities">
 		UPDATE healthclubs_facilities
 		SET
@@ -35,4 +49,5 @@
 			facilities_purchase_date=#{facilities_purchase_date}
 		WHERE healthclubs_facilities_no=#{healthclubs_facilities_no}
 	</update>
+	
 </mapper>

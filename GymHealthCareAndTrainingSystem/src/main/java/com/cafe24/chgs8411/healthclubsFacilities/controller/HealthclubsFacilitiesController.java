@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cafe24.chgs8411.healthclubsFacilities.service.HealthclubsFacilities;
 import com.cafe24.chgs8411.healthclubsFacilities.service.HealthclubsFacilitiesService;
@@ -30,7 +31,7 @@ public class HealthclubsFacilitiesController {
 		healthclubsFacilitiesService.healthclubsFacilitiesAdd(healthclubsFacilities);
 		return "redirect:/healthclubsFacilitiesSearchList";
 	}
-	
+	//시설관리 리스트
 	@RequestMapping(value="/healthclubsFacilitiesSearchList",method=RequestMethod.GET)
 	public String HealthclubsFacilitiesView(Model model) {
 		List<HealthclubsFacilities> list=healthclubsFacilitiesService.healthclubsFacilitiesView();
@@ -38,16 +39,19 @@ public class HealthclubsFacilitiesController {
 		return "healthclubsFacilities/healthclubsFacilitiesSearchList";
 	}
 	
-/*	@RequestMapping(value="/healthclubsFacilitiesUpdate",method=RequestMethod.POST)
-	public String HealthclubsFacilities(HealthclubsFacilities healthclubsFacilities) {
-		healthclubsFacilitiesService.healthclubsFacilitiesAdd(healthclubsFacilities);
+	//시설관리 수정 폼
+	@RequestMapping(value="/healthclubsFacilitiesUpdate",method=RequestMethod.GET)
+	public String HealthclubsFacilities(Model model,@RequestParam(value="healthclubs_facilities_no",required=true) int healthclubs_facilities_no) {
+		HealthclubsFacilities healthclubsFacilities=healthclubsFacilitiesService.healthclubsFacilitiesmodify(healthclubs_facilities_no);
+		model.addAttribute("healthclubsFacilities", healthclubsFacilities);
 		return "healthclubsFacilities/healthclubsFacilitiesUpdate";
 	}
 	
-	@RequestMapping(value="/healthclubsFacilitiesUpdate",method=RequestMethod.GET)
-	public String HealthclubsFacilities(HealthclubsFacilities healthclubsFacilities) {
-		healthclubsFacilitiesService.healthclubsFacilitiesAdd(healthclubsFacilities);
-		return "healthclubsFacilities/healthclubsFacilitiesUpdate";
-	}*/
+	//시설관리수정 처리
+		@RequestMapping(value="/healthclubsFacilitiesUpdate",method=RequestMethod.POST)
+		public String HealthclubsFacilities(HealthclubsFacilities healthclubsFacilities) {
+			healthclubsFacilitiesService.healthclubsFacilitiesAdd(healthclubsFacilities);
+			return "healthclubsFacilities/healthclubsFacilitiesUpdate";
+		}
 	
 }
