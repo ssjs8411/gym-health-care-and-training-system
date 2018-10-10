@@ -46,7 +46,7 @@
 					</table>
 					
 					<div>
-						<button type="button" class="btn btn-primary btn-sm" onclick="location.href='#'">목록</button>
+						<button type="button" class="btn btn-primary btn-sm" onclick="location.href='/headRequireSearchList'">목록</button>
 					</div>
 				</div>
 			</section>

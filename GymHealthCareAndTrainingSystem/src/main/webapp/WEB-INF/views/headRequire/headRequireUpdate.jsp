@@ -23,14 +23,17 @@
 					<h1>본사 건의사항 수정</h1><br>
 					
 					<div class="col-md-6 col-md-offset-3">
-						<form role="form" action="${pageContext.request.contextPath}/headRequireInsert" method="post">
+						<form role="form" action="${pageContext.request.contextPath}/headRequireUpdatePost" method="post">
+							<div><input type="hidden" name="head_require_no" value="${headRequire.head_require_no}"></div>
+							<div><input type="hidden" name="name" value="${headRequire.name}"></div>
+							<div><input type="hidden" name="phone" value="${headRequire.phone}"></div>
 							<div class="form-group">
 								<label for="requireTitle">제목</label>
-								<input class="form-control" type="text" name="requireTitle">
+								<input class="form-control" type="text" name="require_title" value="${headRequire.require_title}">
 							</div>
 							<div class="form-group">
 								<label for="requireContent">내용</label>
-								<textarea class="form-control" name="requireContent" rows="5" cols="50"></textarea>
+								<textarea class="form-control" name="require_content" rows="5" cols="50">${headRequire.require_content}</textarea>
 							</div>
 							<div>
 								<button class="btn btn-primary btn-sm">수정</button>
