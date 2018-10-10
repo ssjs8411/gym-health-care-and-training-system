@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cafe24.chgs8411.trainerWork.service.TrainerWorkMapper">
+	
+	<!--트레이너 출근  -->
+	<insert id="insertTainerWork">
+		INSERT INTO trainer_work
+		(healthclubs_no, trainer_no, trainer_work_start, trainer_work_date)
+		VALUES (1, 1, NOW(), NOW())
+	</insert>
+	
+	<!--트레이너 퇴근  -->
+	<update id="updateTrainerWork">
+		UPDATE trainer_work
+		SET
+		trainer_work_end=NOW()
+		WHERE trainer_work_date=trainer_work_date
+	</update>
+	
+	
+</mapper>
