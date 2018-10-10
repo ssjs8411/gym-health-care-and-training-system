@@ -24,6 +24,18 @@ public class HeadRequireController {
 	@Autowired
 	private HeadRequireService headRequireService;
 	
+	// 본사 건의사항 전체목록 조회 경로맵핑
+	@RequestMapping(value="/headRequireSearchList", method=RequestMethod.GET)
+	public String headRequireSearchList(Model model) {
+		
+		List<HeadRequire> headRequireList = headRequireService.selectAllHeadRequire();
+		
+		model.addAttribute("headRequireList", headRequireList);
+		
+		return "headRequire/headRequireSearchList";
+	}
+	
+	// 회원의 본사 건의사항 등록을 위해 세션을 이용하여 회원 정보 조회 경로맵핑
 	@RequestMapping(value="/memberHeadRequireInsert", method=RequestMethod.GET)
 	public String memberHeadRequireInsert(Model model, HttpSession session) {
 		System.out.println("Member 권한으로 로그인 중");
@@ -38,6 +50,7 @@ public class HeadRequireController {
 		return "headRequire/headRequireInsert";
 	}
 	
+	// 트레이너의 본사 건의사항 등록을 위해 세션을 이용하여 트레이너 정보 조회 경로맵핑
 	@RequestMapping(value="/trainerHeadRequireInsert", method=RequestMethod.GET)
 	public String trainerHeadRequireInsert(Model model, HttpSession session) {
 		System.out.println("Trainer 권한으로 로그인 중");
@@ -52,6 +65,7 @@ public class HeadRequireController {
 		return "headRequire/headRequireInsert";
 	}
 	
+	// 체인점 관리자의 본사 건의사항 등록을 위해 세션을 이용하여 체인점 관리자 정보 조회 경로맵핑
 	@RequestMapping(value="/adminHeadRequireInsert", method=RequestMethod.GET)
 	public String adminHeadRequireInsert(Model model, HttpSession session) {
 		System.out.println("Admin 권한으로 로그인 중");
@@ -66,53 +80,37 @@ public class HeadRequireController {
 		return "headRequire/headRequireInsert";
 	}
 	
+	// 회원 권한으로 본사 건의사항 등록 경로맵핑
 	@RequestMapping(value="/memberHeadRequireInsert", method=RequestMethod.POST)
 	public String memberHeadRequireInsert(Model model, HeadRequire headRequire) {
 		System.out.println("member 권한으로 건의사항 입력");
 		
 		headRequireService.insertHeadRequire(headRequire);
 		
-		List<HeadRequire> headRequireList = headRequireService.selectAllHeadRequire();
-		
-		model.addAttribute("headRequireList", headRequireList);
-		
-		return "headRequire/headRequireSearchList";
+		return "redirect:headRequireSearchList";
 	}
 	
+	// 트레이너 권한으로 본사 건의사항 등록 경로맵핑
 	@RequestMapping(value="/trainerHeadRequireInsert", method=RequestMethod.POST)
-	public String trainerHeadRequireInsert(HeadRequire headRequire) {
+	public String trainerHeadRequireInsert(Model model, HeadRequire headRequire) {
 		System.out.println("trainer 권한으로 건의사항 입력");
 		
 		headRequireService.insertHeadRequire(headRequire);
 		
-		return "home";
+		return "redirect:headRequireSearchList";
 	}
 	
+	// 관리자 권한으로 본사 건의사항 등록 경로맵핑
 	@RequestMapping(value="/adminHeadRequireInsert", method=RequestMethod.POST)
 	public String adminHeadRequireInsert(Model model, HeadRequire headRequire) {
 		System.out.println("admin 권한으로 건의사항 입력");
 		
 		headRequireService.insertHeadRequire(headRequire);
 		
-		List<HeadRequire> headRequireList = headRequireService.selectAllHeadRequire();
-		
-		model.addAttribute("headRequireList", headRequireList);
-		
-		return "headRequire/headRequireSearchList";
+		return "redirect:headRequireSearchList";
 	}
 	
-	@RequestMapping(value="/headRequireSearchList", method=RequestMethod.GET)
-	public String headRequireSearchList() {
-		
-		return "headRequire/headRequireSearchList";
-	}
-	
-//	@RequestMapping(value="/headRequireSearchList", method=RequestMethod.POST)
-//	public String headRequireSearchList() {
-//		
-//		return "headRequire/headRequireSearchList";
-//	}
-	
+	// 본사 건의사항 세부정보 조회 경로맵핑
 	@RequestMapping(value="/headRequireDetail", method=RequestMethod.GET)
 	public String headRequireDetail(Model model, @RequestParam(value="headRequireNo", required=true) int headRequireNo) {
 		
@@ -123,14 +121,36 @@ public class HeadRequireController {
 		return "headRequire/headRequireDetail";
 	}
 	
-	@RequestMapping(value="/headRequireUpdate", method=RequestMethod.GET)
-	public String headRequireUpdate() {
+	// 본사 건의사항 수정을 위한 조회 경로맵핑
+	@RequestMapping(value="/headRequireUpdateGet", method=RequestMethod.GET)
+	public String headRequireUpdateGet(Model model, @RequestParam(value="headRequireNo", required=true) int headRequireNo) {
+		
+		HeadRequire headRequire = headRequireService.selectHeadRequireUpdate(headRequireNo);
+		
+		model.addAttribute("headRequire", headRequire);
 		
 		return "headRequire/headRequireUpdate";
 	}
 	
-	@RequestMapping(value="/headRequireDelete", method=RequestMethod.GET)
+	// 본사 건의사항 수정 경로맵핑
+	@RequestMapping(value="/headRequireUpdatePost", method=RequestMethod.POST)
+	public String headRequireUpdatePost(HeadRequire headRequire) {
+		
+		headRequireService.headRequireUpdate(headRequire);
+		
+		return "redirect:headRequireSearchList";
+	}
+	
+	// 본사 건의사항 삭제 경로맵핑
+	@RequestMapping(value="/headRequireDeleteGet", method=RequestMethod.GET)
 	public String headRequireDelete() {
+		
+		return "headRequire/headRequireDelete";
+	}
+	
+	// 본사 건의사항 삭제를 위한 조회 경로맵핑
+	@RequestMapping(value="/HeadRequireDeletePost", method=RequestMethod.POST)
+	public String selectHeadRequireDelete(@RequestParam(value="headRequireNo", required=true) int headRequireNo) {
 		
 		return "headRequire/headRequireDelete";
 	}

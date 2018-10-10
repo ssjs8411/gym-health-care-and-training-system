@@ -70,4 +70,28 @@
 			head_require_no = #{headRequireNo}
 	</select>
 	
+	<select id="selectHeadRequireUpdate" parameterType="int" resultType="com.cafe24.chgs8411.headRequire.service.HeadRequire">
+		SELECT
+			head_require_no,
+			name,
+			phone,
+			require_title,
+			require_content,
+			require_date
+		FROM
+			head_require
+		WHERE
+			head_require_no = #{headRequireNo}
+	</select>
+	
+	<update id="headRequireUpdate" parameterType="com.cafe24.chgs8411.headRequire.service.HeadRequire">
+		UPDATE
+			head_require
+		SET
+			require_title=#{require_title},
+			require_content=#{require_content}
+		WHERE
+			head_require_no=#{head_require_no}
+	</update>
+	
 </mapper>

@@ -28,11 +28,11 @@
 								<label for="category">카테고리</label>
 								<select class="form-control" name="searchKey">
 									<option>전체</option>
-									<option value="headRequireNo">본사 건의사항 번호</option>
-									<option value="userName">이름</option>
-									<option value="requireTitle">제목</option>
-									<option value="requireContent">내용</option>
-									<option value="requireDate">등록 일자</option>
+									<option value="head_require_no">본사 건의사항 번호</option>
+									<option value="name">이름</option>
+									<option value="require_title">제목</option>
+									<option value="require_content">내용</option>
+									<option value="require_date">등록 일자</option>
 								</select>
 							</div>
 							<div class="form-group">
@@ -61,8 +61,8 @@
 									<td>${hRL.head_require_no}</td>
 									<td><a href="${pageContext.request.contextPath}/headRequireDetail?headRequireNo=${hRL.head_require_no}">${hRL.require_title}</a></td>
 									<td>${hRL.require_content}</td>
-									<td><a href="${pageContext.request.contextPath}/headRequireUpdate?headRequireNo=${hRL.head_require_no}">수정</a></td>
-									<td><a href="${pageContext.request.contextPath}/headRequireDelete?headRequireNo=${hRL.head_require_no}">삭제</a></td>
+									<td><a href="${pageContext.request.contextPath}/headRequireUpdateGet?headRequireNo=${hRL.head_require_no}">수정</a></td>
+									<td><a href="${pageContext.request.contextPath}/headRequireDeleteGet?headRequireNo=${hRL.head_require_no}">삭제</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
