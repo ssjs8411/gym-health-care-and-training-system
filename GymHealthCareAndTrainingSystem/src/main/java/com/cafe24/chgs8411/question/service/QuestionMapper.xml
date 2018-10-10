@@ -40,7 +40,7 @@
 	</update>
 	
 	<!-- 페이징 테스트 -->
-<!-- 	<select id="questionPaging" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.question.service.Question">
+	<select id="questionListTest" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.question.service.Question">
 		SELECT 
 			question_no
 			, member_no
@@ -52,8 +52,9 @@
 		 	 question 
 		 ORDER BY 
 		 	question_no 
-		 DESC LIMIT #{pageNum}, #{contentNum}
-	</select> -->
+		 <!-- DESC LIMIT #{pageNum}, #{contentNum} -->
+		 DESC LIMIT 1, 5
+	</select>
 	
 	<!-- 질문 개수 카운트 -->
 	<select id="questionCount" resultType="Integer">

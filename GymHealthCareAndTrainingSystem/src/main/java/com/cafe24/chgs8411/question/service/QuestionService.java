@@ -24,9 +24,13 @@ public class QuestionService {
 	
 	// 질문 삭제
 	// int 타입으로 removeQuestion 메소드 (Question 클래스 타입 question 매개변수)
-	public int removeQuestion (Question question) {
+	/*public int removeQuestion (Question question) {
 		return questionDao.deleteQuestion(question);
 	
+		
+	}*/
+	public int removeQuestion (int question_no) {
+		return questionDao.deleteQuestion(question_no);
 		
 	}
 	
@@ -45,10 +49,10 @@ public class QuestionService {
 		
 	}*/
 	// 페이징 테스트 
-	/*public List<Question> questionPaging (int pageNum, int contentNum){
-		return questionDao.questionPaging(pageNum, contentNum);
+	public List<Question> questionListTest (int pageNum, int contentNum){
+		return questionDao.questionListTest(pageNum, contentNum);
 		
-	}*/
+	}
 	
 	// 잘문 개수 카운트 
 	// int 타입으로 questionCount 메소드 (매개변수 없음)

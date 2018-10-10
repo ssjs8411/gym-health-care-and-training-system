@@ -1,5 +1,6 @@
 <!-- 김소희 2018-09-28 / questionInsert.jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -15,29 +16,34 @@
 			<section id="top" class="two">
 				<div class="container">
 				<h1>질문 등록</h1>
+				
 					<div class="col-md-6 col-md-offset-3">
-						<form role="form" action="${pageContext.request.contextPath}/questionInsert" method="POST">
-							<div class="form-group">
-								<label>작성자</label>
-							 	<input type="text" class="form-control" name="member_no" value="${question.member_no}"> 
-							 </div>
-							<div class="form-group">
-								<label>트레이너 </label>
-								<input type="text" class="form-control" name="trainer_no" value="${question.trainer_no}">
-							</div>
-							<div class="form-group">
-								<label>제목</label>
-								<input type="text" class="form-control" name="question_title" placeholder="제목" required>
-							</div>
-							<div class="form-group">
-								<label>내용</label>
-								<textarea class="form-control"  name="question_content" rows="10" cols="10" placeholder="내용을 입력해주세요" required></textarea>
-							</div>
-							<div>
-								<button type="submit" class="btn btn-info">확인<i class="fa fa-check spaceLeft"></i></button>
-								<a href="${pageContext.request.contextPath}/questionList">목록</a>
-							</div>
-						</form>
+						<c:if test="${!empty sessionScope.memberSessionId}">
+							<form role="form" action="${pageContext.request.contextPath}/questionInsert" method="POST">
+								<div class="form-group">
+									<label>작성자</label>
+								 	<input type="text" class="form-control" name="member_no" value="${question.member_no}"> 
+								 </div>
+								<div class="form-group">
+									<label>트레이너 </label>
+									<input type="text" class="form-control" name="trainer_no" value="${question.trainer_no}">
+								</div> 
+								<div><input type="hidden" name="member_no" value="${question.member_no}"></div>
+								<div><input type="hidden" name="member_no" value="${question.trainer_no}"></div> 
+								<div class="form-group">
+									<label>제목</label>
+									<input type="text" class="form-control" name="question_title" placeholder="제목" required>
+								</div>
+								<div class="form-group">
+									<label>내용</label>
+									<textarea class="form-control"  name="question_content" rows="5" cols="10" placeholder="내용을 입력해주세요" required></textarea>
+								</div>
+								<div>
+									<button type="submit" class="btn btn-info">확인<i class="fa fa-check spaceLeft"></i></button>
+									<a href="${pageContext.request.contextPath}/questionList">목록</a>
+								</div>
+							</form>
+						</c:if>
 					</div>
 				</div>
 			</section>

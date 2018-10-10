@@ -20,12 +20,9 @@
 							<div class="form-group">
 							 	<input type="hidden" class="form-control" name="question_no" value="${question.question_no}"> 
 							</div>
-							<%-- <div class="form-group">
-								<input type="hidden" class="form-control" name="member_no" value="${question.member_no}">
-							</div> --%>
 							<div>
 								게시글을 삭제 하시겠습니까?<br><br>
-								<button type="submit" class="btn btn-info">삭제<i class="fa fa-check spaceLeft"></i></button>
+								<button type="submit" class="btn btn-info" onclick="location.href='#'">삭제<i class="fa fa-check spaceLeft"></i></button>
 							</div>
 						</form>
 					</div>

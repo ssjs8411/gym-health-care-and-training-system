@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!-- 페이징 테스트 파일ㄹ -->
+<!-- 페이징 테스트 파일 -->
 <!DOCTYPE html>
 <html>
 <head>

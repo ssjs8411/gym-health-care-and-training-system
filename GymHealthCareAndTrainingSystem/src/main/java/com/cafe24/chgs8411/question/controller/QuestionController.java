@@ -37,17 +37,27 @@ public class QuestionController {
 	}
 	
 	// 질문 삭제 액션
-	@RequestMapping (value="/deleteQuestion", method = RequestMethod.POST)
-	public String qustionDelete (Question question) {
+	/*@RequestMapping (value="/questionDelete", method = RequestMethod.POST)
+	public String qustionDelete (int question_no) {
 		System.out.println("질문 삭제 액션");
-		questionService.removeQuestion(question);
+		questionService.removeQuestion(question_no);
 		return "redirct:/questionDetail?question_no=" + question.getQuestion_no();
+		return "redirct:/list";
 
 		
+	}*/
+	// 질문 삭제 액션
+	@RequestMapping (value="/questionDelete", method = {RequestMethod.GET, RequestMethod.POST})
+		public String questionDelete (int question_no) {
+			System.out.println("질문 삭제 액션");
+			questionService.removeQuestion(question_no);
+			return "question/questionDelete";
+			
 	}
 	
+	
 	// 질문 삭제 폼
-	@RequestMapping (value="/deleteQuestion", method = RequestMethod.GET)
+	@RequestMapping (value="/questionDelete", method = RequestMethod.POST)
 	public String questionDelete (Model model
 								, @RequestParam (value="question_no", required=true) int question_no) {
 		System.out.println("질문 삭제 폼 요청");
@@ -58,7 +68,7 @@ public class QuestionController {
 	}
 	
 	// 질문 수정 액션
-	@RequestMapping (value="/questionUpdate", method = RequestMethod.POST)
+	@RequestMapping (value="/questionUpdate", method = RequestMethod.GET)
 	public String questionUpdate(Question question) {
 		System.out.println("질문 수정 액션");
 		questionService.modifyQuestion(question);
@@ -66,7 +76,7 @@ public class QuestionController {
 	}
 	
 	// 질문 수정 폼
-	@RequestMapping (value="/questionUpdate", method = RequestMethod.GET)
+	@RequestMapping (value="/questionUpdate", method = RequestMethod.POST)
 	public String questionUpdate(Model model
 								, @RequestParam(value="question_no", required=true) int question_no) {
 		System.out.println("질문 수정 폼");
@@ -87,7 +97,7 @@ public class QuestionController {
 	}*/
 	
 	//페이징 테스트
-	/*@RequestMapping("/questionListTest")
+	@RequestMapping(value="/questionListTest")
 	public String list (HttpServletRequest request) {
 		QuestionPageMaker questionPageMaker = new QuestionPageMaker();
 		
@@ -104,10 +114,10 @@ public class QuestionController {
 		int ccontentNum = Integer.parseInt(contentNum);
 		
 		
-		String pageNum = request.getParameter("pageNum");
+		/*String pageNum = request.getParameter("pageNum");
 		String contentNum = request.getParameter("contentNum");
 		int cpageNum = Integer.parseInt(pageNum);
-		int ccontentNum = Integer.parseInt(contentNum);
+		int ccontentNum = Integer.parseInt(contentNum);*/
 		
 		questionPageMaker.setTotalCount(questionService.questionCount());
 		questionPageMaker.setPageNum(cpageNum-1);
@@ -119,13 +129,13 @@ public class QuestionController {
 		questionPageMaker.setStartPage(questionPageMaker.getCurrentBlock());
 		questionPageMaker.setEndPage(questionPageMaker.getLastBlock(), questionPageMaker.getCurrentBlock());
 		
-		List<Question> questionPaging = new ArrayList<Question>();
-		questionPaging = questionService.questionPaging(questionPageMaker.getPageNum()*10, questionPageMaker.getContentNum());
+		List<Question> questionListTest = new ArrayList<Question>();
+		questionListTest = questionService.questionListTest(questionPageMaker.getPageNum()*10, questionPageMaker.getContentNum());
 		
-		request.setAttribute("questionPaging", questionPaging);
-				return "questionPaging";
+		request.setAttribute("questionListTest", questionListTest);
+				return "questionListTest";
 				
-}*/
+	}
 	
 	/*@RequestMapping (value="/questionList", method = RequestMethod.GET)
 	public String list (HttpServletRequest request) {
