@@ -32,7 +32,7 @@ public class HealthclubsFacilitiesController {
 		return "redirect:/healthclubsFacilitiesSearchList";
 	}
 	//시설관리 리스트
-	@RequestMapping(value="/healthclubsFacilitiesSearchList",method=RequestMethod.GET)
+	@RequestMapping(value="/",method=RequestMethod.GET)
 	public String HealthclubsFacilitiesView(Model model) {
 		List<HealthclubsFacilities> list=healthclubsFacilitiesService.healthclubsFacilitiesView();
 		model.addAttribute("list", list);
@@ -41,7 +41,7 @@ public class HealthclubsFacilitiesController {
 	
 	//시설관리 수정 폼
 	@RequestMapping(value="/healthclubsFacilitiesUpdate",method=RequestMethod.GET)
-	public String HealthclubsFacilities(Model model,@RequestParam(value="healthclubs_facilities_no",required=true) int healthclubs_facilities_no) {
+	public String HealthclubsFacilitiesModify(Model model,@RequestParam(value="healthclubs_facilities_no",required=true) int healthclubs_facilities_no) {
 		HealthclubsFacilities healthclubsFacilities=healthclubsFacilitiesService.healthclubsFacilitiesmodify(healthclubs_facilities_no);
 		model.addAttribute("healthclubsFacilities", healthclubsFacilities);
 		return "healthclubsFacilities/healthclubsFacilitiesUpdate";
@@ -49,9 +49,15 @@ public class HealthclubsFacilitiesController {
 	
 	//시설관리수정 처리
 		@RequestMapping(value="/healthclubsFacilitiesUpdate",method=RequestMethod.POST)
-		public String HealthclubsFacilities(HealthclubsFacilities healthclubsFacilities) {
-			healthclubsFacilitiesService.healthclubsFacilitiesAdd(healthclubsFacilities);
-			return "healthclubsFacilities/healthclubsFacilitiesUpdate";
+		public String HealthclubsFacilitiesModify(HealthclubsFacilities healthclubsFacilities) {
+			healthclubsFacilitiesService.healthclubsFacilitiesmodify(healthclubsFacilities);
+			return "redirect:/";
 		}
 	
+	//시설삭제
+		@RequestMapping(value="/healthclubsFacilitiesRemove",method=RequestMethod.GET)
+		public String HealthclubsFacilitiesRemove(HealthclubsFacilities healthclubsFacilities) {
+			healthclubsFacilitiesService.healthclubsFacilitiesremove(healthclubsFacilities);
+			return "redirect:/";
+		}
 }

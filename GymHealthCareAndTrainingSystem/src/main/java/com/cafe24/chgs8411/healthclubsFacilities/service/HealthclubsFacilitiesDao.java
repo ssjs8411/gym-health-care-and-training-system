@@ -33,4 +33,9 @@ public class HealthclubsFacilitiesDao {
 		return sqlsessionTemplate.update(ns+"updateHealthclubsFacilities", healthclubsFailities);
 	}
 	
+	//시설 삭제
+	public int healthclubsFacilitiesDelete(HealthclubsFacilities healthclubsFailities) {
+		return sqlsessionTemplate.delete(ns+"deleteHealthclubsFacilities",healthclubsFailities);
+	}
+	
 }

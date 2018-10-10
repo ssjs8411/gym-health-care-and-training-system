@@ -37,7 +37,7 @@
 									<td>${h.healthclubs_facilities_cost}</td>
 									<td>${h.facilities_purchase_date}</td>									
 									<td><a href="${pageContext.request.contextPath}/healthclubsFacilitiesUpdate?healthclubs_facilities_no=${h.healthclubs_facilities_no}">수정</a></td>
-									<td><a href="${pageContext.request.contextPath}/#">삭제</a></td>
+									<td><a href="${pageContext.request.contextPath}/healthclubsFacilitiesRemove?healthclubs_facilities_no=${h.healthclubs_facilities_no}">삭제</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

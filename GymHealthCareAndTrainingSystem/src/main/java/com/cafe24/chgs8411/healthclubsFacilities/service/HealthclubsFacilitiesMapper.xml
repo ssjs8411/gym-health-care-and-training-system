@@ -31,7 +31,8 @@
 	<!--시설번호로 특정시설 조회  -->
 	<select id="selectHealthblubsFailities" resultType="com.cafe24.chgs8411.healthclubsFacilities.service.HealthclubsFacilities">
 		select
-			healthclubs_facilities_name
+			healthclubs_facilities_no
+			,healthclubs_facilities_name
 			,facilities_detail_content
 			,healthclubs_facilities_cost
 			,facilities_purchase_date
@@ -50,4 +51,7 @@
 		WHERE healthclubs_facilities_no=#{healthclubs_facilities_no}
 	</update>
 	
+	<delete id="deleteHealthclubsFacilities" parameterType="com.cafe24.chgs8411.healthclubsFacilities.service.HealthclubsFacilities">
+		delete from healthclubs_facilities where healthclubs_facilities_no=#{healthclubs_facilities_no}
+	</delete>
 </mapper>

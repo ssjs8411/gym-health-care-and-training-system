@@ -27,11 +27,19 @@ public class HealthclubsFacilitiesService {
 	}
 	//특정 시설 조회
 	public HealthclubsFacilities healthclubsFacilitiesmodify(int healthclubs_facilities_no) {
+		System.out.println("healthclubsFacilitiesmodify");
 		return healthclubsFacilitiesDao.healthclubsFacilitiesUpdate(healthclubs_facilities_no);
 	}
 	
 	//시설 수정
 	public int healthclubsFacilitiesmodify(HealthclubsFacilities healthclubsFailities) {
+		System.out.println("healthclubsFacilitiesmodify");
 		return healthclubsFacilitiesDao.healthclubsFacilitiesUpdate(healthclubsFailities);
+	}
+	
+	//시설 삭제
+	public int healthclubsFacilitiesremove(HealthclubsFacilities healthclubsFailities) {
+		System.out.println("healthclubsFacilitiesremove");
+		return healthclubsFacilitiesDao.healthclubsFacilitiesDelete(healthclubsFailities);
 	}
 }

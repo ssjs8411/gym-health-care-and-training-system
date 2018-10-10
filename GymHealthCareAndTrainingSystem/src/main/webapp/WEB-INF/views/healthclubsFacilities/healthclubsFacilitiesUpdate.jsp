@@ -16,7 +16,7 @@
 				<div class="container">
 				<h1>시설관리 수정</h1>
 					<div class="col-md-6 col-md-offset-3">
-						<form role="form" action="${pageContext.request.contextPath}/healthclubsFacilitiesInsert" method="POST">
+						<form role="form" action="${pageContext.request.contextPath}/healthclubsFacilitiesUpdate?healthclubs_facilities_no=${healthclubsFacilities.healthclubs_facilities_no}" method="POST">
 							<div class="form-group">
 								<label for="username">시설명</label>  
 								<input type="text"  class="form-control" name="healthclubs_facilities_name" value="${healthclubsFacilities.healthclubs_facilities_name}">
