@@ -2,6 +2,8 @@
 
 package com.cafe24.chgs8411.headRequire.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cafe24.chgs8411.headRequire.service.HeadRequire;
 import com.cafe24.chgs8411.headRequire.service.HeadRequireService;
@@ -64,10 +67,14 @@ public class HeadRequireController {
 	}
 	
 	@RequestMapping(value="/memberHeadRequireInsert", method=RequestMethod.POST)
-	public String memberHeadRequireInsert(HeadRequire headRequire) {
+	public String memberHeadRequireInsert(Model model, HeadRequire headRequire) {
 		System.out.println("member 권한으로 건의사항 입력");
 		
 		headRequireService.insertHeadRequire(headRequire);
+		
+		List<HeadRequire> headRequireList = headRequireService.selectAllHeadRequire();
+		
+		model.addAttribute("headRequireList", headRequireList);
 		
 		return "headRequire/headRequireSearchList";
 	}
@@ -78,14 +85,18 @@ public class HeadRequireController {
 		
 		headRequireService.insertHeadRequire(headRequire);
 		
-		return "headRequire/headRequireSearchList";
+		return "home";
 	}
 	
 	@RequestMapping(value="/adminHeadRequireInsert", method=RequestMethod.POST)
-	public String adminHeadRequireInsert(HeadRequire headRequire) {
+	public String adminHeadRequireInsert(Model model, HeadRequire headRequire) {
 		System.out.println("admin 권한으로 건의사항 입력");
 		
 		headRequireService.insertHeadRequire(headRequire);
+		
+		List<HeadRequire> headRequireList = headRequireService.selectAllHeadRequire();
+		
+		model.addAttribute("headRequireList", headRequireList);
 		
 		return "headRequire/headRequireSearchList";
 	}
@@ -96,8 +107,18 @@ public class HeadRequireController {
 		return "headRequire/headRequireSearchList";
 	}
 	
+//	@RequestMapping(value="/headRequireSearchList", method=RequestMethod.POST)
+//	public String headRequireSearchList() {
+//		
+//		return "headRequire/headRequireSearchList";
+//	}
+	
 	@RequestMapping(value="/headRequireDetail", method=RequestMethod.GET)
-	public String headRequireDetail() {
+	public String headRequireDetail(Model model, @RequestParam(value="headRequireNo", required=true) int headRequireNo) {
+		
+		HeadRequire headRequire = headRequireService.selectHeadRequireDetail(headRequireNo);
+		
+		model.addAttribute("headRequire", headRequire);
 		
 		return "headRequire/headRequireDetail";
 	}

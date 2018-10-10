@@ -56,13 +56,15 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>1</td>
-								<td>2</td>
-								<td>3</td>
-								<td><a href="${pageContext.request.contextPath}/headRequireUpdate?#">수정</a></td>
-								<td><a href="${pageContext.request.contextPath}/headRequireDelete?#">삭제</a></td>
-							</tr>
+							<c:forEach var="hRL" items="${headRequireList}">
+								<tr>
+									<td>${hRL.head_require_no}</td>
+									<td><a href="${pageContext.request.contextPath}/headRequireDetail?headRequireNo=${hRL.head_require_no}">${hRL.require_title}</a></td>
+									<td>${hRL.require_content}</td>
+									<td><a href="${pageContext.request.contextPath}/headRequireUpdate?headRequireNo=${hRL.head_require_no}">수정</a></td>
+									<td><a href="${pageContext.request.contextPath}/headRequireDelete?headRequireNo=${hRL.head_require_no}">삭제</a></td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 					
