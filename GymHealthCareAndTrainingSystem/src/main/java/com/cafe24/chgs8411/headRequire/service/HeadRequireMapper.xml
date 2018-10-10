@@ -45,4 +45,29 @@
 			(#{name}, #{phone}, #{require_title}, #{require_content}, now());
 	</insert>
 	
+	<select id="selectAllHeadRequire" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.headRequire.service.HeadRequire">
+		SELECT
+			head_require_no,
+			name, phone,
+			require_title,
+			require_content,
+			require_date
+		FROM
+			head_require
+	</select>
+	
+	<select id="selectHeadRequireDetail" parameterType="int" resultType="com.cafe24.chgs8411.headRequire.service.HeadRequire">
+		SELECT
+			head_require_no,
+			name,
+			phone,
+			require_title,
+			require_content,
+			require_date
+		FROM
+			head_require
+		WHERE
+			head_require_no = #{headRequireNo}
+	</select>
+	
 </mapper>

@@ -35,12 +35,12 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td>1</td>
-								<td>2</td>
-								<td>3</td>
-								<td>4</td>
-								<td>5</td>
-								<td>6</td>
+								<td>${headRequire.head_require_no}</td>
+								<td>${headRequire.name}</td>
+								<td>${headRequire.phone}</td>
+								<td>${headRequire.require_title}</td>
+								<td>${headRequire.require_content}</td>
+								<td>${headRequire.require_date}</td>
 							</tr>
 						</tbody>
 					</table>

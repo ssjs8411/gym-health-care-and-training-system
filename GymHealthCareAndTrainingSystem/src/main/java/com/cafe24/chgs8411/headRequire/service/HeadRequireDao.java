@@ -2,6 +2,8 @@
 
 package com.cafe24.chgs8411.headRequire.service;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -30,5 +32,13 @@ public class HeadRequireDao {
 
 	public void insertHeadRequire(HeadRequire headRequire) {
 		sqlSessionTemplate.insert(NS+"insertHeadRequire", headRequire);
+	}
+	
+	public List<HeadRequire> selectAllHeadRequire() {
+		return sqlSessionTemplate.selectList(NS+"selectAllHeadRequire");
+	}
+	
+	public HeadRequire selectHeadRequireDetail(int headRequireNo) {
+		return sqlSessionTemplate.selectOne(NS+"selectHeadRequireDetail", headRequireNo);
 	}
 }

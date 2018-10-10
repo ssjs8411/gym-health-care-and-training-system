@@ -2,6 +2,8 @@
 
 package com.cafe24.chgs8411.headRequire.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,5 +33,13 @@ public class HeadRequireService {
 	public void insertHeadRequire(HeadRequire headRequire) {
 		
 		headRequireDao.insertHeadRequire(headRequire);
+	}
+	
+	public List<HeadRequire> selectAllHeadRequire() {
+		return headRequireDao.selectAllHeadRequire();
+	}
+	
+	public HeadRequire selectHeadRequireDetail(int headRequireNo) {
+		return headRequireDao.selectHeadRequireDetail(headRequireNo);
 	}
 }
