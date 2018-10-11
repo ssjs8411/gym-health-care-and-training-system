@@ -1,6 +1,6 @@
 <!-- 김소희 2018-10-02  / QuestionDetail.jsp  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -57,7 +57,68 @@
 				</div>
 			</section>
 		</div>
-		
+		<div id="main">
+			<section id="top" class="two">
+				<div class="container">
+					<%-- <c:if test="${requestScope.answerList != null}"> --%>
+						<c:forEach var="answer" items="${requestScope.answerList}">
+							<tr>
+								<td>
+									<div>
+										${answer.trainer_no}<br>
+										${answer.answer_date}
+									</div>
+								</td>
+								<td>	<!-- 답변 제목 -->
+									<div>
+										${answer.answer_title}
+									</div>
+								</td>
+								<td>	<!-- 답변 내용 -->
+									<div>
+										${answer.answer_content}
+									</div>
+								</td>
+								<td> 
+									<div id="btn" style="text-align:center;">
+										<a href="${pageContext.request.contextPath}/answerInsert">답변 작성</a><br>
+									</div>
+									<c:if test="${answer.trainer_no == sessionScope.trainerSessionId}">
+										<a href="${pageContext.request.contextPath}/answerUpdate">답변 수정</a><br>
+										<a href="${pageContext.request.contextPath}/answerDelete">답변 삭제</a>
+									</c:if>
+								</td>
+							</tr>
+						</c:forEach>
+				<%-- 	</c:if> --%>
+					<!-- 로그인 했을 경우에만 답변 가능 -->
+					<c:if test="${sessionScope.trainerSessionId != null}"> 
+						<form id="answerInsert">
+							<input type="hidden" name="answer_no" value="${answer.answer_no}">
+							<input type="hidden" name="trainer_no" value="${sessionScope.trainerSessionId}">
+							<td>
+								<div>${sessionScope.trainerSessionId}</div>
+							</td>
+							<td>
+								<div>
+									<input type="text" class="form-control" name="answer_title" required>
+								</div>
+							</td>
+							<td>
+								<div>
+									<textarea class="form-control" name="answer_content" rows="4" cols="10" required></textarea>
+								</div>
+							</td>
+							<td>
+								<div id="btn" style="text-align:center;">
+									<p><a href="${pageContext.request.contextPath}/answerInsert" onclick="<!-- writeCmt() -->#">답변 등록</a><br></p>
+								</div>
+							</td>
+						</form>
+					</c:if> 
+				</div>
+			</section>
+		</div>
 		<!-- footer Include -->
 		<jsp:include page="/WEB-INF/views/module/footer.jsp"></jsp:include>
 	</body>
