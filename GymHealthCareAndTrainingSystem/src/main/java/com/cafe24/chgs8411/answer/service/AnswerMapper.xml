@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 2018-10-11 김소희 / AnswerMapper.xml -->
+
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cafe24.chgs8411.answer.service.AnswerMapper">
+
+	<!-- 답변 상세보기 -->
+	<select id="selectDetailAnswer" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.answer.service.Answer">
+		SELECT 
+			answer_no
+			, question_no
+			, trainer_no
+			, answer_title
+			, answer_content
+			, answer_date
+		FROM
+			answer
+		WHERE 
+			answer_no = #{answer_no}
+	</select>
+	
+	<!-- 답변 삭제 -->
+	<delete id="deleteAnswer" parameterType="com.cafe24.chgs8411.answer.service.Answer">
+		DELETE
+		FROM 
+			answer 
+		WHERE 
+			answer_no = #{answer_no}
+	</delete>
+	
+	<!-- 답변 수정 -->
+	<update id="updateAnswer" parameterType="com.cafe24.chgs8411.answer.service.Answer">
+		UPDATE 
+			answer 
+		SET 
+			answer_content = #{answer_content} 
+		WHERE
+			question_no = #{question_no}
+	</update>
+	
+	<!-- 답변 검색 -->
+	<select id="searchAnswer" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.answer.service.Answer">
+		SELECT
+			answer_no
+			, question_no
+			, trainer_no
+			, answer_title
+			, answer_content
+			, answer_date 
+		FROM
+			 answer
+		WHERE 
+			answer_title
+		like 
+			'%%'
+		ORDER BY 
+			answer_no 
+		DESC
+	</select>
+
+	<!-- 답변 목록 -->
+	<select id="selectAnswer" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.answer.service.Answer">
+		SELECT
+			answer_no 
+			, question_no 
+			, trainer_no 
+			, answer_title 
+			, answer_content 
+			, answer_date 
+		FROM 
+			answer
+		ORDER BY 
+			answer_no
+		DESC
+	</select>
+	
+	<!-- 답변등록 -->
+	<insert id="insertAnswer" parameterType="com.cafe24.chgs8411.answer.service.Answer">
+		INSERT INTO answer(
+			question_no
+			, trainer_no
+			, answer_title
+			, answer_content
+			, answer_date
+		)
+		VALUES (
+			#{question_no}
+			, #{trainer_no}
+			, #{answer_title}
+			, #{answer_content}
+			, NOW()
+		)
+	</insert>
+</mapper>

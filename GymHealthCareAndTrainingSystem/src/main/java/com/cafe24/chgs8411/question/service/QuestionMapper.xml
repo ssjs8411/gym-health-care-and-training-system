@@ -73,23 +73,29 @@
 			, question_date 
 		FROM
 			 question
-		WHERE question_title
-		like '%%'
-		ORDER BY question_no DESC;
+		WHERE
+			 question_title
+		like 
+			'%%'
+		ORDER BY 
+			question_no
+		DESC
 	</select>
 	
 	
 	<!-- 질문 목록 -->
 	<select id="selectQuestion" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.question.service.Question">
 		SELECT
-			question_no AS question_no
-			, member_no AS member_no
-			, trainer_no AS trainer_no
-			, question_title AS question_title
-			, question_content AS question_content
-			, question_date AS question_date
-		FROM question
-		ORDER BY question_no
+			question_no 
+			, member_no 
+			, trainer_no 
+			, question_title
+			, question_content 
+			, question_date 
+		FROM
+			 question
+		ORDER BY 
+			question_no
 		DESC
 	</select>
 	

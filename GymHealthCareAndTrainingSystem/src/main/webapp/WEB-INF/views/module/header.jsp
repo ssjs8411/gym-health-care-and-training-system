@@ -60,7 +60,7 @@
 								<li><a href="#top" id="top-link"><span class="icon fa-home">마이페이지</span></a></li>
 								<li><a href="#about" id="about-link"><span class="icon fa-user">헬스 프로그램 등록</span></a></li>
 								<li><a href="#about" id="about-link"><span class="icon fa-user">헬스 프로그램</span></a></li>
-								<li><a href="#about" id="contact-link"><span class="icon fa-envelope">피드백</span></a></li>
+								<li><a href="${pageContext.request.contextPath}/questionList" id="contact-link"><span class="icon fa-envelope">피드백</span></a></li>
 								<li><a href="${pageContext.request.contextPath}/trainerHeadRequireInsert" id="contact-link"><span class="icon fa-envelope">건의사항</span></a></li>
 							</ul>
 						</nav>
