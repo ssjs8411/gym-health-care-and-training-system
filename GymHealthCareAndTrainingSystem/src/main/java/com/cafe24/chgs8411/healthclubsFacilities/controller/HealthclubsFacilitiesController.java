@@ -32,7 +32,7 @@ public class HealthclubsFacilitiesController {
 		return "redirect:/healthclubsFacilitiesSearchList";
 	}
 	//시설관리 리스트
-	@RequestMapping(value="/",method=RequestMethod.GET)
+	@RequestMapping(value="/HealthclubsFacilitiesView",method=RequestMethod.GET)
 	public String HealthclubsFacilitiesView(Model model) {
 		List<HealthclubsFacilities> list=healthclubsFacilitiesService.healthclubsFacilitiesView();
 		model.addAttribute("list", list);
@@ -51,13 +51,13 @@ public class HealthclubsFacilitiesController {
 		@RequestMapping(value="/healthclubsFacilitiesUpdate",method=RequestMethod.POST)
 		public String HealthclubsFacilitiesModify(HealthclubsFacilities healthclubsFacilities) {
 			healthclubsFacilitiesService.healthclubsFacilitiesmodify(healthclubsFacilities);
-			return "redirect:/";
+			return "redirect:/HealthclubsFacilitiesView";
 		}
 	
 	//시설삭제
 		@RequestMapping(value="/healthclubsFacilitiesRemove",method=RequestMethod.GET)
 		public String HealthclubsFacilitiesRemove(HealthclubsFacilities healthclubsFacilities) {
 			healthclubsFacilitiesService.healthclubsFacilitiesremove(healthclubsFacilities);
-			return "redirect:/";
+			return "redirect:/HealthclubsFacilitiesView";
 		}
 }
