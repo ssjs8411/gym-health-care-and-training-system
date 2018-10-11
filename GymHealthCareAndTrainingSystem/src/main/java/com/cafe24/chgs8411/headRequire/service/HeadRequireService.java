@@ -49,12 +49,29 @@ public class HeadRequireService {
 	}
 	
 	// 본사 건의사항 수정을 위한 조회 메서드
-	public HeadRequire selectHeadRequireUpdate(int headRequireNo) {
+	public HeadRequire selectHeadRequireForUpdate(int headRequireNo) {
 		return headRequireDao.selectHeadRequireDetail(headRequireNo);
 	}
 	
 	// 본사 건의사항 수정 메서드
 	public void headRequireUpdate(HeadRequire headRequire) {
 		headRequireDao.headRequireUpdate(headRequire);
+	}
+	
+	public List<HeadRequire> selectHeadRequireList(String name) {
+		return headRequireDao.selectHeadRequireList(name);
+	}
+	
+	public int selectMemberPasswordForDelete(String memberPassword, int memberSessionNo) {
+		
+		String checkPassword = headRequireDao.selectMemberPasswordForDelete(memberSessionNo);
+		
+		if(memberPassword.equals(checkPassword)) {
+			
+			return 1;
+		}else {
+			return 0;
+		}
+		
 	}
 }

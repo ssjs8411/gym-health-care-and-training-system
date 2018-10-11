@@ -70,7 +70,7 @@
 			head_require_no = #{headRequireNo}
 	</select>
 	
-	<select id="selectHeadRequireUpdate" parameterType="int" resultType="com.cafe24.chgs8411.headRequire.service.HeadRequire">
+	<select id="selectHeadRequireForUpdate" parameterType="int" resultType="com.cafe24.chgs8411.headRequire.service.HeadRequire">
 		SELECT
 			head_require_no,
 			name,
@@ -93,5 +93,46 @@
 		WHERE
 			head_require_no=#{head_require_no}
 	</update>
+	
+	<select id="selectHeadRequireList" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.headRequire.service.HeadRequire">
+		SELECT
+			head_require_no,
+			name,
+			phone,
+			require_title,
+			require_content,
+			require_date
+		FROM
+			head_require
+		WHERE
+			name = #{name}
+	</select>
+	
+	<select id="selectMemberPasswordForDelete" parameterType="int" resultType="int">
+		SELECT
+			member_pw
+		FROM
+			member
+		WHERE
+			member_no = #{memberSessionNo}
+	</select>
+	
+	<select id="selectTrainerPasswordForDelete" parameterType="int" resultType="String">
+		SELECT
+			trainer_pw
+		FROM
+			trainer
+		WHERE
+			trainer_no = #{trainerSessionNo};
+	</select>
+	
+	<select id="selectAdminPasswordForDelete" parameterType="int" resultType="String">
+		SELECT
+			healthclubs_admin_pw
+		FROM
+			healthclubs_admin
+		WHERE
+			healthclubs_admin_no = #{adminSessionNo};
+	</select>
 	
 </mapper>

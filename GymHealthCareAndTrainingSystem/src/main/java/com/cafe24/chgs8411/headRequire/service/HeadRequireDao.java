@@ -49,12 +49,22 @@ public class HeadRequireDao {
 	}
 	
 	// 본사 건의사항 수정을 위한 조회 메서드
-	public HeadRequire selectHeadRequireUpdate(int headRequireNo) {
-		return sqlSessionTemplate.selectOne(NS+"selectHeadRequireUpdate", headRequireNo);
+	public HeadRequire selectHeadRequireForUpdate(int headRequireNo) {
+		return sqlSessionTemplate.selectOne(NS+"selectHeadRequireForUpdate", headRequireNo);
 	}
 	
 	// 본사 건의사항 수정 메서드
 	public void headRequireUpdate(HeadRequire headRequire) {
 		sqlSessionTemplate.update(NS+"headRequireUpdate", headRequire);
+	}
+	
+	// ***
+	public List<HeadRequire> selectHeadRequireList(String name) {
+		return sqlSessionTemplate.selectList(NS+"selectHeadRequireList", name);
+	}
+	
+	// *** 본사 건의사항 삭제를 위한 비밀번호 조회 메서드
+	public String selectMemberPasswordForDelete(int memberSessionNo) {
+		return sqlSessionTemplate.selectOne(NS+"selectMemberPasswordForDelete", memberSessionNo);
 	}
 }

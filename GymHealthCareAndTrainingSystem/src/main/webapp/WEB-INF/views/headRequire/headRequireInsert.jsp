@@ -45,7 +45,7 @@
 						
 						<!-- 트레이너 -->
 						<c:if test="${!empty sessionScope.trainerSessionId}">
-							<form role="form" action="${pageContext.request.contextPath}/adminHeadRequireInsert" method="post">
+							<form role="form" action="${pageContext.request.contextPath}/trainerHeadRequireInsert" method="post">
 								<div><input type="hidden" name="name" value="${trainer.trainer_name}"></div>
 								<div><input type="hidden" name="phone" value="${trainer.trainer_phone}"></div>
 								<div class="form-group">
@@ -62,11 +62,11 @@
 							</form>
 						</c:if>
 						
-						<!-- 관리자 -->
+						<!-- 체인점 관리자 -->
 						<c:if test="${!empty sessionScope.adminSessionId}">	
-							<form role="form" action="${pageContext.request.contextPath}/trainerHeadRequireInsert" method="post">
-								<div><input type="hidden" name="name" value="${healthclubsAdmin.healthclubsAdmin_name}"></div>
-								<div><input type="hidden" name="phone" value="${healthclubsAdmin.healthclubsAdmin_phone}"></div>
+							<form role="form" action="${pageContext.request.contextPath}/adminHeadRequireInsert" method="post">
+								<div><input type="hidden" name="name" value="${healthclubsAdmin.healthclubs_admin_name}"></div>
+								<div><input type="hidden" name="phone" value="${healthclubsAdmin.healthclubs_admin_phone}"></div>
 								<div class="form-group">
 									<label for="requireTitle">제목</label>
 									<input class="form-control" type="text" name="require_title">

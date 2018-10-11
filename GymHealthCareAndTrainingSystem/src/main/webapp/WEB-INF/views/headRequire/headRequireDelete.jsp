@@ -23,14 +23,45 @@
 				<h1>본사 건의사항 삭제 확인</h1><br>
 				
 				<div class="col-md-6 col-md-offset-3">
-					<form>
-						<div class="form-group">
-							<input class="form-control" type="password" name="userPassword">
-						</div>
-						<div>
-							<button class="btn btn-primary btn-sm">삭제</button>
-						</div>
-					</form>
+				
+					<!-- 회원 -->
+					<c:if test="${!empty sessionScope.memberSessionId}">
+						<form role="form" action="${pageContext.request.contextPath}/memberHeadRequireDelete" method="post">
+							<input type="hidden" name="headRequireNo" value="${headRequireNo}">
+							<div class="form-group">
+								<input class="form-control" type="password" name="memberPassword">
+							</div>
+							<div>
+								<button class="btn btn-primary btn-sm">삭제</button>
+							</div>
+						</form>
+					</c:if>
+					
+					<!-- 트레이너 -->
+					<c:if test="${!empty sessionScope.trainerSessionId}">
+						<form role="form" action="${pageContext.request.contextPath}/trainerHeadRequireDelete" method="post">
+							<input type="hidden" name="headRequireNo" value="${headRequireNo}">
+							<div class="form-group">
+								<input class="form-control" type="password" name="trainerPassword">
+							</div>
+							<div>
+								<button class="btn btn-primary btn-sm">삭제</button>
+							</div>
+						</form>
+					</c:if>
+					
+					<!-- 체인점 관리자 -->
+					<c:if test="${!empty sessionScope.adminSessionId}">	
+						<form role="form" action="${pageContext.request.contextPath}/adminHeadRequireDelete" method="post">
+							<input type="hidden" name="headRequireNo" value="${headRequireNo}">
+							<div class="form-group">
+								<input class="form-control" type="password" name="adminPassword">
+							</div>
+							<div>
+								<button class="btn btn-primary btn-sm">삭제</button>
+							</div>
+						</form>
+					</c:if>
 				</div>
 				
 				</div>
