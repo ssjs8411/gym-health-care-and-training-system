@@ -35,6 +35,7 @@
   			SELECT healthclubs_admin_name
   				,healthclubs_admin_no
   				,healthclubs_admin_id
+  				,healthclubs_name
   			FROM healthclubs_admin
   			JOIN healthclubs ON healthclubs_admin.healthclubs_no = healthclubs.healthclubs_no
   			WHERE healthclubs_admin_id=#{healthclubs_admin_id}
@@ -53,6 +54,7 @@
   			SELECT trainer_name
   				,trainer_no
   				,trainer_id
+  				,healthclubs_name
   			FROM trainer
   			JOIN healthclubs ON trainer.healthclubs_no = healthclubs.healthclubs_no
   			WHERE trainer_id=#{trainer_id}

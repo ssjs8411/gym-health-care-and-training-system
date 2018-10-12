@@ -61,16 +61,16 @@ public class LoginController {
 	// /adminLogin GET 방식 요청을 처리하는 메서드 입니다.
 	// 요청을 처리후 /WEB-INF/views/login/adminLogin.jsp로 이동 합니다
 	@RequestMapping(value="/adminLogin",method=RequestMethod.GET)
-	public String adminLogin() {
-		
+	public String adminLogin(HttpSession session) {
+		session.invalidate();
 		return "login/adminLogin";
 	}
 	
 	// /trainerLogin GET 방식 요청을 처리하는 메서등 입니다.
 	// 요청을 처리후  /WEB-INF/views/login/trainerLogin.jsp로 이동 합니다
 	@RequestMapping(value="/trainerLogin",method=RequestMethod.GET)
-	public String trainerLogin() {
-		
+	public String trainerLogin(HttpSession session) {
+		session.invalidate();
 		return "login/trainerLogin";
 	}
 	

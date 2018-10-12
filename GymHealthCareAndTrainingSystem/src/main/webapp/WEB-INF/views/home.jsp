@@ -8,27 +8,55 @@
 	<head>
 		<title>Home</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		
+		<!-- Bootstrap core CSS-->
+		<link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		
+		<!-- Custom fonts for this template-->
+		<link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+		
+		<!-- Page level plugin CSS-->
+		<link href="resources/vendor/datatables/dataTables.bootstrap4.css"
+			rel="stylesheet">
+		
+		<!-- Custom styles for this template-->
+		<link href="resources/css/sb-admin.css" rel="stylesheet">
+		
+		<!-- Bootstrap core JavaScript-->
+		<script src="resources/vendor/jquery/jquery.min.js"></script>
+		<script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	
+		<!-- Core plugin JavaScript-->
+		<script src="resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+	
+		<!-- Page level plugin JavaScript-->
+		<script src="resources/vendor/datatables/jquery.dataTables.js"></script>
+		<script src="resources/vendor/datatables/dataTables.bootstrap4.js"></script>
+	
+		<!-- Custom scripts for all pages-->
+		<script src="resources/js/sb-admin.min.js"></script>
+	
+		<!-- Demo scripts for this page-->
+		<script src="resources/js/demo/datatables-demo.js"></script>
 	</head>
-	<body class="is-preload">
-		<jsp:include page="module/header.jsp"></jsp:include>
+	<body id="page-top">
+		<jsp:include page="/WEB-INF/views/module/header.jsp"></jsp:include>
 		<!-- Main -->
-			<div id="main">
-				<!-- Intro -->
-					<section id="top" class="one dark cover">
-						<div class="container">
+		<div id="content-wrapper">
+			<div class="container-fluid">
 
-							<header>
-								<h2 class="alt">헬스장 명</h2>
-								<p>ex) 헬스 프로그램 정보 혹은 헬스장 정보<br/></p>
-							</header>
+					<header>
+						<h2 class="alt">헬스장 명</h2>
+						<p>ex) 헬스 프로그램 정보 혹은 헬스장 정보<br/></p>
+					</header>
 
-							<footer>
-								<a href="${pageContext.request.contextPath}/" class="button scrolly">마이 페이지</a>
-							</footer>
+					<footer>
+						<a href="${pageContext.request.contextPath}/" class="button scrolly">마이 페이지</a>
+					</footer>
 
-						</div>
-					</section>
+			</div>
 
 				<!-- Portfolio -->
 					<section id="portfolio" class="two">
@@ -91,57 +119,8 @@
 
 						</div>
 					</section>
-
-				<!-- About Me -->
-					<section id="about" class="three">
-						<div class="container">
-
-							<header>
-								<h2>About Me</h2>
-							</header>
-
-							<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
-
-							<p>Tincidunt eu elit diam magnis pretium accumsan etiam id urna. Ridiculus
-							ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec vitae
-							laoreet eget cubilia quam non etiam odio tincidunt montes. Elementum sem
-							parturient nulla quam placerat viverra mauris non cum elit tempus ullamcorper
-							dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec
-							ornare iaculis.</p>
-
-						</div>
-					</section>
-
-				<!-- Contact -->
-					<section id="contact" class="four">
-						<div class="container">
-
-							<header>
-								<h2>Contact</h2>
-							</header>
-
-							<p>Elementum sem parturient nulla quam placerat viverra
-							mauris non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia
-							donec curae mus. Eleifend id porttitor ac ultricies lobortis sem nunc
-							orci ridiculus faucibus a consectetur. Porttitor curae mauris urna mi dolor.</p>
-
-							<form method="post" action="#">
-								<div class="row">
-									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" /></div>
-									<div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" /></div>
-									<div class="col-12">
-										<textarea name="message" placeholder="Message"></textarea>
-									</div>
-									<div class="col-12">
-										<input type="submit" value="Send Message" />
-									</div>
-								</div>
-							</form>
-
-						</div>
-					</section>
-
+				</div>
 			</div>
-		<jsp:include page="module/footer.jsp"></jsp:include>
+		<jsp:include page="/WEB-INF/views/module/footer.jsp"></jsp:include>
 	</body>
 </html>
