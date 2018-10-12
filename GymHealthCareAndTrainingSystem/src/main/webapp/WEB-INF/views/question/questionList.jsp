@@ -62,7 +62,7 @@
 									<a href="${pageContext.request.contextPath}/home">HOME</a>
 								</div>
 								<form role="form" action="${pageContext.request.contextPath}/questionList" method = "GET" style="margin:0; padding:0;"> 
-									<div class="form-group">
+									<!-- <div class="form-group">
 									<label for="category">카테고리</label>
 										<select class="form-control" name="search">
 											<option>전체</option>
@@ -76,7 +76,7 @@
 									</div>
 									<div>
 										<button class="btn btn-primary btn-sm">검색</button>
-									</div>
+									</div> -->
 									<%-- <P style="margin:0; padding:0;">
 										<input type="hidden" name="questionCd" value="${question}"/>
 										<input type="text" name="searchWord" size="5" maxlength="">
