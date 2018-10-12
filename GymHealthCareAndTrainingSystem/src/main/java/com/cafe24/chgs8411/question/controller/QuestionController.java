@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cafe24.chgs8411.question.service.Question;
-import com.cafe24.chgs8411.question.service.QuestionDao;
 import com.cafe24.chgs8411.question.service.QuestionPageMaker;
 import com.cafe24.chgs8411.question.service.QuestionService;
 
@@ -47,7 +46,7 @@ public class QuestionController {
 		
 	}*/
 	// 질문 삭제 액션
-	@RequestMapping (value="/questionDelete", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping (value="/questionDelete", method = RequestMethod.POST)
 		public String questionDelete (int question_no) {
 			System.out.println("질문 삭제 액션");
 			questionService.removeQuestion(question_no);
@@ -57,10 +56,10 @@ public class QuestionController {
 	
 	
 	// 질문 삭제 폼
-	@RequestMapping (value="/questionDelete", method = RequestMethod.POST)
+	@RequestMapping (value="/questionDelete", method = RequestMethod.GET)
 	public String questionDelete (Model model
 								, @RequestParam (value="question_no", required=true) int question_no) {
-		System.out.println("질문 삭제 폼 요청");
+		System.out.println("질문 삭제 폼");
 		Question question = questionService.selectDetailQuestion(question_no);
 		model.addAttribute("question", question);
 		return "question/questionDelete";
@@ -68,7 +67,7 @@ public class QuestionController {
 	}
 	
 	// 질문 수정 액션
-	@RequestMapping (value="/questionUpdate", method = RequestMethod.GET)
+	@RequestMapping (value="/questionUpdate", method = RequestMethod.POST)
 	public String questionUpdate(Question question) {
 		System.out.println("질문 수정 액션");
 		questionService.modifyQuestion(question);
@@ -76,7 +75,7 @@ public class QuestionController {
 	}
 	
 	// 질문 수정 폼
-	@RequestMapping (value="/questionUpdate", method = RequestMethod.POST)
+	@RequestMapping (value="/questionUpdate", method = RequestMethod.GET)
 	public String questionUpdate(Model model
 								, @RequestParam(value="question_no", required=true) int question_no) {
 		System.out.println("질문 수정 폼");

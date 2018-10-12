@@ -27,7 +27,7 @@
 		WHERE 
 			question_no = #{question_no}
 	</delete>
-	
+										
 	<!-- 질문 수정 -->
 	<update id="updateQustion" parameterType="com.cafe24.chgs8411.question.service.Question">
 		UPDATE 
@@ -65,12 +65,12 @@
 	<!-- 질문 검색 -->
 	<select id="searchQuestion" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.question.service.Question">
 		SELECT
-			question_no
-			, member_no
-			, trainer_no
-			, question_title
-			, question_content
-			, question_date 
+			question_no AS question_no
+			, member_no AS member_no
+			, trainer_no AS trainer_no
+			, question_title AS question_title
+			, question_content AS question_content
+			, question_date	AS 
 		FROM
 			 question
 		WHERE

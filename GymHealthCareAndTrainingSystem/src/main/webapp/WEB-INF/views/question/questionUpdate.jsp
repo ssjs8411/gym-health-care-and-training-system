@@ -11,7 +11,17 @@
 	<body class="is-preload">
 		<!-- header include -->
 		<jsp:include page="/WEB-INF/views/module/header.jsp"></jsp:include>
-	`	
+	`	<!-- 
+			question
+
+			question_no
+			member_no
+			trainer_no
+			question_title
+			question_content
+			question_date
+						
+		 -->
 		<div id="main">
 			<section id="top" class="two">
 				<div class="container">
@@ -20,7 +30,7 @@
 						<input type="hidden" name="question_no" value="${question.question_no}">
 						<div>
 							<label>작성자</label>
-							<input type="text" class="form-control" name="member_no" value="${question.member_no}">
+							<input type="hidden" class="form-control" name="member_no" value="${question.member_no}">
 						</div>
 						<div class="form-group">
 							<label>제목</label>
@@ -28,7 +38,7 @@
 						</div>
 						<div class="form-group">
 							<label>내용</label>
-							<textarea class="form-control" name="question_content" rows="10" cols="10">${question.question_content}</textarea>
+							<textarea class="form-control" name="question_content" rows="10" cols="150">${question.question_content}</textarea>
 						</div>
 						<div>
 							<button type="submit" class="btn btn-info">수정<i class="fa fa-check spaceLeft"></i></button>

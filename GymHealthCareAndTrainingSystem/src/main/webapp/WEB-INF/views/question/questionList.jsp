@@ -72,9 +72,7 @@
 						</div>
 					</section>
 				</div>
-			<button type="button" class="btn btn-info" onclick="window.location.href='/home'">HOME<i class="fa fa-check spaceLeft"></i></button>
-			</div>
-		</div>
+			<!-- <button type="button" class="btn btn-info" onclick="window.location.href='/home'">HOME<i class="fa fa-check spaceLeft"></i></button> -->
 		<!-- footer Include -->
 		<jsp:include page="/WEB-INF/views/module/footer.jsp"></jsp:include>
 	</body>

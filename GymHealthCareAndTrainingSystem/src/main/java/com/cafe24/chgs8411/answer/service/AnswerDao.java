@@ -42,4 +42,9 @@ public class AnswerDao {
 		
 	}
 
+/*	public int inserstAnswer (int question_no) {
+		return sqlSessionTemplate.insert(NS+"insertAnswer", question_no);
+		
+	}*/
+
 }

@@ -17,12 +17,13 @@
 				<h1>질문 삭제</h1>
 					<div class="col-md-6 col-md-offset-3">
 						<form role="form" action="${pageContext.request.contextPath}/questionDelete" method="POST">
-							<div class="form-group">
+							<div>
 							 	<input type="hidden" class="form-control" name="question_no" value="${question.question_no}"> 
 							</div>
 							<div>
 								게시글을 삭제 하시겠습니까?<br><br>
-								<button type="submit" class="btn btn-info" onclick="location.href='questionDelete'">삭제<i class="fa fa-check spaceLeft"></i></button>
+								<!-- <button type="submit" class="btn btn-info" onclick="location.href='questionList'">삭제<i class="fa fa-check spaceLeft"></i></button> -->
+								<button class="btn btn-primary btn-sm" >확인</button>
 							</div>
 						</form>
 					</div>

@@ -178,7 +178,7 @@
 						</a>
 						<div class="dropdown-menu" aria-labelledby="pagesDropdown">
 							<h6 class="dropdown-header">회원 관리 :</h6>
-							<a class="dropdown-item" href="login.html">- 회원별 피드백</a> 
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/questionList">- 회원별 피드백</a> 
 							<a class="dropdown-item" href="${pageContext.request.contextPath}/selectMemberList">- 가입 회원 현황</a> 
 							<a class="dropdown-item" href="forgot-password.html">- ......</a>
 							<div class="dropdown-divider"></div>
@@ -238,7 +238,7 @@
 						</a>
 						<div class="dropdown-menu" aria-labelledby="pagesDropdown">
 							<h6 class="dropdown-header">회원 관리 :</h6>
-							<a class="dropdown-item" href="login.html">- 회원별 피드백</a> 
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/questionList">- 회원별 피드백</a> 
 							<a class="dropdown-item" href="${pageContext.request.contextPath}/selectMemberList">- 가입 회원 현황</a> 
 							<a class="dropdown-item" href="forgot-password.html">- ......</a>
 							<div class="dropdown-divider"></div>
@@ -299,6 +299,12 @@
 						<a class="nav-link" href="#">
 						<i class="fas fa-fw fa-folder"></i> 
 						<span>건의 사항</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="${pageContext.request.contextPath}/questionList">
+						<i class="fas fa-fw fa-folder"></i> 
+						<span>피드백</span>
 						</a>
 					</li>
 					<li class="nav-item">

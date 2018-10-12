@@ -42,5 +42,6 @@ public class AnswerService {
 	// 리턴 int 타입으로 addAnswer 메소드 선언 (Answer 클래스 타입으로 answer 매개변수)
 	public int addAnswer (Answer answer) {
 		return answerDao.inserstAnswer(answer);
+	
 	}
 }

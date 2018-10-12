@@ -51,16 +51,24 @@
 						</tr>
 					</table>
 					<a href="${pageContext.request.contextPath}/questionList">목록</a>&nbsp;&nbsp;&nbsp;&nbsp;
-					<%-- <a href="${pageContext.request.contextPath}/questionUpdate">수정</a>&nbsp;&nbsp;&nbsp;&nbsp; --%>
-					<a href="${pageContext.request.contextPath}/questionUpdate?question_no=${question.question_no}">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="${pageContext.request.contextPath}/questionDelete?question_no=${question.question_no}">삭제</a>
+					<!-- 트레이너로 로그인 했을 경우에만 답변 가능 -->
+					<c:if test="${sessionScope.trainerSessionId != null}"> 
+							<a href="${pageContext.request.contextPath}/answerInsert?question_no=${question.question_no}">답변 등록</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					</c:if>
+					<!-- 회원으로 로그인 했을 경우에만 수정 가능 -->
+					<c:if test="${sessionScope.memberSessionId != null}"> 
+						<a href="${pageContext.request.contextPath}/questionUpdate?question_no=${question.question_no}">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					</c:if>
+					<c:if test="${sessionScope.memberSessionId != null}"> <!-- 회원이랑 관리자 삭제 가능하게 만들어야 함 -->
+						<a href="${pageContext.request.contextPath}/questionDelete?question_no=${question.question_no}">삭제</a>
+					</c:if>
 				</div>
 			</section>
 		</div>
-		<div id="main">
+		<%-- <div id="main">
 			<section id="top" class="two">
 				<div class="container">
-					<%-- <c:if test="${requestScope.answerList != null}"> --%>
+					<c:if test="${requestScope.answerList != null}">
 						<c:forEach var="answer" items="${requestScope.answerList}">
 							<tr>
 								<td>
@@ -90,8 +98,8 @@
 								</td>
 							</tr>
 						</c:forEach>
-				<%-- 	</c:if> --%>
-					<!-- 로그인 했을 경우에만 답변 가능 -->
+					</c:if>
+					<!-- 트레이너로 로그인 했을 경우에만 답변 가능 -->
 					<c:if test="${sessionScope.trainerSessionId != null}"> 
 						<form id="answerInsert">
 							<input type="hidden" name="answer_no" value="${answer.answer_no}">
@@ -101,24 +109,26 @@
 							</td>
 							<td>
 								<div>
-									<input type="text" class="form-control" name="answer_title" required>
+									<input type="text" class="form-control" name="answer_title" value="${answer.answer_title}"required>
 								</div>
 							</td>
 							<td>
 								<div>
-									<textarea class="form-control" name="answer_content" rows="4" cols="10" required></textarea>
+									<textarea class="form-control" name="answer_content" rows="4" cols="10" value="${answer.answer_content}" required></textarea>
 								</div>
 							</td>
 							<td>
 								<div id="btn" style="text-align:center;">
 									<p><a href="${pageContext.request.contextPath}/answerInsert" onclick="<!-- writeCmt() -->#">답변 등록</a><br></p>
+									<p><a href="${pageContext.request.contextPath}/answerInsert">답변 등록</a><br></p>
+									<button class="btn btn-primary btn-sm" >등록</button>
 								</div>
 							</td>
 						</form>
 					</c:if> 
 				</div>
 			</section>
-		</div>
+		</div>   --%>
 		<!-- footer Include -->
 		<jsp:include page="/WEB-INF/views/module/footer.jsp"></jsp:include>
 	</body>

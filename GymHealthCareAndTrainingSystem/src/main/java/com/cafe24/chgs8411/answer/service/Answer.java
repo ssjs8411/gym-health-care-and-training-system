@@ -2,10 +2,19 @@
 package com.cafe24.chgs8411.answer.service;
 
 public class Answer {
+	
+		/* 	답변 번호
+			질문 번호
+			트레이너 번호
+			답변 제목
+			답변 내용
+			답변 날짜
+			
+		  */
 		private int answer_no;
 		private int question_no;
 		private int trainer_no;
-		private String nswer_title;
+		private String answer_title;
 		private String answer_content;
 		private String answer_date;
 		
@@ -28,10 +37,10 @@ public class Answer {
 			this.trainer_no = trainer_no;
 		}
 		public String getNswer_title() {
-			return nswer_title;
+			return answer_title;
 		}
 		public void setNswer_title(String nswer_title) {
-			this.nswer_title = nswer_title;
+			this.answer_title = nswer_title;
 		}
 		public String getAnswer_content() {
 			return answer_content;

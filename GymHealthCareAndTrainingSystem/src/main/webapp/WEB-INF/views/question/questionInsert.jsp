@@ -36,7 +36,7 @@
 								</div>
 								<div class="form-group">
 									<label>내용</label>
-									<textarea class="form-control"  name="question_content" rows="5" cols="10" placeholder="내용을 입력해주세요" required></textarea>
+									<textarea class="form-control"  name="question_content" rows="10" cols="150" placeholder="내용을 입력해주세요" required></textarea>
 								</div>
 								<div>
 									<button type="submit" class="btn btn-info">확인<i class="fa fa-check spaceLeft"></i></button>

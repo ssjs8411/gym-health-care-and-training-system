@@ -22,13 +22,19 @@
 						<c:if test="${!empty sessionScope.trainerSessionId}">
 							<form role="form" action="${pageContext.request.contextPath}/answerInsert" method="post">
 								<div class="form-group">
-									<input type="hidden" class="form-control" name="question_no" value="${question.question_no}">
+									<input type="hidden" name="answer_no" value="${answer.answer_no}">
+								</div>
+								<div>
+									<label>제목</label>
+									<input type="text" class="form-control" name="answer_title" placeholder="제목" required>
 								</div>
 								<div class="form-group">
-									<textarea class="form-control"  name="answer_content" rows="5" cols="10" placeholder="답변을 능록해주세요" required></textarea>
+									<label>내용</label>
+									<textarea class="form-control"  name="answer_content" rows="10" cols="150" placeholder="답변을 록해주세요" required></textarea>
 								</div>
 								<div>
 									<button type="submit" class="btn btn-info">등록<i class="fa fa-check spaceLeft"></i></button>
+									<a href="${pageContext.request.contextPath}/questionDetail">원글</a>
 									<a href="${pageContext.request.contextPath}/questionList">목록</a>
 								</div>
 							</form>

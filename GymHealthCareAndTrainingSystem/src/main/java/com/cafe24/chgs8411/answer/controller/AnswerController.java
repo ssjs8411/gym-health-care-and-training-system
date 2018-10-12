@@ -13,13 +13,15 @@ public class AnswerController {
 	private AnswerService answerService;
 	
 	// 답변 등록 액션
-	@RequestMapping (value="answerInsert", method = RequestMethod.POST)
+	@RequestMapping (value="/answerInsert", method = RequestMethod.POST)
 	public String answerInsert(Answer answer) {
-		System.out.println("답븐 등록 액션");
+		System.out.println("답변 등록 액션");
 		answerService.addAnswer(answer);
-		return "redirect:/questionList";
+		return "redirect:/questionDetail";
 		
 	}
+	
+
 	// 답변 등록 폼
 	@RequestMapping (value="/answerInsert", method = RequestMethod.GET)
 	public String answerInsert() {
