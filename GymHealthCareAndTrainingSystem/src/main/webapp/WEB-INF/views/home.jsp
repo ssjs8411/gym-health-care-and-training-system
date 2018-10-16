@@ -46,81 +46,93 @@
 		<!-- Main -->
 		<div id="content-wrapper">
 			<div class="container-fluid">
-
-					<header>
-						<h2 class="alt">헬스장 명</h2>
-						<p>ex) 헬스 프로그램 정보 혹은 헬스장 정보<br/></p>
-					</header>
-
-					<footer>
-						<a href="${pageContext.request.contextPath}/" class="button scrolly">마이 페이지</a>
-					</footer>
-
-			</div>
-
-				<!-- Portfolio -->
-					<section id="portfolio" class="two">
-						<div class="container">
-
-							<header>
-								<h2>헬스장 프로그램</h2>
-							</header>
-
-							<p>헬스장 프로그램</p>
-
-							<div class="row">
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<header>
-											<a href="${pageContext.request.contextPath}/healingYoga?program=1" class="image fit"><h3>힐링요가</h3></a>
-										</header>
-									</article>
-									<article class="item">
-										<header>
-											<a href="${pageContext.request.contextPath}/TotalBodyToning?program=2" class="image fit"><h3>토탈바디토닝</h3></a>
-										</header>
-									</article>
-									<article class="item">
-										<header>
-											<a href="${pageContext.request.contextPath}/gymTicket?program=3" class="image fit"><h3>헬스장이용권</h3></a>
-										</header>
-									</article>
+				<!-- Breadcrumbs-->
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">지점명 </li>
+					<li class="breadcrumb-item active">${sessionScope.healthclubsName}</li>
+				</ol>
+				<div class="card mb-3">
+					<div class="card-header">
+						<i class="fas fa-table"></i> <!-- 제목(ex : 헬스장 리스트) -->
+					</div>
+						<div class="card-body">
+							<div class="table-responsive">
+							<!-- 팀원 소개 -->
+							<section class="content-section" id="portfolio">
+								<div class="container">
+									<div class="content-section-heading text-center">
+										<h2 class="mb-5">Health Program</h2>
+									</div>
+									<div class="row no-gutters">
+										<div class="col-lg-6">
+											<a class="portfolio-item" href="#"> 
+												<span class="caption">
+													<span class="caption-content">
+														<h2>Diet</h2>
+														<p class="mb-0"> </p>
+														<p class="mb-0"></p>
+													</span>
+												</span>
+												<img class="img-fluid" src="resources/img/diet.jpg" alt="">
+											</a>
+										</div>
+										<div class="col-lg-6">
+											<a class="portfolio-item" href="#"> 
+												<span class="caption">
+													<span class="caption-content">
+														<h2>Fitness</h2>
+														<p class="mb-0"></p>
+														<p class="mb-0"></p>
+													</span>
+												</span>
+												<img class="img-fluid" src="resources/img/up.PNG" alt="">
+											</a>
+										</div>
+										<div class="col-lg-6">
+											<a class="portfolio-item" href="#"> 
+												<span class="caption">
+													<span class="caption-content">
+														<h2>Body Correction</h2>
+														<p class="mb-0"></p>
+														<p class="mb-0"></p>
+													</span>
+												</span> 
+												<img class="img-fluid" src="resources/img/body.jpg" alt="">
+											</a>
+										</div>
+										<div class="col-lg-6">
+											<a class="portfolio-item" href="#"> 
+												<span class="caption">
+													<span class="caption-content">
+														<h2>Rehabilitation</h2>
+														<p class="mb-0"></p>
+														<p class="mb-0"></p>
+													</span>
+												</span>
+												<img class="img-fluid" src="resources/img/red.jpg" alt="">
+											</a>
+										</div>
+										<div class="col-lg-6">
+											<a class="portfolio-item" href="#"> 
+												<span class="caption">
+													<span class="caption-content">
+														<h2>Personal Training</h2>
+														<p class="mb-0"></p>
+														<p class="mb-0"></p>
+													</span>
+												</span> 
+												<img class="img-fluid" src="resources/img/PT.jpg" alt="">
+											</a>
+										</div>
+									</div>
 								</div>
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<header>
-											<a href="${pageContext.request.contextPath}/powerStretching?program=4" class="image fit"><h3>파워스트레칭</h3></a>
-										</header>
-									</article>
-									<article class="item">
-										<header>
-											<a href="${pageContext.request.contextPath}/absStretching?program=5" class="image fit"><h3>ABS스트레칭</h3></a>
-										</header>
-									</article>
-									<article class="item">
-										<header>
-											<a href="${pageContext.request.contextPath}/personalTraining?program=6" class="image fit"><h3>P.T</h3></a>
-										</header>
-									</article>
-								</div>
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<header>
-											<a href="${pageContext.request.contextPath}/muscularStrengthStretching?program=7" class="image fit"><h3>근력스트레칭</h3></a>
-										</header>
-									</article>
-									<article class="item">
-										<header>
-											<a href="${pageContext.request.contextPath}/jumpSports?program=8" class="image fit"><h3>점프스포츠</h3></a>
-										</header>
-									</article>
-								</div>
+							</section>	
 							</div>
-
 						</div>
-					</section>
 				</div>
 			</div>
+		</div>
+		
 		<jsp:include page="/WEB-INF/views/module/footer.jsp"></jsp:include>
 	</body>
 </html>
