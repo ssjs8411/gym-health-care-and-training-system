@@ -36,9 +36,9 @@
 				<li class="sidebar-brand"><a class="js-scroll-trigger" href="#page-top">HealthCare And Training</a></li>
 				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#page-top">Home</a></li>
 				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#about">Login</a></li>
-				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#services">Services</a></li>
-				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#portfolio">SiteMap</a></li>
-				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#contact">Contact</a></li>
+				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#services">프로젝트 소개</a></li>
+				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#portfolio">팀원 소개</a></li>
+				<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#contact">ERD</a></li>
 			</ul>
 		</nav>
 
@@ -81,6 +81,144 @@
 			</div>
 		</section>
 
+		<!-- 프로젝트 소개 -->
+		<section class="content-section bg-primary text-white text-center" id="services">
+			<div class="container">
+				<div class="content-section-heading">
+					<h3 class="text-secondary mb-0">G.I 조</h3>
+					<h2 class="mb-5">프로젝트 소개</h2>
+				</div>
+				<div class="row">
+					<div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+						<span class="service-icon rounded-circle mx-auto mb-3"> 
+							<i class="icon-screen-smartphone"></i>
+						</span>
+						<h4>
+							<strong>프로젝트 명</strong>
+						</h4>
+						<p class="text-faded mb-0">헬스장 통합 관리 시스템(Gym Health Care And Training System)</p>
+					</div>
+					<div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+						<span class="service-icon rounded-circle mx-auto mb-3"> 
+							<i class="icon-pencil"></i>
+						</span>
+						<h4>
+							<strong>프로젝트 주제</strong>
+						</h4>
+						<p class="text-faded mb-0">구체적 근거 자료를 토대로 회원에게 동기 부여를 해주며, 맞춤 프로그램으로 개인별 체형 및 수준에 맞는 관리를 할수 있고 헬스장 입장에서는 통합적인 관리를 도와주는 시스템입니다. </p>
+					</div>
+					<div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+						<span class="service-icon rounded-circle mx-auto mb-3"> 
+							<i class="icon-like"></i>
+						</span>
+						<h4>
+							<strong>기대효과</strong>
+						</h4>
+						<p class="text-faded mb-0">체계적인 헬스장 관리로 매출 상승 기대효과 뿐만 아니라 전문적인 건강관리로 삶의 질을 향상시켜 회원 유실을 방지 합니다 </p>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<span class="service-icon rounded-circle mx-auto mb-3"> <i
+							class="icon-mustache"></i>
+						</span>
+						<h4>
+							<strong>개발환경</strong>
+						</h4>
+						<p class="text-faded mb-0">
+							OS : Window7<br>
+							C.L : HTML,	CSS, JavaScript, JQuery<br>
+							S.L : Java, JSP<br>
+							WAS : apache-tomcat<br>
+							DB : MariaDB<br>
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Git 주소 -->
+		<section class="content-section bg-light" id="about">
+			<div class="container text-center">
+				<div class="row">
+					<div class="col-lg-10 mx-auto">
+						<h2>3팀 프로젝트 Github 주소</h2>
+						<a class="btn btn-dark btn-xl js-scroll-trigger" href="https://github.com/ssjs8411/gym-health-care-and-training-system.git">바로가기</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	
+		<!-- 팀원 소개 -->
+		<section class="content-section" id="portfolio">
+			<div class="container">
+				<div class="content-section-heading text-center">
+					<h3 class="text-secondary mb-0">개발자 28기 3팀</h3>
+					<h2 class="mb-5">프로젝트 팀원 소개</h2>
+				</div>
+				<div class="row no-gutters">
+					<div class="col-lg-6">
+						<a class="portfolio-item" href="#"> 
+							<span class="caption">
+								<span class="caption-content">
+									<h2>팀장 : 최지수</h2>
+									<p class="mb-0">업무 : </p>
+									<p class="mb-0">cafe24 주소 : </p>
+								</span>
+							</span>
+							<img class="img-fluid" src="resources/img/portfolio-1.jpg" alt="">
+						</a>
+					</div>
+					<div class="col-lg-6">
+						<a class="portfolio-item" href="#"> 
+							<span class="caption">
+								<span class="caption-content">
+									<h2>팀원 : 김소희</h2>
+									<p class="mb-0">업무 : </p>
+									<p class="mb-0">cafe24 주소 : </p>
+								</span>
+							</span>
+							<img class="img-fluid" src="resources/img/portfolio-1.jpg" alt="">
+						</a>
+					</div>
+					<div class="col-lg-6">
+						<a class="portfolio-item" href="#"> 
+							<span class="caption">
+								<span class="caption-content">
+									<h2>팀원 : 현희문</h2>
+									<p class="mb-0">업무 : </p>
+									<p class="mb-0">cafe24 주소 : </p>
+								</span>
+							</span> 
+							<img class="img-fluid" src="resources/img/portfolio-2.jpg" alt="">
+						</a>
+					</div>
+					<div class="col-lg-6">
+						<a class="portfolio-item" href="#"> 
+							<span class="caption">
+								<span class="caption-content">
+									<h2>팀원 : 공세준</h2>
+									<p class="mb-0">업무 : </p>
+									<p class="mb-0">cafe24 주소 : </p>
+								</span>
+							</span>
+							<img class="img-fluid" src="resources/img/portfolio-3.jpg" alt="">
+						</a>
+					</div>
+					<div class="col-lg-6">
+						<a class="portfolio-item" href="#"> 
+							<span class="caption">
+								<span class="caption-content">
+									<h2>팀원 : 정민수</h2>
+									<p class="mb-0">업무 : </p>
+									<p class="mb-0">cafe24 주소 : </p>
+								</span>
+							</span> 
+							<img class="img-fluid" src="resources/img/portfolio-4.jpg" alt="">
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<!-- Footer -->
 		<footer class="footer text-center">
 			<div class="container">
@@ -96,7 +234,7 @@
 						</a>
 					</li>
 					<li class="list-inline-item">
-						<a class="social-link rounded-circle text-white" href="#"> 
+						<a class="social-link rounded-circle text-white" href="https://github.com/ssjs8411/gym-health-care-and-training-system.git"> 
 							<i class="icon-social-github"></i>
 						</a>
 					</li>
