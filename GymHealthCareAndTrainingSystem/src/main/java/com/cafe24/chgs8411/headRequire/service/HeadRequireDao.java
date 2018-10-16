@@ -58,13 +58,30 @@ public class HeadRequireDao {
 		sqlSessionTemplate.update(NS+"headRequireUpdate", headRequire);
 	}
 	
-	// ***
-	public List<HeadRequire> selectHeadRequireList(String name) {
-		return sqlSessionTemplate.selectList(NS+"selectHeadRequireList", name);
+	// 세션별 본사 건의사항 리스트 조회 메서드
+	public List<HeadRequire> selectHeadRequireList(HeadRequire headRequire) {
+		return sqlSessionTemplate.selectList(NS+"selectHeadRequireList", headRequire);
 	}
 	
-	// *** 본사 건의사항 삭제를 위한 비밀번호 조회 메서드
+	// 본사 건의사항 삭제를 위한 회원 비밀번호 조회 메서드
 	public String selectMemberPasswordForDelete(int memberSessionNo) {
 		return sqlSessionTemplate.selectOne(NS+"selectMemberPasswordForDelete", memberSessionNo);
 	}
+	
+	// 본사 건의사항 삭제를 위한 트레이너 비밀번호 조회 메서드
+	public String selectTrainerPasswordForDelete(int trainerSessionNo) {
+		return sqlSessionTemplate.selectOne(NS+"selectTrainerPasswordForDelete", trainerSessionNo);
+	}
+	
+	// 본사 건의사항 삭제를 위한 체인점 관리자 비밀번호 조회 메서드
+	public String selectAdminPasswordForDelete(int adminSessionNo) {
+		return sqlSessionTemplate.selectOne(NS+"selectAdminPasswordForDelete", adminSessionNo);
+	}
+	
+	// 본사 건의사항 삭제 메서드
+	public void deleteHeadRequire(int headRequireNO) {
+		sqlSessionTemplate.delete(NS+"deleteHeadRequire", headRequireNO);
+	}
+	
+	
 }

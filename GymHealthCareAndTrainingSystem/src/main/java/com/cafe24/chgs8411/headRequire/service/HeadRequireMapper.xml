@@ -40,9 +40,9 @@
 	
 	<insert id="insertHeadRequire" parameterType="com.cafe24.chgs8411.headRequire.service.HeadRequire">
 		INSERT INTO
-			head_require (name, phone, require_title, require_content, require_date)
+			head_require (name, phone, require_title, require_content, require_date, writer_level, serial_no)
 		VALUES
-			(#{name}, #{phone}, #{require_title}, #{require_content}, now());
+			(#{name}, #{phone}, #{require_title}, #{require_content}, now(), #{writer_level}, #{serial_no});
 	</insert>
 	
 	<select id="selectAllHeadRequire" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.headRequire.service.HeadRequire">
@@ -88,13 +88,13 @@
 		UPDATE
 			head_require
 		SET
-			require_title=#{require_title},
-			require_content=#{require_content}
+			require_title = #{require_title},
+			require_content = #{require_content}
 		WHERE
-			head_require_no=#{head_require_no}
+			head_require_no = #{head_require_no}
 	</update>
 	
-	<select id="selectHeadRequireList" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.headRequire.service.HeadRequire">
+	<select id="selectHeadRequireList" parameterType="com.cafe24.chgs8411.headRequire.service.HeadRequire" resultType="com.cafe24.chgs8411.headRequire.service.HeadRequire">
 		SELECT
 			head_require_no,
 			name,
@@ -105,10 +105,12 @@
 		FROM
 			head_require
 		WHERE
-			name = #{name}
+			writer_level = #{writer_level}
+		AND
+			serial_no = #{serial_no}
 	</select>
 	
-	<select id="selectMemberPasswordForDelete" parameterType="int" resultType="int">
+	<select id="selectMemberPasswordForDelete" parameterType="int" resultType="String">
 		SELECT
 			member_pw
 		FROM
@@ -134,5 +136,13 @@
 		WHERE
 			healthclubs_admin_no = #{adminSessionNo};
 	</select>
+	
+	<delete id="deleteHeadRequire" parameterType="int">
+		DELETE
+		FROM
+			head_require
+		WHERE
+			head_require_no = #{headRequireNo};
+	</delete>
 	
 </mapper>

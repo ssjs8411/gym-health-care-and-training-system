@@ -164,11 +164,13 @@ public class HeadRequireController {
 	@RequestMapping(value="/memberHeadRequireList", method=RequestMethod.GET)
 	public String selectMemberHeadRequireList(Model model, HttpSession session) {
 		
-		String name = (String) session.getAttribute("memberSessionName");
+		int serialNo = (Integer) session.getAttribute("memberSessionNo");
+		int writerLevelNo = 1;
 		
-		System.out.println(name);
+		System.out.println(serialNo);
+		System.out.println(writerLevelNo);
 		
-		List<HeadRequire> headRequireList = headRequireService.selectHeadRequireList(name);
+		List<HeadRequire> headRequireList = headRequireService.selectHeadRequireList(serialNo, writerLevelNo);
 		
 		model.addAttribute("headRequireList", headRequireList);
 		
@@ -179,11 +181,13 @@ public class HeadRequireController {
 	@RequestMapping(value="/trainerHeadRequireList", method=RequestMethod.GET)
 	public String selectTrainerHeadRequireList(Model model, HttpSession session) {
 		
-		String name = (String) session.getAttribute("trainerSessionName");
+		int serialNo = (Integer) session.getAttribute("trainerSessionNo");
+		int writerLevelNo = 2;
 		
-		System.out.println(name);
+		System.out.println(serialNo);
+		System.out.println(writerLevelNo);
 		
-		List<HeadRequire> headRequireList = headRequireService.selectHeadRequireList(name);
+		List<HeadRequire> headRequireList = headRequireService.selectHeadRequireList(serialNo, writerLevelNo);
 		
 		model.addAttribute("headRequireList", headRequireList);
 		
@@ -194,18 +198,20 @@ public class HeadRequireController {
 	@RequestMapping(value="/adminHeadRequireList", method=RequestMethod.GET)
 	public String selectAdminHeadRequireList(Model model, HttpSession session) {
 		
-		String name = (String) session.getAttribute("adminSessionName");
+		int serialNo = (Integer) session.getAttribute("adminSessionNo");
+		int writerLevelNo = 3;
 		
-		System.out.println(name);
+		System.out.println(serialNo);
+		System.out.println(writerLevelNo);
 		
-		List<HeadRequire> headRequireList = headRequireService.selectHeadRequireList(name);
+		List<HeadRequire> headRequireList = headRequireService.selectHeadRequireList(serialNo, writerLevelNo);
 		
 		model.addAttribute("headRequireList", headRequireList);
 		
 		return "headRequire/headRequireList";
 	}
 	
-	// ***본사 건의사항 삭제 경로맵핑
+	// 본사 건의사항 삭제 경로맵핑
 	@RequestMapping(value="/headRequireDeleteGet", method=RequestMethod.GET)
 	public String headRequireDelete(Model model, @RequestParam(value="headRequireNo", required=true) int headRequireNo) {
 		
@@ -214,36 +220,66 @@ public class HeadRequireController {
 		return "headRequire/headRequireDelete";
 	}
 	
-	// *** 회원 본사 건의사항 삭제를 위한 조회 경로맵핑
+	// 회원 본사 건의사항 삭제를 위한 조회 경로맵핑
 	@RequestMapping(value="/memberHeadRequireDelete", method=RequestMethod.POST)
 	public String memberHeadRequireDelete(HttpSession session, HeadRequireDeleteCheck headRequireDeleteCheck) {
-		System.out.println(headRequireDeleteCheck.getMemberPassword());
 		
+		int headRequireNo = headRequireDeleteCheck.getHeadRequireNo();
+		String memberPassword = headRequireDeleteCheck.getMemberPassword();
 		int memberSessionNo = (Integer) session.getAttribute("memberSessionNo");
+		
+		System.out.println(headRequireNo);
+		System.out.println(memberPassword);
 		System.out.println(memberSessionNo);
 		
-		return "headRequire/headRequireDelete";
+		int Check = headRequireService.selectMemberPasswordForDelete(memberPassword, memberSessionNo, headRequireNo);
+		
+		if(Check == 1) {
+			return "redirect:memberHeadRequireList";
+		}else {
+			return "redirect:memberHeadRequireList";
+		}
 	}
 	
-	// *** 트레이너 본사 건의사항 삭제를 위한 조회 경로맵핑
+	// 트레이너 본사 건의사항 삭제를 위한 조회 경로맵핑
 	@RequestMapping(value="/trainerHeadRequireDelete", method=RequestMethod.POST)
 	public String trainerHeadRequireDelete(HttpSession session, HeadRequireDeleteCheck headRequireDeleteCheck) {
-		System.out.println(headRequireDeleteCheck.getTrainerPassword());
 		
+		int headRequireNo = headRequireDeleteCheck.getHeadRequireNo();
+		String trainerPassword = headRequireDeleteCheck.getTrainerPassword();
 		int trainerSessionNo = (Integer) session.getAttribute("trainerSessionNo");
+		
+		System.out.println(headRequireNo);
+		System.out.println(trainerPassword);
 		System.out.println(trainerSessionNo);
 		
-		return "headRequire/headRequireDelete";
+		int Check = headRequireService.selectTrainerPasswordForDelete(trainerPassword, trainerSessionNo, headRequireNo);
+		
+		if(Check == 1) {
+			return "redirect:trainerHeadRequireList";
+		}else {
+			return "redirect:trainerHeadRequireList";
+		}
 	}
 	
-	// *** 체인점 관리자 본사 건의사항 삭제를 위한 조회 경로맵핑
+	// 체인점 관리자 본사 건의사항 삭제를 위한 조회 경로맵핑
 	@RequestMapping(value="/adminHeadRequireDelete", method=RequestMethod.POST)
 	public String adminHeadRequireDelete(HttpSession session, HeadRequireDeleteCheck headRequireDeleteCheck) {
-		System.out.println(headRequireDeleteCheck.getAdminPassword());
 		
+		int headRequireNo = headRequireDeleteCheck.getHeadRequireNo();
+		String adminPassword = headRequireDeleteCheck.getAdminPassword();
 		int adminSessionNo = (Integer) session.getAttribute("adminSessionNo");
+		
+		System.out.println(headRequireNo);
+		System.out.println(adminPassword);
 		System.out.println(adminSessionNo);
 		
-		return "headRequire/headRequireDelete";
+		int Check = headRequireService.selectAdminPasswordForDelete(adminPassword, adminSessionNo, headRequireNo);
+		
+		if(Check == 1) {
+			return "redirect:adminHeadRequireList";
+		}else {
+			return "redirect:adminHeadRequireList";
+		}
 	}
 }

@@ -184,11 +184,16 @@
 							<div class="dropdown-divider"></div>
 						</div>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">
-						<i class="fas fa-fw fa-folder"></i> 
-						<span>건의 사항</span>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fas fa-fw fa-folder"></i> 
+							<span>건의 사항</span>
 						</a>
+						<div class="dropdown-menu" aria-labelledby="pagesDropdown">
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/adminHeadRequireInsert">건의 사항 등록</a>
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/adminHeadRequireList">건의 사항 리스트</a> 
+							<div class="dropdown-divider"></div>
+						</div>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">
@@ -244,11 +249,16 @@
 							<div class="dropdown-divider"></div>
 						</div>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">
-						<i class="fas fa-fw fa-folder"></i> 
-						<span>건의 사항</span>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fas fa-fw fa-folder"></i> 
+							<span>건의 사항</span>
 						</a>
+						<div class="dropdown-menu" aria-labelledby="pagesDropdown">
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/trainerHeadRequireInsert">건의 사항 등록</a>
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/trainerHeadRequireList">건의 사항 리스트</a> 
+							<div class="dropdown-divider"></div>
+						</div>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">
@@ -295,11 +305,16 @@
 						<span>식단 및 운동 정보</span>
 						</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">
-						<i class="fas fa-fw fa-folder"></i> 
-						<span>건의 사항</span>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fas fa-fw fa-folder"></i> 
+							<span>건의 사항</span>
 						</a>
+						<div class="dropdown-menu" aria-labelledby="pagesDropdown">
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/memberHeadRequireInsert">건의 사항 등록</a>
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/memberHeadRequireList">건의 사항 리스트</a> 
+							<div class="dropdown-divider"></div>
+						</div>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="${pageContext.request.contextPath}/questionList">

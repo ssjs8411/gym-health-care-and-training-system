@@ -9,6 +9,8 @@ public class HeadRequire {
 	private String require_title;
 	private String require_content;
 	private String require_date;
+	private int writer_level;
+	private int serial_no;
 	
 	public int getHead_require_no() {
 		return head_require_no;
@@ -45,5 +47,17 @@ public class HeadRequire {
 	}
 	public void setRequire_date(String require_date) {
 		this.require_date = require_date;
+	}
+	public int getWriter_level() {
+		return writer_level;
+	}
+	public void setWriter_level(int writer_level) {
+		this.writer_level = writer_level;
+	}
+	public int getSerial_no() {
+		return serial_no;
+	}
+	public void setSerial_no(int serial_no) {
+		this.serial_no = serial_no;
 	}
 }

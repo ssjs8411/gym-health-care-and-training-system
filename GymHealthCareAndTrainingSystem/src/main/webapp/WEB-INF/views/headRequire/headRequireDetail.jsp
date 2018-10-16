@@ -80,9 +80,28 @@
 										</tr>
 									</tbody>
 								</table>
-								<div>
-									<button type="button" class="btn btn-primary btn-sm" onclick="location.href='/headRequireSearchList'">목록</button>
-								</div>
+								
+								<!-- 회원 -->
+								<c:if test="${!empty sessionScope.memberSessionId}">
+									<div>
+										<button type="button" class="btn btn-primary btn-sm" onclick="location.href='${pageContext.request.contextPath}/memberHeadRequireList'">목록</button>
+									</div>
+								</c:if>
+								
+								<!-- 트레이너 -->
+								<c:if test="${!empty sessionScope.trainerSessionId}">
+									<div>
+										<button type="button" class="btn btn-primary btn-sm" onclick="location.href='${pageContext.request.contextPath}/trainerHeadRequireList'">목록</button>
+									</div>
+								</c:if>
+								
+								<!-- 체인점 관리자 -->
+								<c:if test="${!empty sessionScope.adminSessionId}">
+									<div>
+										<button type="button" class="btn btn-primary btn-sm" onclick="location.href='${pageContext.request.contextPath}/adminHeadRequireList'">목록</button>
+									</div>
+								</c:if>
+
 							</div>
 						</div>
 				</div>

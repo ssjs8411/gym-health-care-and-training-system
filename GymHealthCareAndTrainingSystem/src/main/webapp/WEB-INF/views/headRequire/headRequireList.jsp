@@ -56,36 +56,35 @@
 					<div class="card-header">
 						<i class="fas fa-table"></i> 본사 건의사항 리스트
 					</div>
-						<div class="card-body">
-							<div class="table-responsive">
-				
-								<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-									<thead>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+								<thead>
+									<tr>
+										<td>본사 건의사항 번호</td>
+										<td>제목</td>
+										<td>등록 일자</td>
+										<td>수정</td>
+										<td>삭제</td>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="hRL" items="${headRequireList}">
 										<tr>
-											<td>본사 건의사항 번호</td>
-											<td>제목</td>
-											<td>등록 일자</td>
-											<td>수정</td>
-											<td>삭제</td>
+											<td>${hRL.head_require_no}</td>
+											<td><a href="${pageContext.request.contextPath}/headRequireDetail?headRequireNo=${hRL.head_require_no}">${hRL.require_title}</a></td>
+											<td>${hRL.require_date}</td>
+											<td><a href="${pageContext.request.contextPath}/headRequireUpdateGet?headRequireNo=${hRL.head_require_no}">수정</a></td>
+											<td><a href="${pageContext.request.contextPath}/headRequireDeleteGet?headRequireNo=${hRL.head_require_no}">삭제</a></td>
 										</tr>
-									</thead>
-									<tbody>
-										<c:forEach var="hRL" items="${headRequireList}">
-											<tr>
-												<td>${hRL.head_require_no}</td>
-												<td><a href="${pageContext.request.contextPath}/headRequireDetail?headRequireNo=${hRL.head_require_no}">${hRL.require_title}</a></td>
-												<td>${hRL.require_content}</td>
-												<td><a href="${pageContext.request.contextPath}/headRequireUpdateGet?headRequireNo=${hRL.head_require_no}">수정</a></td>
-												<td><a href="${pageContext.request.contextPath}/headRequireDeleteGet?headRequireNo=${hRL.head_require_no}">삭제</a></td>
-											</tr>
-										</c:forEach>
-									</tbody>
-								</table>
+									</c:forEach>
+								</tbody>
+							</table>
+							<div>
+								<button type="button" class="btn btn-primary btn-sm" onclick="location.href='${pageContext.request.contextPath}/home'">홈으로</button>
 							</div>
 						</div>
-						<div>
-							<button type="button" class="btn btn-primary btn-sm" onclick="location.href='${pageContext.request.contextPath}/home'">홈으로</button>
-						</div>
+					</div>
 				</div>
 			</div>
 		</div>

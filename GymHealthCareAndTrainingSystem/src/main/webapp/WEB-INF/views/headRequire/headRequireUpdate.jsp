@@ -99,7 +99,7 @@
 								</c:if>
 								
 								<!-- 체인점 관리자 -->
-								<c:if test="${!empty sessionScope.adminSessionId}">	
+								<c:if test="${!empty sessionScope.adminSessionId}">
 									<form role="form" action="${pageContext.request.contextPath}/adminHeadRequireUpdate" method="post">
 										<div><input type="hidden" name="head_require_no" value="${headRequire.head_require_no}"></div>
 										<div><input type="hidden" name="name" value="${headRequire.name}"></div>

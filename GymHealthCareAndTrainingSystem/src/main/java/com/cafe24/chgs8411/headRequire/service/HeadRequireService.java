@@ -58,20 +58,51 @@ public class HeadRequireService {
 		headRequireDao.headRequireUpdate(headRequire);
 	}
 	
-	public List<HeadRequire> selectHeadRequireList(String name) {
-		return headRequireDao.selectHeadRequireList(name);
+	// 세션별 본사 건의사항 리스트 조회 메서드
+	public List<HeadRequire> selectHeadRequireList(int serialNo, int writerLevelNo) {
+		
+		HeadRequire headRequire = new HeadRequire();
+		
+		headRequire.setSerial_no(serialNo);
+		headRequire.setWriter_level(writerLevelNo);
+				
+		return headRequireDao.selectHeadRequireList(headRequire);
 	}
 	
-	public int selectMemberPasswordForDelete(String memberPassword, int memberSessionNo) {
-		
+	// 본사 건의사항 삭제를 위한 회원 비밀번호 조회한 뒤, 대조 후 본사 건의사항 삭제 메서드
+	public int selectMemberPasswordForDelete(String memberPassword, int memberSessionNo, int headRequireNo) {
 		String checkPassword = headRequireDao.selectMemberPasswordForDelete(memberSessionNo);
 		
 		if(memberPassword.equals(checkPassword)) {
-			
+			headRequireDao.deleteHeadRequire(headRequireNo);
 			return 1;
 		}else {
 			return 0;
 		}
+	}
+	
+	// 본사 건의사항 삭제를 위한 트레이너 비밀번호 조회한 뒤, 대조 후 본사 건의사항 삭제 메서드
+	public int selectTrainerPasswordForDelete(String trainerPassword, int trainerSessionNo, int headRequireNo) {
+		String checkPassword = headRequireDao.selectTrainerPasswordForDelete(trainerSessionNo);
 		
+		if(trainerPassword.equals(checkPassword)) {
+			headRequireDao.deleteHeadRequire(headRequireNo);
+			return 1;
+		}else {
+			return 0;
+		}
+	}
+	
+	// 본사 건의사항 삭제를 위한 체인점 관리자 비밀번호 조회한 뒤, 대조 후 본사 건의사항 삭제 메서드
+	public int selectAdminPasswordForDelete(String adminPassword, int adminSessionNo, int headRequireNo) {
+		
+		String checkPassword = headRequireDao.selectAdminPasswordForDelete(adminSessionNo);
+		
+		if(adminPassword.equals(checkPassword)) {
+			headRequireDao.deleteHeadRequire(headRequireNo);
+			return 1;
+		}else {
+			return 0;
+		}
 	}
 }

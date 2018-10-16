@@ -61,6 +61,8 @@
 								<!-- 회원 -->
 								<c:if test="${!empty sessionScope.memberSessionId}">
 									<form role="form" action="${pageContext.request.contextPath}/memberHeadRequireInsert" method="post">
+										<div><input type="hidden" name="writer_level" value="1"></div>
+										<div><input type="hidden" name=serial_no value="${sessionScope.memberSessionNo}"></div>
 										<div><input type="hidden" name="name" value="${member.member_name}"></div>
 										<div><input type="hidden" name="phone" value="${member.member_phone}"></div>
 										<div class="form-group">
@@ -80,6 +82,8 @@
 								<!-- 트레이너 -->
 								<c:if test="${!empty sessionScope.trainerSessionId}">
 									<form role="form" action="${pageContext.request.contextPath}/trainerHeadRequireInsert" method="post">
+										<div><input type="hidden" name="writer_level" value="2"></div>
+										<div><input type="hidden" name=serial_no value="${sessionScope.trainerSessionNo}"></div>
 										<div><input type="hidden" name="name" value="${trainer.trainer_name}"></div>
 										<div><input type="hidden" name="phone" value="${trainer.trainer_phone}"></div>
 										<div class="form-group">
@@ -99,6 +103,8 @@
 								<!-- 체인점 관리자 -->
 								<c:if test="${!empty sessionScope.adminSessionId}">	
 									<form role="form" action="${pageContext.request.contextPath}/adminHeadRequireInsert" method="post">
+										<div><input type="hidden" name="writer_level" value="3"></div>
+										<div><input type="hidden" name=serial_no value="${sessionScope.adminSessionNo}"></div>
 										<div><input type="hidden" name="name" value="${healthclubsAdmin.healthclubs_admin_name}"></div>
 										<div><input type="hidden" name="phone" value="${healthclubsAdmin.healthclubs_admin_phone}"></div>
 										<div class="form-group">
