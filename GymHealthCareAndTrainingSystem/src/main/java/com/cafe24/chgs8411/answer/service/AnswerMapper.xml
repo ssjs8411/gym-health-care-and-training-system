@@ -20,7 +20,7 @@
 			answer
 		WHERE 
 			answer_no = #{answer_no}
-	</select>
+	</select> 
 	
 	<!-- 답변 삭제 -->
 	<delete id="deleteAnswer" parameterType="com.cafe24.chgs8411.answer.service.Answer">
@@ -38,31 +38,12 @@
 		SET 
 			answer_content = #{answer_content} 
 		WHERE
-			question_no = #{question_no}
+			answer_no = #{answer_no}
 	</update>
-	
-	<!-- 답변 검색 -->
-	<select id="searchAnswer" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.answer.service.Answer">
-		SELECT
-			answer_no
-			, question_no
-			, trainer_no
-			, answer_title
-			, answer_content
-			, answer_date 
-		FROM
-			 answer
-		WHERE 
-			answer_title
-		like 
-			'%%'
-		ORDER BY 
-			answer_no 
-		DESC
-	</select>
+
 
 	<!-- 답변 목록 -->
-	<select id="selectAnswer" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.answer.service.Answer">
+	<!-- <select id="selectAnswer" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.answer.service.Answer">
 		SELECT
 			answer_no 
 			, question_no 
@@ -75,7 +56,7 @@
 		ORDER BY 
 			answer_no
 		DESC
-	</select>
+	</select> -->
 	
 	<!-- 답변등록 -->
 	<insert id="insertAnswer" parameterType="com.cafe24.chgs8411.answer.service.Answer">

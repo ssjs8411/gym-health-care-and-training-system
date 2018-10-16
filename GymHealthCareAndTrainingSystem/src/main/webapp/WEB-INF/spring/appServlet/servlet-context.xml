@@ -48,6 +48,7 @@
                 <value>classpath:com/cafe24/chgs8411/healthclubsFacilities/service/HealthclubsFacilitiesMapper.xml</value>
                 <value>classpath:com/cafe24/chgs8411/member/service/MemberMapper.xml</value>
                 <value>classpath:com/cafe24/chgs8411/headRequire/service/HeadRequireMapper.xml</value>
+                <value>classpath:com/cafe24/chgs8411/answer/service/AnswerMapper.xml</value>
             </list>
         </property>
     </bean>

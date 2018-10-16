@@ -60,7 +60,7 @@
 								<c:if test="${!empty sessionScope.trainerSessionId}">
 									<form role="form" action="${pageContext.request.contextPath}/answerInsert" method="post">
 										<div class="form-group">
-											<input type="hidden" name="answer_no" value="${answer.answer_no}">
+											<input type="hidden" name="question_no" value="${question.quetion_no}">
 										</div>
 										<div>
 											<label>제목</label>

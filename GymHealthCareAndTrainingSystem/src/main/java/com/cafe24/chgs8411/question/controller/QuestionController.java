@@ -23,7 +23,7 @@ public class QuestionController {
 	@Autowired
 	private QuestionService questionService;
 	
-	// 질문 상세보기
+	// 질문 상세
 	@RequestMapping (value="/questionDetail", method = {RequestMethod.GET, RequestMethod.POST})
 	public String selectDetailQuestion(Model model
 									, @RequestParam(value="question_no", required=true) int question_no) {

@@ -1,8 +1,6 @@
 //2018-10-11 김소희
 package com.cafe24.chgs8411.answer.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,11 +31,11 @@ public class AnswerService {
 	}
 	// 답변 목록
 	// 리턴 List<Answer> 클래스 타입으로 answerList 메소드 선언 (매개변수 없음)
-	public List<Answer> answerList(){
+	/*public List<Answer> answerList(){
 		List<Answer> list = answerDao.selectAnswer();
 		return answerDao.selectAnswer();
 		
-	}
+	}*/
 	// 답변 등록
 	// 리턴 int 타입으로 addAnswer 메소드 선언 (Answer 클래스 타입으로 answer 매개변수)
 	public int addAnswer (Answer answer) {
