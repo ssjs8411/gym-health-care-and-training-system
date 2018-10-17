@@ -4,3 +4,38 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace = "com.cafe24.chgs8411.healthprogramPreview.service.HealthprogramPreview">
+ 	<!-- 후기 목록 -->
+	<!-- <select id="selectHealthprogramPreview" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.healthprogramPreview.service.HealthprogramPreview">
+		SELECT
+			healthprogram_preview_no 
+			, member_no 
+			, health_program_no 
+			, preview_title
+			, preview_content 
+			, preview_date 
+		FROM
+			 healthprogram_preview
+		ORDER BY 
+			healthprogram_preview_no
+		DESC
+	</select> -->
+  
+	<!-- 후기등록 -->
+	<insert id="insertHealthprogramPreview" parameterType="com.cafe24.chgs8411.healthprogramPreview.service.HealthprogramPreview">
+		INSERT INTO healthprogram_preview(
+			member_no
+			, health_program_no
+			, preview_title
+			, preview_content
+			, preview_date
+		)VALUES (
+			${member_no}
+			, ${health_program_no}
+			, ${preview_title}
+			, ${preview_content}
+			, ${preview_date}
+		)
+	</insert> 
+</mapper>

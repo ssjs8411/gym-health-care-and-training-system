@@ -1,4 +1,6 @@
+<!-- 김소희 2018-10-17  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -58,7 +60,48 @@
 							<div class="table-responsive">
 							
 							<!-- 여기에 내용을 채워주세요  -->
-								
+							<!-- 
+							healthprogram_preview_no
+							member_no
+							health_program_no
+							preview_title
+							preview_content
+							preview_date
+							 -->
+							 <c:if test="${!empty sessionScope.memberSessionId}">
+							 	<form role="form" action="${pageContext.request.contextPath}/healthprogramPreviewInsert" method="POST">
+										<%-- <div><input type="hidden" name="member_no" value="${sessionScope.memberSessionNo}"></div> --%>
+										<%-- <div><input type="hidden" name="member_no" value="${sessionScope.memberSessionNo}"></div>  
+										<div><input type="hidden" name="trainer_no" value="${question.trainer_no}"></div>  --%>
+										<div class="form-group">
+											<label>작성자</label>
+										 	<input type="text" class="form-control" name="member_no" value="${healthprogram_preview.member_no}"> 
+										 </div>
+										<div class="form-group">
+											<label>헬스프로그램 번호 </label>
+											<input type="text" class="form-control" name="trainer_no" value="${healthprogram_preview.health_program_no}">
+										</div> 
+										<div class="form-group">
+											<label>제목</label>
+											<input type="text" class="form-control" name="question_title" placeholder="제목" required>
+										</div>
+										<div class="form-group">
+											<label>내용</label>
+											<textarea class="form-control"  name="question_content" rows="10" cols="150" placeholder="내용을 입력해주세요" required></textarea>
+										</div>
+										<div class="form-group">
+											<label>파일 첨부</label>
+											<input type="file"  class="form-control" name="preview_attached_file">
+										</div>
+										<%-- <div>
+											<button type="submit" class="btn btn-info">확인<i class="fa fa-check spaceLeft"></i></button>
+											<a href="${pageContext.request.contextPath}/questionList">목록</a>
+										</div> --%>
+										<div>
+											<button class="btn btn-primary btn-sm">등록</button>
+										</div>
+									</form>
+							 </c:if>
 							</div>
 						</div>
 				</div>

@@ -70,7 +70,7 @@
 								<form role="form" action="${pageContext.request.contextPath}/questionUpdate" method="POST">
 									<input type="hidden" name="question_no" value="${question.question_no}">
 									<div>
-										<label>작성자</label>
+										<!-- <label>작성자</label> -->
 										<input type="hidden" class="form-control" name="member_no" value="${question.member_no}">
 									</div>
 									<div class="form-group">

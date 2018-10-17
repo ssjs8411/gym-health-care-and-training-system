@@ -3,11 +3,13 @@ package com.cafe24.chgs8411.question.service;
 
 import java.util.List;
 
-import javax.jws.soap.InitParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.cafe24.chgs8411.healthclubsAdmin.service.HealthclubsAdmin;
+import com.cafe24.chgs8411.member.service.Member;
+import com.cafe24.chgs8411.trainer.service.Trainer;
 
 @Service
 @Transactional
@@ -15,66 +17,60 @@ public class QuestionService {
 	@Autowired
 	private QuestionDao questionDao;
 	
-	// 질문 상세보기
-	// 리턴 int 타입으로 selectDetailQuestion 메소드 선언 (Question 클래스 타입 question 매개변수)
+	// 질문 상세보기 메서드
 	public Question selectDetailQuestion (int question_no) {
 		return questionDao.selectDetailQuestion(question_no);
 		
 	}
 	
-	// 질문 삭제
-	// int 타입으로 removeQuestion 메소드 (Question 클래스 타입 question 매개변수)
-	/*public int removeQuestion (Question question) {
-		return questionDao.deleteQuestion(question);
-	
-		
-	}*/
-	// 질문 삭제
-	// 리턴 int 타입으로 removeQuestion 메소드 선언 (Question 클래스 타입 question 매개변수)
-	public int removeQuestion (int question_no) {
-		return questionDao.deleteQuestion(question_no);
-		
+
+	// 멤버 비밀번호 조회 후 질문 삭제 메서드
+	public int selectMemberPasswordDelete (String member_pw, int memberSessionNo, int question_no) {
+		String checkPassword = questionDao.selectMemberPasswordDelete(memberSessionNo);
+		if(member_pw.equals(checkPassword)) {
+			questionDao.deleteQuestion(question_no);
+			return 1;
+		}else {
+			return 0;
+		}
 	}
 	
-	// 질문 수정
-	// 리턴 int 타입으로 modifyQuestion 메소드 선언 (Question 클래스 타입 question 매개변수)
+	// 관리자 비밀번호 조회 후 질문 삭제 메서드
+	public int selectAdminPasswordDelete(String healthclubs_admin_pw, int adminSessionNo, int question_no) {
+		String checkPassword = questionDao.selectAdminPasswordDelete(adminSessionNo);
+		
+		if(healthclubs_admin_pw.equals(checkPassword)) {
+			questionDao.deleteQuestion(question_no);
+			return 1;
+		}else {
+			return 0;
+		}
+	}
+	
+	// 질문 수정 메서드
 	public int modifyQuestion (Question question) {
 		return questionDao.updateQuestion(question);
 			
 	}
 	
-	// 질문 목록 페이징
-	// List<Question> 클래스 타입으로 questionPaging 메소드 선언 (int 타입으로 currentPage, rowPerPage 매개변수)
-	/*public List<Question> questionPaging(int currentPage, int rowPerPage){
-		List<Question> list = questionDao.questionPaging(currentPage, rowPerPage);
-		return questionDao.questionPaging(currentPage, rowPerPage);
-		
-	}*/
-	// 페이징 테스트 
-	public List<Question> questionListTest (int pageNum, int contentNum){
-		return questionDao.questionListTest(pageNum, contentNum);
-		
-	}
 	
-	// 잘문 개수 카운트 
-	// 리턴 int 타입으로 questionCount 메소드 선언 (매개변수 없음)
-	public int questionCount() {
-		return questionDao.questionCount();
-		
-	}
-	
-	// 질문 목록
-	// 리턴 List<Question> 클래스 타입으로 questionList 메소드 선언 (매개변수 없음)
+	// 질문 목록 메서드
 	public List<Question> questionList(){
 		List<Question> list = questionDao.selectQuestion();
 		return questionDao.selectQuestion();
 		
 	}
 	
-	// 질문 등록
-	// 리턴 int 타입으로 addQuestion 메소드 선언 (Question 클래스 타입 question 매개변수)
-	public int addQuestion(Question question) {
-		return questionDao.insertQuestion(question);
+	/*// 세션으로 회원 정보 조회 후 질문 등록
+	public Member selectMemberQuestion (int no) {
+		return questionDao.selectMemberQuestion(no);
+		
+	}*/
+		
+	
+	// 질문 등록 메서드
+	public void addQuestion(Question question) {
+		 questionDao.insertQuestion(question);
 		
 	}
 

@@ -58,8 +58,12 @@
 					</div>
 						<div class="card-body">
 							<div class="table-responsive">
+							<!-- 회원권한 -->
 								<c:if test="${!empty sessionScope.memberSessionId}">
 									<form role="form" action="${pageContext.request.contextPath}/questionInsert" method="POST">
+										<%-- <div><input type="hidden" name="member_no" value="${sessionScope.memberSessionNo}"></div> --%>
+										<%-- <div><input type="hidden" name="member_no" value="${sessionScope.memberSessionNo}"></div>  
+										<div><input type="hidden" name="trainer_no" value="${question.trainer_no}"></div>  --%>
 										<div class="form-group">
 											<label>작성자</label>
 										 	<input type="text" class="form-control" name="member_no" value="${question.member_no}"> 
@@ -68,8 +72,6 @@
 											<label>트레이너 </label>
 											<input type="text" class="form-control" name="trainer_no" value="${question.trainer_no}">
 										</div> 
-										<div><input type="hidden" name="member_no" value="${question.member_no}"></div>
-										<div><input type="hidden" name="member_no" value="${question.trainer_no}"></div> 
 										<div class="form-group">
 											<label>제목</label>
 											<input type="text" class="form-control" name="question_title" placeholder="제목" required>
@@ -78,9 +80,12 @@
 											<label>내용</label>
 											<textarea class="form-control"  name="question_content" rows="10" cols="150" placeholder="내용을 입력해주세요" required></textarea>
 										</div>
-										<div>
+										<%-- <div>
 											<button type="submit" class="btn btn-info">확인<i class="fa fa-check spaceLeft"></i></button>
 											<a href="${pageContext.request.contextPath}/questionList">목록</a>
+										</div> --%>
+										<div>
+											<button class="btn btn-primary btn-sm">등록</button>
 										</div>
 									</form>
 								</c:if>

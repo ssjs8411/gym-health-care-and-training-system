@@ -1,10 +1,9 @@
 /* 김소희 2018-09-27 / QuestionController */
 package com.cafe24.chgs8411.question.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.cafe24.chgs8411.member.service.Member;
 import com.cafe24.chgs8411.question.service.Question;
-import com.cafe24.chgs8411.question.service.QuestionPageMaker;
+import com.cafe24.chgs8411.question.service.QuestionDeleteCheck;
 import com.cafe24.chgs8411.question.service.QuestionService;
 
 @Controller
@@ -36,7 +36,7 @@ public class QuestionController {
 	}
 	
 	// 질문 삭제 액션
-	/*@RequestMapping (value="/questionDelete", method = RequestMethod.POST)
+	/*@RequestMapping (value="/memberQuestionDelete", method = RequestMethod.POST)
 	public String qustionDelete (int question_no) {
 		System.out.println("질문 삭제 액션");
 		questionService.removeQuestion(question_no);
@@ -45,24 +45,60 @@ public class QuestionController {
 
 		
 	}*/
-	// 질문 삭제 액션
-	@RequestMapping (value="/questionDelete", method = RequestMethod.POST)
-		public String questionDelete (int question_no) {
-			System.out.println("질문 삭제 액션");
-			questionService.removeQuestion(question_no);
-			return "question/questionDelete";
-			
-	}
-	
 	
 	// 질문 삭제 폼
 	@RequestMapping (value="/questionDelete", method = RequestMethod.GET)
 	public String questionDelete (Model model
 								, @RequestParam (value="question_no", required=true) int question_no) {
 		System.out.println("질문 삭제 폼");
-		Question question = questionService.selectDetailQuestion(question_no);
-		model.addAttribute("question", question);
+		model.addAttribute("question_no", question_no);
 		return "question/questionDelete";
+		
+	}
+	
+	// 회원 권한으로 질문 삭제
+	@RequestMapping (value="/memberQuestionDelete", method = RequestMethod.POST)
+	public String memberQuestionDelete (HttpSession httpSession
+										, QuestionDeleteCheck questionDeleteCheck) {
+		int question_no = questionDeleteCheck.getQuestion_no();
+		String member_pw = questionDeleteCheck.getMember_pw();
+		int memberSessionNo = (Integer) httpSession.getAttribute("memberSessionNo");
+		
+		System.out.println(question_no+"_질문번호");
+		System.out.println(member_pw+"_회원 비밀번호");
+		System.out.println(memberSessionNo+"_회원 세션 번호");
+		
+		int Check = questionService.selectMemberPasswordDelete(member_pw, memberSessionNo, question_no);
+		
+		if(Check == 1) {
+			return "redirect:questionList";
+		}else {
+			return "redirect:questionList";
+		}
+			
+		
+	}
+	
+	// 관리자 권한으로 질문 삭제
+	@RequestMapping (value="/adminQuestionDelete", method = RequestMethod.POST)
+	public String adminQuestionDelete(HttpSession httpsession
+									, QuestionDeleteCheck questionDeleteCheck) {
+		int question_no = questionDeleteCheck.getQuestion_no();
+		String healthclubs_admin_pw = questionDeleteCheck.getHealthclubs_admin_pw();
+		int adminSessionNo = (Integer) httpsession.getAttribute("adminSessionNo");
+		
+		System.out.println(question_no);
+		System.out.println(healthclubs_admin_pw);
+		System.out.println(adminSessionNo);
+		
+		int Check = questionService.selectAdminPasswordDelete(healthclubs_admin_pw, adminSessionNo, question_no);
+		
+		if(Check == 1) {
+			return "redirect:questionList";
+		}else {
+			return "redirect:questionList";
+		}
+		
 		
 	}
 	
@@ -84,111 +120,7 @@ public class QuestionController {
 		return "question/questionUpdate";
 	}
 	
-	// 질문 목록 페이징
-	/*@RequestMapping (value="/questionList", method = RequestMethod.GET)
-	public String questionPaging (Model model
-								,	@RequestParam(value="pageNum", required=true) int pageNum
-								,	@RequestParam(value="contentNum", required=true) int contentNum) {
-		List<Question> list = questionService.questionPaging(pageNum, contentNum);
-		model.addAttribute("list", list);
-		return "question/questionList"; 
-		
-	}*/
 	
-	//페이징 테스트
-	@RequestMapping(value="/questionListTest")
-	public String list (HttpServletRequest request) {
-		QuestionPageMaker questionPageMaker = new QuestionPageMaker();
-		
-		String pageNum = request.getParameter("pageNum");
-		if (pageNum == null) {
-			pageNum ="0";
-		}
-		int cpageNum = Integer.parseInt(pageNum);
-		
-		String contentNum = request.getParameter("contentNum");
-		if (contentNum == null) {
-			contentNum ="10";
-		}
-		int ccontentNum = Integer.parseInt(contentNum);
-		
-		
-		/*String pageNum = request.getParameter("pageNum");
-		String contentNum = request.getParameter("contentNum");
-		int cpageNum = Integer.parseInt(pageNum);
-		int ccontentNum = Integer.parseInt(contentNum);*/
-		
-		questionPageMaker.setTotalCount(questionService.questionCount());
-		questionPageMaker.setPageNum(cpageNum-1);
-		questionPageMaker.setContentNum(ccontentNum);
-		questionPageMaker.setCurrentBlock(cpageNum);
-		questionPageMaker.setLastBlock(questionPageMaker.getTotalCount());
-		
-		questionPageMaker.prevNext(cpageNum);
-		questionPageMaker.setStartPage(questionPageMaker.getCurrentBlock());
-		questionPageMaker.setEndPage(questionPageMaker.getLastBlock(), questionPageMaker.getCurrentBlock());
-		
-		List<Question> questionListTest = new ArrayList<Question>();
-		questionListTest = questionService.questionListTest(questionPageMaker.getPageNum()*10, questionPageMaker.getContentNum());
-		
-		request.setAttribute("questionListTest", questionListTest);
-				return "questionListTest";
-				
-	}
-	
-	/*@RequestMapping (value="/questionList", method = RequestMethod.GET)
-	public String list (HttpServletRequest request) {
-		QuestionPageMaker questionPageMaker = new QuestionPageMaker();
-		
-		String pageNum = request.getParameter("pageNum");
-		if (pageNum == null) {
-			pageNum ="0";
-		}
-		int cpageNum = Integer.parseInt(pageNum);
-		
-		String contentNum = request.getParameter("contentNum");
-		if (contentNum == null) {
-			contentNum ="0";
-		}
-		int ccontentNum = Integer.parseInt(contentNum);
-		
-		
-		String number = request.getParameter("num");
-		int num = Integer.parseInt(number);
-
-		->
-
-		String number = request.getParameter("num");
-		if (number == null) {
-		number = "0";
-		}
-		int num = Integer.parseInt(number);
-		
-		questionPageMaker.setTotalCount(questionService.questionCount());
-		questionPageMaker.setPageNum(cpageNum-1);
-		questionPageMaker.setContentNum(ccontentNum);
-		questionPageMaker.setCurrentBlock(cpageNum);
-		questionPageMaker.setLastBlock(questionPageMaker.getTotalCount());
-		
-		questionPageMaker.prevNext(cpageNum);
-		questionPageMaker.setStartPage(questionPageMaker.getCurrentBlock());
-		questionPageMaker.setEndPage(questionPageMaker.getLastBlock(), questionPageMaker.getCurrentBlock());
-		
-		List<Question> questionPaging = new ArrayList<Question>();
-		questionPaging = questionService.questionPaging(questionPageMaker.getPageNum()*10, questionPageMaker.getContentNum());
-		
-		request.setAttribute("questionPaging", questionPaging);
-				return "questionPaging";
-	}*/
-	
-	//질문 개수 카운트
-	/*@RequestMapping (value="/questionList", method = {RequestMethod.GET, RequestMethod.POST})
-	public String questionCount(Question question) {
-		questionService.questionCount();
-		return "question/questionSearchList";
-		
-	}*/
-
 	// 질문 목록 조회
 	@RequestMapping (value="/questionList", method = RequestMethod.GET)
 	public String questionList(Model model) {
@@ -199,14 +131,40 @@ public class QuestionController {
 		
 	}
 	
-	// 잘문 등록 액션
+	/*// 잘문 등록 액션
 	@RequestMapping (value="/questionInsert", method = RequestMethod.POST)
 	public String questionInsert(Question question) {
 		System.out.println("질문 등록 액션");
 		questionService.addQuestion(question);
 		return "redirect:/questionList";
 		
+	}*/
+	
+	// 회원 질문 등록 액션
+	@RequestMapping (value="/questionInsert", method = RequestMethod.POST)
+	public String memberQuestionInsert (Model model
+										, Question question) {
+		System.out.println("회원 질문 등록 액션");
+		questionService.addQuestion(question);
+		return "redirect:questionList";
+		
 	}
+	
+	// 회원 확인 후 질문 등록 폼
+	/*@RequestMapping (value="/questionInsert", method = RequestMethod.GET)
+	public String memberQuestionInsert(Model model
+										, HttpSession httpSession) {
+		System.out.println("회원 질문 등록 폼");
+		
+		int no = (Integer) httpSession.getAttribute("memberSessionNo");
+		System.out.println(no+"_회원번호");
+		
+		Member member = questionService.selectMemberQuestion(no);
+		model.addAttribute("member", member);
+		return "question/questionInsert";
+		
+	}*/
+
 	
 	// 질문 등록 폼
 	@RequestMapping (value="/questionInsert", method = RequestMethod.GET)

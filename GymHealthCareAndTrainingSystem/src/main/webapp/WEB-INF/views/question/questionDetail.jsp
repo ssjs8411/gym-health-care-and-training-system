@@ -64,6 +64,8 @@
 					<div class="card-header">
 						<i class="fas fa-table"></i> 질문 상세보기<!-- 제목(ex : 헬스장 리스트) -->
 					</div>
+						<!-- 트레이너권한 -->
+						<c:if test="${sessionScope.trainerSessionId != null}">
 						<div class="card-body">
 							<div class="table-responsive">
 								<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -93,22 +95,84 @@
 									</tr>
 								</table>
 								<a href="${pageContext.request.contextPath}/questionList">목록</a>&nbsp;&nbsp;&nbsp;&nbsp;
-								<!-- 트레이너로 로그인 했을 경우에만 답변 가능 -->
-								<c:if test="${sessionScope.trainerSessionId != null}"> 
-										<a href="${pageContext.request.contextPath}/answerInsert?question_no=${question.question_no}">답변 등록</a>&nbsp;&nbsp;&nbsp;&nbsp;
-								</c:if>
-								<!-- 회원으로 로그인 했을 경우에만 수정 가능 -->
-								<c:if test="${sessionScope.memberSessionId != null}"> 
-									<a href="${pageContext.request.contextPath}/questionUpdate?question_no=${question.question_no}">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;
-								</c:if>
-								<c:if test="${sessionScope.memberSessionId != null}"> <!-- 회원이랑 관리자 삭제 가능하게 만들어야 함 -->
-									<a href="${pageContext.request.contextPath}/questionDelete?question_no=${question.question_no}">삭제</a>
-								</c:if>
+							  	<a href="${pageContext.request.contextPath}/answerInsert?question_no=${q.question_no}">답변 등록</a>
 							</div>
 						</div>
+						</c:if>
+						<!-- 회원권한 -->
+						<c:if test="${sessionScope.memberSessionId != null}">
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+									<tr>
+										<th>질문 번호</th>
+										<td>${question.question_no}</td>
+									</tr>
+									<tr>
+										<th>회원 번호</th>
+										<td>${question.member_no}</td>
+									</tr>
+									<tr>
+										<th>트레이너 번호</th>
+										<td>${question.trainer_no}</td>
+									</tr>
+									<tr>
+										<th>제목</th>
+										<td>${question.question_title}</td>
+									</tr>
+									<tr>
+										<th>내용</th>
+										<td>${question.question_content}</td>
+									</tr>
+									<tr>
+										<th>등록 일자</th>
+										<td>${question.question_date}</td>
+									</tr>
+								</table>
+								<a href="${pageContext.request.contextPath}/questionList">목록</a>&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="${pageContext.request.contextPath}/questionUpdate?question_no=${question.question_no}">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="${pageContext.request.contextPath}/questionDelete?question_no=${question.question_no}">삭제</a>
+							</div>
+						</div>
+						</c:if>
+						<!-- 관리자권한 -->
+						<c:if test="${sessionScope.adminSessionId != null}">
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+									<tr>
+										<th>질문 번호</th>
+										<td>${question.question_no}</td>
+									</tr>
+									<tr>
+										<th>회원 번호</th>
+										<td>${question.member_no}</td>
+									</tr>
+									<tr>
+										<th>트레이너 번호</th>
+										<td>${question.trainer_no}</td>
+									</tr>
+									<tr>
+										<th>제목</th>
+										<td>${question.question_title}</td>
+									</tr>
+									<tr>
+										<th>내용</th>
+										<td>${question.question_content}</td>
+									</tr>
+									<tr>
+										<th>등록 일자</th>
+										<td>${question.question_date}</td>
+									</tr>
+								</table>
+								<a href="${pageContext.request.contextPath}/questionList">목록</a>&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="${pageContext.request.contextPath}/questionDelete?question_no=${question.question_no}">삭제</a>
+							</div>
+						</div>
+						</c:if>
+					</div>
 				</div>
 			</div>
-		</div>
 		<%-- <div id="main">
 			<section id="top" class="two">
 				<div class="container">

@@ -7,6 +7,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.cafe24.chgs8411.healthclubsAdmin.service.HealthclubsAdmin;
+import com.cafe24.chgs8411.member.service.Member;
+
 @Repository
 public class QuestionDao {
 	private final String NS = "com.cafe24.chgs8411.question.service.QuestionMapper.";
@@ -19,13 +22,23 @@ public class QuestionDao {
 		return sqlSessionTemplate.selectOne(NS+"selectDetailQuestion", question_no);
 		
 	}
-	// 질문 삭제
-	/*public int deleteQuestion (Question question) {
-		return sqlSessionTemplate.delete(NS+"deleteQuestion", question);
+	
+
+	// 멤버 비밀번호 조회
+	public String selectMemberPasswordDelete (int memberSessionNo) {
+		return sqlSessionTemplate.selectOne(NS+"selectMemberPasswordDelete", memberSessionNo);
 		
-	}*/
-	public int deleteQuestion (int question_no) {
-		return sqlSessionTemplate.delete(NS+"deleteQuestion",+question_no);
+		
+	}
+	// 관리자 비밀번호 조회
+	public String selectAdminPasswordDelete (int adminSessionNo) {
+		return sqlSessionTemplate.selectOne(NS+"selectAdminPasswordDelete", adminSessionNo);
+		
+	}
+	
+	// 질문 삭제 
+	public void deleteQuestion (int question_no) {
+		sqlSessionTemplate.delete(NS+"deleteQuestion", question_no);
 		
 	}
 	
@@ -34,24 +47,21 @@ public class QuestionDao {
 		return sqlSessionTemplate.update(NS+"updateQustion", question);
 		
 	}
-	// 질문 목록 페이징
-	public List<Question> questionListTest (int pageNum, int contentNum) {
-		return sqlSessionTemplate.selectList(NS+"questionListTest");
-	}
-
-	// 질문 개수 카운트 (페이징 작업 에 필요)
-	public int questionCount() {
-		return sqlSessionTemplate.selectOne(NS+"questionCount");
-		
-	}
-	// 짊문 목록
+	
+	// 질문 목록
 	public List<Question> selectQuestion() {
 		return sqlSessionTemplate.selectList(NS+"selectQuestion");
 		
 	}
+	
+	/*// 세션으로 회원 확인 후 질문 등록
+	public Member selectMemberQuestion (int no) {
+		return sqlSessionTemplate.selectOne(NS+"selectMemberQuestion", no);
+	}*/
+
 	// 질문 등록
-	public int insertQuestion (Question question) {
-		return sqlSessionTemplate.insert(NS+"insertQuestion", question);
+	public void insertQuestion (Question question) {
+		sqlSessionTemplate.insert(NS+"insertQuestion", question);
 		
 	}
 	

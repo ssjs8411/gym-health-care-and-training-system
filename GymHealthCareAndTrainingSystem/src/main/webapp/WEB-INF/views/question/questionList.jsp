@@ -58,31 +58,11 @@
 						<div class="card-body">
 							<div class="table-responsive">
 								<div>
+								<c:if test="${sessionScope.memberSessionId != null}">
 									<a href="${pageContext.request.contextPath}/questionInsert?member_no=${q.member_no}">글쓰기</a>&nbsp;&nbsp;&nbsp;&nbsp;
+								</c:if>
 									<a href="${pageContext.request.contextPath}/home">HOME</a>
 								</div>
-								<form role="form" action="${pageContext.request.contextPath}/questionList" method = "GET" style="margin:0; padding:0;"> 
-									<!-- <div class="form-group">
-									<label for="category">카테고리</label>
-										<select class="form-control" name="search">
-											<option>전체</option>
-											<option value="question_title">제목</option>
-											<option value="question_content">내용</option>	
-										</select>
-									</div>
-									<div class="form-group">
-										<label for="searckWord">검색</label>
-										<input class="form-control" type="text" name="searchValue">
-									</div>
-									<div>
-										<button class="btn btn-primary btn-sm">검색</button>
-									</div> -->
-									<%-- <P style="margin:0; padding:0;">
-										<input type="hidden" name="questionCd" value="${question}"/>
-										<input type="text" name="searchWord" size="5" maxlength="">
-										<input type="submit" value="검색"/>
-									</p> --%>
-								</form>
 								<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 									<thead>
 										<tr>

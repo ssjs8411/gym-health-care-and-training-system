@@ -1,6 +1,6 @@
 <!-- 김소희 2018-10-02 / questionDelete.jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -57,21 +57,38 @@
 					</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<form role="form" action="${pageContext.request.contextPath}/questionDelete" method="POST">
-									<div>
-									 	<input type="hidden" class="form-control" name="question_no" value="${question.question_no}"> 
+							<!-- 회원권한 -->
+							<c:if test="${!empty sessionScope.memberSessionId}">
+								<form role="form" action="${pageContext.request.contextPath}/memberQuestionDelete" method="POST">
+								<%-- 	<input type="hidden" name="question_no" value="${quesiton_no}">   --%>
+									<div class="form-group">
+									 	<input type="password" class="form-control" name="member_pw"> 
 									</div>
 									<div>
-										게시글을 삭제 하시겠습니까?<br><br>
-										<!-- <button type="submit" class="btn btn-info" onclick="location.href='questionList'">삭제<i class="fa fa-check spaceLeft"></i></button> -->
+										비밀번호를 입력해주세요<br><br>
 										<button class="btn btn-primary btn-sm" >확인</button>
 									</div>
 								</form>
-							</div>
-						</div>
-				</div>
+							</c:if>
+							
+							<!-- 관리자권한 -->
+							<c:if test="${!empty sessionScope.adminSessionId}">
+								<form role="form" action="${pageContext.request.contextPath}/adminQuestionDelete" method="POST">
+								<%-- 	<input type="hidden" name="question_no" value="${quesiton_no}">   --%>
+									<div class="form-group">
+									 	<input type="password" class="form-control" name="member_pw"> 
+									</div>
+									<div>
+										비밀번호를 입력해주세요<br><br>
+										<button class="btn btn-primary btn-sm" >확인</button>
+									</div>
+								</form>
+							</c:if>
+						 	</div>
+					 	</div>
+				 	</div>
+				 </div>
 			</div>
-		</div>
 
 		<!-- footer Include -->
 		<jsp:include page="/WEB-INF/views/module/footer.jsp"></jsp:include>

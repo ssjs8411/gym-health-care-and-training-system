@@ -19,10 +19,10 @@ public class AnswerService {
 	}
 	// 답변 삭제
 	// 리턴 int 타입으로 removeAnswer 메소드 선언 (int 타입으로 answer_no 매개변수)
-	public int removeAnswer (int answer_no) {
+	/*public int removeAnswer (int answer_no) {
 		return answerDao.deleteAnswer(answer_no);
 		
-	}
+	}*/
 	// 답변 수정
 	// 리턴 int 타입으로 modifyAnswer 메소드 선언 (Answer 클래스 타입으로 answer 매개변수)
 	public int modifyAnswer (Answer answer) {

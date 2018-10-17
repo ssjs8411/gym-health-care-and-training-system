@@ -23,13 +23,13 @@
 	</select> 
 	
 	<!-- 답변 삭제 -->
-	<delete id="deleteAnswer" parameterType="com.cafe24.chgs8411.answer.service.Answer">
+	<!-- <delete id="deleteAnswer" parameterType="com.cafe24.chgs8411.answer.service.Answer">
 		DELETE
 		FROM 
 			answer 
 		WHERE 
 			answer_no = #{answer_no}
-	</delete>
+	</delete> -->
 	
 	<!-- 답변 수정 -->
 	<update id="updateAnswer" parameterType="com.cafe24.chgs8411.answer.service.Answer">

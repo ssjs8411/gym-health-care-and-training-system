@@ -1,5 +1,6 @@
+<!-- 김소희 2018-10-17 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -58,8 +59,40 @@
 							<div class="table-responsive">
 							
 							<!-- 여기에 내용을 채워주세요  -->
-								
+							<!--healthprogram_preview_no
+								member_no
+								health_program_no
+								preview_title
+								preview_content
+								preview_date
+							 -->
+							 <c:if test="${sessionScope.memberSessionId != null}">
+								<a href="${pageContext.request.contextPath}/healthprogramPreviewInsert?member_no=${h.member_no}">글쓰기</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							 </c:if>
+							 	<a href="${pageContext.request.contextPath}/home">HOME</a>
 							</div>
+							<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+									<thead>
+										<tr>
+											<th>헬스프로그램 후기 번호</th>
+											<th>회원 번호</th>
+											<th>헬스프로그램 번호</th>
+											<th>질문 제목</th>
+											<th>등록 일자</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach var="h" items="${list}">
+											<tr>
+												<td>${h.healthprogram_preview_no}</td>
+												<td>${h.member_no}</td>
+												<td>${h.health_program_no}</td>
+												<td><a href="${pageContext.request.contextPath}/healthprogramPreview?healthprogram_preview_no=${h.healthprogram_preview_no}">${h.preview_title}</a></td>
+												<td>${h.preview_date}</td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
 						</div>
 				</div>
 			</div>

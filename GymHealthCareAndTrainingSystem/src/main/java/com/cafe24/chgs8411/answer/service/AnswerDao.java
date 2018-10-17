@@ -18,11 +18,11 @@ public class AnswerDao {
 		
 	}
 	// 답변 삭제
-	public int deleteAnswer (int answer_no) {
+	/*public int deleteAnswer (int answer_no) {
 		return sqlSessionTemplate.delete(NS+"deleteAnswer", answer_no);
 		
 	}
-	
+	*/
 	// 답변 수정
 	public int updateAnswer (Answer answer) {
 		return sqlSessionTemplate.update(NS+"updateAnswer", answer);

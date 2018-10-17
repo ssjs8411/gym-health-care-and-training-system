@@ -195,6 +195,16 @@
 							<div class="dropdown-divider"></div>
 						</div>
 					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fas fa-fw fa-folder"></i> 
+							<span>피드백</span>
+						</a>
+						<div class="dropdown-menu" aria-labelledby="pagesDropdown">
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/questionList">피드백</a>
+							<div class="dropdown-divider"></div>
+						</div>
+					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">
 						<i class="fas fa-fw fa-table"></i> 
@@ -320,6 +330,12 @@
 						<a class="nav-link" href="${pageContext.request.contextPath}/questionList">
 						<i class="fas fa-fw fa-folder"></i> 
 						<span>피드백</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="${pageContext.request.contextPath}/healthprogramPreviewSearchList">
+						<i class="fas fa-fw fa-table"></i> 
+						<span>프로그램 후기</span>
 						</a>
 					</li>
 					<li class="nav-item">

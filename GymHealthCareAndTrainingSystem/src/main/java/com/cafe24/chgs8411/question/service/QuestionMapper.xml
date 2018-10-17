@@ -19,13 +19,38 @@
 		WHERE question_no = #{question_no}
 	</select>
 	
+
+	<!-- 멤버 비밀번호 조회 -->
+	<select id="selectMemberPasswordDelete" parameterType="int" resultType="String">
+		SELECT
+			member_pw
+		FROM
+			member
+		WHERE
+		 	member_no = #{member_no}
+	</select>
+	
+	<!-- 관리자 비밀번호 조회 -->
+	<select id="selectAdminPasswordDelete" parameterType="int" resultType="String">
+		SELECT
+ 			healthclubs_admin_pw
+	 	FROM
+	 		healthclubs_admin
+	 	WHERE
+	 		healthclubs_admin_no = #{healthclubs_admin_no}
+ 	</select>
+	
 	<!-- 질문 삭제 -->
-	<delete id="deleteQuestion" parameterType="com.cafe24.chgs8411.question.service.Question">
+	<delete id="deleteQuestion" parameterType="int">
 		DELETE
 		FROM
-			question
-		WHERE 
-			question_no = #{question_no}
+			q, a
+		USING
+			question q
+		INNER JOIN
+			answer a
+		ON
+			q.question_no = a.question_no
 	</delete>
 										
 	<!-- 질문 수정 -->
@@ -38,50 +63,7 @@
 		WHERE 
 			question_no = #{question_no}
 	</update>
-	
-	<!-- 페이징 테스트 -->
-	<select id="questionListTest" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.question.service.Question">
-		SELECT 
-			question_no
-			, member_no
-			, trainer_no
-			, question_title
-			, question_content
-			, question_date
-		 FROM
-		 	 question 
-		 ORDER BY 
-		 	question_no 
-		 <!-- DESC LIMIT #{pageNum}, #{contentNum} -->
-		 DESC LIMIT 1, 5
-	</select>
-	
-	<!-- 질문 개수 카운트 -->
-	<select id="questionCount" resultType="Integer">
-		SELECT COUNT(*)
-		FROM question
-	</select>
-	
-	<!-- 질문 검색 -->
-	<select id="searchQuestion" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.question.service.Question">
-		SELECT
-			question_no AS question_no
-			, member_no AS member_no
-			, trainer_no AS trainer_no
-			, question_title AS question_title
-			, question_content AS question_content
-			, question_date	AS 
-		FROM
-			 question
-		WHERE
-			 question_title
-		like 
-			'%%'
-		ORDER BY 
-			question_no
-		DESC
-	</select>
-	
+
 	
 	<!-- 질문 목록 -->
 	<select id="selectQuestion" parameterType="java.util.Map" resultType="com.cafe24.chgs8411.question.service.Question">
